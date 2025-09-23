@@ -25,17 +25,18 @@ async def search_all_items_in_db(Model: Type[DeclarativeMeta],
 ):
     query = select(Model).order_by(Model.id)
 
-    for atrr, value in filters.dict(exclude_none=True).items():
-        try: 
-            column = getattr(Model, atrr)
-        except AttributeError:
-            continue
-        
-        if column is not None:
-            if isinstance(value, str):
-                query = query.where(column.ilike(f"%{value}%"))
-            else:
-                query = query.where(column == value)
+    if filters:
+        for atrr, value in filters.dict(exclude_none=True).items():
+            try: 
+                column = getattr(Model, atrr)
+            except AttributeError:
+                continue
+            
+            if column is not None:
+                if isinstance(value, str):
+                    query = query.where(column.ilike(f"%{value}%"))
+                else:
+                    query = query.where(column == value)
 
     query = query.offset(skip).limit(limit)
 

@@ -1,0 +1,7 @@
+Generic single-database configuration.
+
+- Criar Commits
+alembic revision --autogenerate -m "create initial tables"
+
+- Subir para o banco
+alembic upgrade head

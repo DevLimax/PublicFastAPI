@@ -6,6 +6,7 @@ from datetime import datetime
 class BaseModel(settings.DBBASEMODEL):
     __abstract__ = True
     
+    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True, index=True)
     created_at: Mapped[datetime] = mapped_column(nullable=False, 
                                                  default=datetime.now(), 
                                                  server_default=func.now())

@@ -26,6 +26,7 @@ async def get_session() -> AsyncGenerator[AsyncSession, None]:
 
 async def get_current_user(db: AsyncSession = Depends(get_session),
                            token: str = Depends(oauth2_schema)) -> UserModel:
+    
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
         detail="Não foi possivel autenticar a credencial",
@@ -40,11 +41,13 @@ async def get_current_user(db: AsyncSession = Depends(get_session),
     )
         username: str = payload.get("sub")
         if username is None:
+            print("1")
             raise credentials_exception
         
         token_data = TokenData(username=username)
 
-    except JWTError:
+    except JWTError as e:
+        print(str(e))
         raise credentials_exception
     
     async with db as session:

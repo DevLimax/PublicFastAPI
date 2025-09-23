@@ -4,10 +4,12 @@ from fastapi.security import OAuth2PasswordRequestForm
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.exc import IntegrityError
 
-from publicapi.core.auth import authenticate, create_access_token, create_refresh_token, verify_access_token, verify_refresh_token
+from publicapi.core.auth import authenticate, create_access_token, create_refresh_token, verify_refresh_token
 from publicapi.core.deps import get_session, get_current_user
+from publicapi.core.security import generate_hashed_password
 from publicapi.schemas.userSchema import AuthResponse, UserSchemaBase, UserSchemaCreate
 from publicapi.utils.querys_db import search_item_in_db
+from publicapi.models import UserModel
 
 router = APIRouter()
 
@@ -22,13 +24,18 @@ async def logged_user(user: UserSchemaBase = Depends(get_current_user)):
 async def create(data: UserSchemaCreate,
                  db: AsyncSession = Depends(get_session)
 ) -> UserSchemaBase:
-    async with db as session:        
-        new_user = UserSchemaCreate(**data.dict(exclude_unset=True))
+    async with db as session:       
+
+        new_user = UserModel(
+            username = data.username,
+            email = data.email,
+            password = generate_hashed_password(data.password)
+        )
     
         try:
             session.add(new_user)
-            session.commit()
-            session.refresh(new_user)
+            await session.commit()
+            await session.refresh(new_user)
             return new_user
         
         except IntegrityError as e:
@@ -54,8 +61,8 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends(),
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid credentials")
     
     data = AuthResponse(
-        access_token = create_access_token(sub=user.id),
-        refresh_token = create_refresh_token(sub=user.id)
+        access_token = create_access_token(sub=str(user.id)),
+        refresh_token = create_refresh_token(sub=str(user.id))
     )
     return data
 

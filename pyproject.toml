@@ -6,7 +6,7 @@ authors = [
     {name = "Limaxz", email = "jpbarroslima12@gmail.com"}
 ]
 readme = "README.md"
-requires-python = ">=3.12,<4.0"
+requires-python = ">=3.10,<4.0"
 dependencies = [
     "alembic (==1.16.5)",
     "annotated-types (==0.7.0)",
