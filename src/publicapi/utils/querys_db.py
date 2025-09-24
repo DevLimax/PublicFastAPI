@@ -21,7 +21,7 @@ async def search_all_items_in_db(Model: Type[DeclarativeMeta],
                                  db: AsyncSession,
                                  filters: Optional[dict] = None,
                                  skip: int = 0,
-                                 limit: int = 10
+                                 limit: int = None
 ):
     query = select(Model).order_by(Model.id)
 

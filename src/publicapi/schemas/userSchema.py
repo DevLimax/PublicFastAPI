@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, ConfigDict
 from typing import Optional
 from datetime import datetime
 
@@ -9,9 +9,7 @@ class UserSchemaBase(BaseModel):
     created_at: Optional[datetime] = None
     is_active: Optional[bool] = None
     
-    class Config:
-        from_attributes = True
-        
+    model_config = ConfigDict(from_attributes=True)
 class UserSchemaCreate(UserSchemaBase):
     password: str 
 
