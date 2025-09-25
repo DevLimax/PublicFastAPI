@@ -57,7 +57,9 @@ async def get_id(id: int,
 ):
     
     state = await search_item_in_db(id=id,
-                                    Model=StatesModel)
+                                    Model=StatesModel,
+                                    db=db
+    )
     
     if not state:
         raise HTTPException(detail="Nenhuma instancia encontrada", status_code=status.HTTP_404_NOT_FOUND)

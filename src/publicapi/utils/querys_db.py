@@ -3,6 +3,7 @@ from sqlalchemy.future import select
 from sqlalchemy.orm import DeclarativeMeta
 from sqlalchemy.ext.asyncio import AsyncSession
 from publicapi.core.configs import settings
+from publicapi.models import CitiesModel, StatesModel
 from typing import Optional, Type
 
 async def search_item_in_db(id: int, 
@@ -26,6 +27,12 @@ async def search_all_items_in_db(Model: Type[DeclarativeMeta],
     query = select(Model).order_by(Model.id)
 
     if filters:
+        
+        if Model == StatesModel and filters.city:
+            query = query.join(Model.cities)
+            query = query.where(CitiesModel.name.ilike(f"%{filters.city}%"))
+            query = query.distinct()
+        
         for atrr, value in filters.dict(exclude_none=True).items():
             try: 
                 column = getattr(Model, atrr)

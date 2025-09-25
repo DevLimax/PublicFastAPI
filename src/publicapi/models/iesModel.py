@@ -3,7 +3,7 @@ from sqlalchemy import ForeignKey, Enum as EnumSQL, URL
 from publicapi.models import BaseModel
 from enum import Enum
 
-class IesMOdel(BaseModel):
+class IesModel(BaseModel):
     __tablename__ = "instituicoes"
 
     class TypeChoices(str, Enum):
@@ -16,12 +16,25 @@ class IesMOdel(BaseModel):
     abbreviation: Mapped[str] = mapped_column(nullable=False, unique=True)
     type: Mapped[TypeChoices] = mapped_column(EnumSQL(TypeChoices), default=TypeChoices.OUTRO, nullable=False)
     quantity_campus: Mapped[int] = mapped_column(nullable=False, default=0)
-    state_id: Mapped[int] = mapped_column(nullable=False)
+    state_id: Mapped[int] = mapped_column(ForeignKey("estados.id"),nullable=False)
+    city_id: Mapped[int] = mapped_column(ForeignKey("municipios.id"),nullable=False)
     site: Mapped[str] = mapped_column(nullable=False)
 
-    state = relationship("StateModel", back_populates="ies", lazy="joined")
+    state = relationship("StatesModel", back_populates="instituitions", lazy="joined")
+    city = relationship("CitiesModel", back_populates="instituitions", lazy="joined")
     
     @property
     def state_uf(self):
         return self.state.id
+    
+    def validate_data(self):
+        self.name = self.name.title()
+        self.abbreviation = self.abbreviation.upper()
+        
+        if not [".edu", ".br"] in self.site:
+            raise ValueError("URL inválida para o padrão educacional Brasileiro")
+        
+        if self.type == None:
+            self.type = IesModel.TypeChoices.OUTRO
+        
     

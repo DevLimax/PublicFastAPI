@@ -1,0 +1,3062 @@
+[
+    {
+        "id": "5701",
+        "name": "Universidade Do Estado Do Amapá",
+        "abbreviation": "UEAP",
+        "type": "Outro",
+        "site": "https://ueap.edu.br/",
+        "state_id": 3,
+        "city_id": "1600303"
+    },
+    {
+        "id": "3188",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia Do Norte De Minas Gerais",
+        "abbreviation": "IFNMG",
+        "type": "Federal",
+        "site": "https://www.ifnmg.edu.br/montesclaros",
+        "state_id": 13,
+        "city_id": "3143302"
+    },
+    {
+        "id": "17952",
+        "name": "Faculdade De Tecnologia De Jacareí",
+        "abbreviation": "FATEC Jacareí",
+        "type": "Outro",
+        "site": "https://fatecjacarei.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3524402"
+    },
+    {
+        "id": "5053",
+        "name": "Faculdade De Educação Tecnológica Do Estado Do Rio De Janeiro",
+        "abbreviation": "FAETERJ PARACAMBI",
+        "type": "Outro",
+        "site": "https://www.faeterj-rio.edu.br/",
+        "state_id": 19,
+        "city_id": "3303609"
+    },
+    {
+        "id": "25613",
+        "name": "Academia De Polícia Militar De Minas Gerais",
+        "abbreviation": "APM",
+        "type": "Outro",
+        "site": "https://www.policiamilitar.mg.gov.br/site/apm",
+        "state_id": 13,
+        "city_id": "3106200"
+    },
+    {
+        "id": "14724",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia Do Paraná",
+        "abbreviation": "IFPR",
+        "type": "Federal",
+        "site": "https://ifpr.edu.br/",
+        "state_id": 16,
+        "city_id": "4106902"
+    },
+    {
+        "id": "18099",
+        "name": "Faculdade De Tecnologia De Diadema Luigi Papaiz",
+        "abbreviation": "FATEC DIADEMA",
+        "type": "Outro",
+        "site": "https://fatecdiadema.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": ""
+    },
+    {
+        "id": "1356",
+        "name": "Centro Universitário De Santa Fé Do Sul",
+        "abbreviation": "UNIFUNEC",
+        "type": "Outro",
+        "site": "https://unifunec.edu.br/",
+        "state_id": 25,
+        "city_id": "3546603"
+    },
+    {
+        "id": "34",
+        "name": "Faculdade De Tecnologia De São Paulo",
+        "abbreviation": "FATEC-SP",
+        "type": "Outro",
+        "site": "https://www.fatecsp.br/",
+        "state_id": 25,
+        "city_id": "3550308"
+    },
+    {
+        "id": "4024",
+        "name": "Faculdade De Tecnologia De Mococa",
+        "abbreviation": "FATEC",
+        "type": "Outro",
+        "site": "https://fatecmococa.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3530508"
+    },
+    {
+        "id": "15709",
+        "name": "Faculdade De Tecnologia De Osasco - Prefeito Hirant Sanazar",
+        "abbreviation": "Fatec Osasco",
+        "type": "Outro",
+        "site": "https://fatecosasco.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3534401"
+    },
+    {
+        "id": "15001",
+        "name": "Universidade Federal Da Integração Latino-Americana",
+        "abbreviation": "UNILA",
+        "type": "Federal",
+        "site": "https://portal.unila.edu.br/",
+        "state_id": 16,
+        "city_id": "4108304"
+    },
+    {
+        "id": "19739",
+        "name": "Faculdade De Tecnologia De Campinas",
+        "abbreviation": "FATEC CAMPINAS",
+        "type": "Outro",
+        "site": "https://fateccampinas.edu.br/site/",
+        "state_id": 25,
+        "city_id": "3509502"
+    },
+    {
+        "id": "78",
+        "name": "Faculdade De Filosofia Ciências E Letras De Alegre",
+        "abbreviation": "FAFIA",
+        "type": "Outro",
+        "site": "https://fafia.edu.br/",
+        "state_id": 8,
+        "city_id": "3200201"
+    },
+    {
+        "id": "789",
+        "name": "Universidade Federal De Roraima",
+        "abbreviation": "UFRR",
+        "type": "Federal",
+        "site": "https://ufrr.br/",
+        "state_id": 23,
+        "city_id": "1400100"
+    },
+    {
+        "id": "609",
+        "name": "Universidade Estadual Do Oeste Do Paraná",
+        "abbreviation": "UNIOESTE",
+        "type": "Estadual",
+        "site": "https://www.unioeste.br/",
+        "state_id": 16,
+        "city_id": "4104808"
+    },
+    {
+        "id": "4",
+        "name": "Universidade Federal Do Amazonas",
+        "abbreviation": "UFAM",
+        "type": "Federal",
+        "site": "https://www.ufam.edu.br/",
+        "state_id": 4,
+        "city_id": "1302603"
+    },
+    {
+        "id": "700",
+        "name": "Faculdade De Educação De Itaboraí",
+        "abbreviation": "FEITA",
+        "type": "Outro",
+        "site": "https://educacaosuperior.cnec.br/itaborai/institucional",
+        "state_id": 19,
+        "city_id": "3301900"
+    },
+    {
+        "id": "13630",
+        "name": "Escola Superior Do Ministério Público Da União",
+        "abbreviation": "ESMPU",
+        "type": "Outro",
+        "site": "https://escola.mpu.mp.br/",
+        "state_id": 7,
+        "city_id": "5300108"
+    },
+    {
+        "id": "15757",
+        "name": "Faculdade De Tecnologia De Barueri",
+        "abbreviation": "Fatec Barueri",
+        "type": "Outro",
+        "site": "https://fatecbarueri.edu.br/",
+        "state_id": 25,
+        "city_id": "3505708"
+    },
+    {
+        "id": "1292",
+        "name": "Centro Universitário De Adamantina",
+        "abbreviation": "FAI",
+        "type": "Outro",
+        "site": null,
+        "state_id": 25,
+        "city_id": "3500105"
+    },
+    {
+        "id": "3162",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia  De Santa Catarina",
+        "abbreviation": "IFSC",
+        "type": "Federal",
+        "site": "https://www.ifsc.edu.br/",
+        "state_id": 24,
+        "city_id": "4205407"
+    },
+    {
+        "id": "3835",
+        "name": "Universidade Virtual Do Estado Do Maranhão",
+        "abbreviation": "UNIVIMA",
+        "type": "Outro",
+        "site": "https://ruf.folha.uol.com.br/2015/perfil/universidade-virtual-do-estado-do-maranhao-univima-3835.shtml",
+        "state_id": 10,
+        "city_id": "2111300"
+    },
+    {
+        "id": "665",
+        "name": "Universidade De Taubaté",
+        "abbreviation": "UNITAU",
+        "type": "Outro",
+        "site": "https://unitau.br/",
+        "state_id": 25,
+        "city_id": "3554102"
+    },
+    {
+        "id": "22939",
+        "name": "Faculdade De Tecnologia De Araraquara",
+        "abbreviation": "FATEC ARQ",
+        "type": "Outro",
+        "site": "https://fatecararaquara.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3503208"
+    },
+    {
+        "id": "4396",
+        "name": "Centro Universitário De Mineiros",
+        "abbreviation": "UNIFIMES",
+        "type": "Outro",
+        "site": "https://unifimes.edu.br/",
+        "state_id": 9,
+        "city_id": "5213103"
+    },
+    {
+        "id": "74",
+        "name": "Faculdade De Filosofia Ciências E Letras De São José Do Rio Pardo",
+        "abbreviation": "FFCL",
+        "type": "Outro",
+        "site": "https://feucriopardo.edu.br/",
+        "state_id": 25,
+        "city_id": "3549706"
+    },
+    {
+        "id": "1811",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia De Goiás",
+        "abbreviation": "IFG",
+        "type": "Federal",
+        "site": "https://www.ifg.edu.br/",
+        "state_id": 9,
+        "city_id": "5208707"
+    },
+    {
+        "id": "1082",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia Do Rio Grande Do Norte",
+        "abbreviation": "IFRN",
+        "type": "Federal",
+        "site": "https://www.ifrn.edu.br/",
+        "state_id": 20,
+        "city_id": "2408102"
+    },
+    {
+        "id": "3682",
+        "name": "Instituto Superior De Educação Do Município De Itaperuna",
+        "abbreviation": "ISEMI",
+        "type": "Outro",
+        "site": "https://funita.edu.br/",
+        "state_id": 19,
+        "city_id": "3302205"
+    },
+    {
+        "id": "3160",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia De Alagoas",
+        "abbreviation": "IFAL",
+        "type": "Federal",
+        "site": "https://www2.ifal.edu.br/",
+        "state_id": 2,
+        "city_id": "2704302"
+    },
+    {
+        "id": "4023",
+        "name": "Faculdade De Tecnologia De Mauá",
+        "abbreviation": "FATEC MAUÁ",
+        "type": "Outro",
+        "site": "https://www.fatecmaua.com.br/",
+        "state_id": 25,
+        "city_id": "3529401"
+    },
+    {
+        "id": "572",
+        "name": "Universidade Federal Fluminense",
+        "abbreviation": "UFF",
+        "type": "Federal",
+        "site": "https://www.uff.br/",
+        "state_id": 19,
+        "city_id": "3303302"
+    },
+    {
+        "id": "5242",
+        "name": "Universidade Estadual De Alagoas - Uneal",
+        "abbreviation": "UNEAL",
+        "type": "Estadual",
+        "site": "https://www.uneal.edu.br/",
+        "state_id": 2,
+        "city_id": "2700300"
+    },
+    {
+        "id": "32",
+        "name": "Universidade Estadual De Ciências Da Saúde De Alagoas - Uncisal",
+        "abbreviation": "UNCISAL",
+        "type": "Estadual",
+        "site": "https://www.uncisal.edu.br/",
+        "state_id": 2,
+        "city_id": "2704302"
+    },
+    {
+        "id": "1",
+        "name": "Universidade Federal De Mato Grosso",
+        "abbreviation": "UFMT",
+        "type": "Federal",
+        "site": "https://www.ufmt.br/",
+        "state_id": 11,
+        "city_id": "5103403"
+    },
+    {
+        "id": "1120",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia Fluminense",
+        "abbreviation": "IF Fluminense",
+        "type": "Federal",
+        "site": "https://portal1.iff.edu.br/",
+        "state_id": 19,
+        "city_id": "3301009"
+    },
+    {
+        "id": "589",
+        "name": "Universidade Federal Rural Do Semi-Árido",
+        "abbreviation": "UFERSA",
+        "type": "Federal",
+        "site": "https://ufersa.edu.br/",
+        "state_id": 20,
+        "city_id": "2408003"
+    },
+    {
+        "id": "18506",
+        "name": "Universidade Federal Do Oeste Da Bahia",
+        "abbreviation": "UFOB",
+        "type": "Federal",
+        "site": "https://ufob.edu.br/",
+        "state_id": 5,
+        "city_id": "2903201"
+    },
+    {
+        "id": "4020",
+        "name": "Faculdade De Tecnologia De Botucatu",
+        "abbreviation": "FATEC BT",
+        "type": "Outro",
+        "site": "https://www.fatecbt.edu.br/fatec/",
+        "state_id": 25,
+        "city_id": "3507506"
+    },
+    {
+        "id": "5036",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia Catarinense",
+        "abbreviation": "IF Catarinense",
+        "type": "Federal",
+        "site": "https://ifc.edu.br/",
+        "state_id": 24,
+        "city_id": "4202404"
+    },
+    {
+        "id": "753",
+        "name": "Faculdade De Ciências Humanas Do Sertão Central",
+        "abbreviation": "FACHUSC",
+        "type": "Outro",
+        "site": "https://www.fachusc.com.br/",
+        "state_id": 17,
+        "city_id": "2612208"
+    },
+    {
+        "id": "15059",
+        "name": "Universidade Federal Do Oeste Do Pará",
+        "abbreviation": "UFOPA",
+        "type": "Federal",
+        "site": "https://www.ufopa.edu.br/ufopa/",
+        "state_id": 14,
+        "city_id": "1506807"
+    },
+    {
+        "id": "15769",
+        "name": "Faculdade De Tecnologia De Jales",
+        "abbreviation": "Fatec Jales",
+        "type": "Outro",
+        "site": "https://www.cps.sp.gov.br/fatecs/fatec-jales-professor-jose-camargo/",
+        "state_id": 25,
+        "city_id": "3524808"
+    },
+    {
+        "id": "3",
+        "name": "Universidade Federal De Sergipe",
+        "abbreviation": "UFS",
+        "type": "Federal",
+        "site": "https://www.ufs.br/",
+        "state_id": 26,
+        "city_id": "2806701"
+    },
+    {
+        "id": "17613",
+        "name": "Academia Nacional De Polícia - Anp",
+        "abbreviation": "ANP",
+        "type": "Outro",
+        "site": "https://www.gov.br/pf/pt-br/assuntos/academia-nacional-de-policia-anp",
+        "state_id": 7,
+        "city_id": "5300108"
+    },
+    {
+        "id": "593",
+        "name": "Centro Federal De Educação Tecnológica Celso Suckow Da Fonseca",
+        "abbreviation": "CEFET/RJ",
+        "type": "Federal",
+        "site": "https://www.cefet-rj.br/",
+        "state_id": 19,
+        "city_id": "3304557"
+    },
+    {
+        "id": "3336",
+        "name": "Universidade Estadual Do Rio Grande Do Sul",
+        "abbreviation": "UERGS",
+        "type": "Estadual",
+        "site": "https://www.uergs.edu.br/",
+        "state_id": 21,
+        "city_id": "4314902"
+    },
+    {
+        "id": "15680",
+        "name": "Fatec Cruzeiro - Prof. Waldomiro May",
+        "abbreviation": "",
+        "type": "Outro",
+        "site": "https://www.fateccruzeiro.edu.br/",
+        "state_id": 25,
+        "city_id": "3513405"
+    },
+    {
+        "id": "17775",
+        "name": "Faculdade De Ciências Da Saúde De Serra Talhada",
+        "abbreviation": "FACISST",
+        "type": "Outro",
+        "site": "https://penoticias.com.br/blog/faculdade-de-ciencias-da-saude-de-serra-talhada-anuncia-processo-seletivo-para-curso-de-medicina-2025/",
+        "state_id": 17,
+        "city_id": "2613909"
+    },
+    {
+        "id": "21436",
+        "name": "Escola De Comando E Estado-Maior Do Exército",
+        "abbreviation": "ECEME",
+        "type": "Outro",
+        "site": "https://www.eceme.eb.mil.br/",
+        "state_id": 19,
+        "city_id": "3304557"
+    },
+    {
+        "id": "23410",
+        "name": "Universidade Estadual Da Região Tocantina Do Maranhão",
+        "abbreviation": "UEMASUL",
+        "type": "Estadual",
+        "site": null,
+        "state_id": 10,
+        "city_id": "2105302"
+    },
+    {
+        "id": "5020",
+        "name": "Faculdade De Educação Tecnológica Do Estado Do Rio De Janeiro - Faeterj",
+        "abbreviation": "FAETERJ S ANT. PÁDUA",
+        "type": "Outro",
+        "site": "https://www.faeterj-rio.edu.br/",
+        "state_id": 19,
+        "city_id": "3304706"
+    },
+    {
+        "id": "25352",
+        "name": "Universidade Federal De Rondonópolis",
+        "abbreviation": "UFR",
+        "type": "Federal",
+        "site": "https://ufr.edu.br/",
+        "state_id": 11,
+        "city_id": "5107602"
+    },
+    {
+        "id": "15803",
+        "name": "Faculdade De Tecnologia De Tatuí - Prof. Wilson Roberto Ribeiro De Camargo",
+        "abbreviation": "FATEC TATUÍ",
+        "type": "Outro",
+        "site": "https://www.cps.sp.gov.br/fatecs/fatec-tatui-prof-wilson-roberto-ribeiro-de-camargo/",
+        "state_id": 25,
+        "city_id": "3554003"
+    },
+    {
+        "id": "17617",
+        "name": "Escola Nacional De Administração Pública",
+        "abbreviation": "ENAP",
+        "type": "Outro",
+        "site": "https://www.enap.gov.br/",
+        "state_id": 7,
+        "city_id": "5300108"
+    },
+    {
+        "id": "15687",
+        "name": "Faculdade De Tecnologia De Pindamonhangaba",
+        "abbreviation": "FATEC PI",
+        "type": "Outro",
+        "site": "https://fatecpindamonhangaba.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3538006"
+    },
+    {
+        "id": "25275",
+        "name": "Universidade Federal Do Agreste De Pernambuco",
+        "abbreviation": "UFAPE",
+        "type": "Federal",
+        "site": null,
+        "state_id": 17,
+        "city_id": "2606002"
+    },
+    {
+        "id": "584",
+        "name": "Universidade Federal De Goiás",
+        "abbreviation": "UFG",
+        "type": "Federal",
+        "site": "https://ufg.br/",
+        "state_id": 9,
+        "city_id": "5208707"
+    },
+    {
+        "id": "657",
+        "name": "Faculdade De Formação De Professores De Serra Talhada",
+        "abbreviation": "FAFOPST",
+        "type": "Outro",
+        "site": "https://aeset.edu.br/",
+        "state_id": 17,
+        "city_id": "2613909"
+    },
+    {
+        "id": "107",
+        "name": "Universidade Federal De São João Del Rei",
+        "abbreviation": "UFSJ",
+        "type": "Federal",
+        "site": "https://www.ufsj.edu.br/",
+        "state_id": 13,
+        "city_id": "3162500"
+    },
+    {
+        "id": "3279",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia Do Sudeste De Minas Gerais",
+        "abbreviation": "IFSEMG",
+        "type": "Federal",
+        "site": "https://www.ifsudestemg.edu.br/",
+        "state_id": 13,
+        "city_id": "3136702"
+    },
+    {
+        "id": "5052",
+        "name": "Faculdade De Educação Tecnológica Do Estado Do Rio De Janeiro - Faeterj",
+        "abbreviation": "FAETERJ S ANT. PÁDUA",
+        "type": "Outro",
+        "site": "https://www.faeterj-rio.edu.br/",
+        "state_id": 19,
+        "city_id": "3306008"
+    },
+    {
+        "id": "17942",
+        "name": "Faculdade De Tecnologia Do Tatuapé",
+        "abbreviation": "FATEC-TT",
+        "type": "Outro",
+        "site": "https://www.fatectatuape.edu.br/",
+        "state_id": 25,
+        "city_id": "3550308"
+    },
+    {
+        "id": "576",
+        "name": "Universidade Federal De Juiz De Fora",
+        "abbreviation": "UFJF",
+        "type": "Federal",
+        "site": "https://www2.ufjf.br/",
+        "state_id": 13,
+        "city_id": "3136702"
+    },
+    {
+        "id": "25277",
+        "name": "Universidade Federal Do Delta Do Parnaiba",
+        "abbreviation": "UFDPAR",
+        "type": "Federal",
+        "site": "https://ufdpar.edu.br/",
+        "state_id": 18,
+        "city_id": "2207702"
+    },
+    {
+        "id": "666",
+        "name": "Universidade Estadual De Feira De Santana",
+        "abbreviation": "UEFS",
+        "type": "Estadual",
+        "site": "https://www.uefs.br/",
+        "state_id": 5,
+        "city_id": "2910800"
+    },
+    {
+        "id": "1027",
+        "name": "Universidade Estadual Do Norte Fluminense Darcy Ribeiro",
+        "abbreviation": "UENF",
+        "type": "Estadual",
+        "site": "https://www.uenf.br/",
+        "state_id": 19,
+        "city_id": "3301009"
+    },
+    {
+        "id": "569",
+        "name": "Universidade Federal Do Pará",
+        "abbreviation": "UFPA",
+        "type": "Federal",
+        "site": "https://ufpa.br/",
+        "state_id": 14,
+        "city_id": "1501402"
+    },
+    {
+        "id": "4016",
+        "name": "Instituto Nacional De Educação De Surdos",
+        "abbreviation": "INES",
+        "type": "Outro",
+        "site": "https://www.gov.br/ines/pt-br",
+        "state_id": 19,
+        "city_id": "3304557"
+    },
+    {
+        "id": "1813",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia Do Pará",
+        "abbreviation": "IFPA",
+        "type": "Federal",
+        "site": "https://ifpa.edu.br/",
+        "state_id": 14,
+        "city_id": "1501402"
+    },
+    {
+        "id": "23438",
+        "name": "Faculdade De Tecnologia De Araras",
+        "abbreviation": "",
+        "type": "Outro",
+        "site": "https://fatecararas.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3503307"
+    },
+    {
+        "id": "4358",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia Do Sul De Minas Gerais",
+        "abbreviation": "IF SUL DE MINAS",
+        "type": "Federal",
+        "site": null,
+        "state_id": 13,
+        "city_id": "3152501"
+    },
+    {
+        "id": "597",
+        "name": "Universidade Federal Do Triângulo Mineiro",
+        "abbreviation": "UFTM",
+        "type": "Federal",
+        "site": "https://www.uftm.edu.br/",
+        "state_id": 13,
+        "city_id": "3170107"
+    },
+    {
+        "id": "40",
+        "name": "Universidade Do Estado Da Bahia",
+        "abbreviation": "UNEB",
+        "type": "Outro",
+        "site": "https://portal.uneb.br/",
+        "state_id": 5,
+        "city_id": "2927408"
+    },
+    {
+        "id": "33",
+        "name": "Faculdade De Tecnologia De Sorocaba",
+        "abbreviation": "FATEC SO",
+        "type": "Outro",
+        "site": "https://fatecsorocaba.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3552205"
+    },
+    {
+        "id": "1036",
+        "name": "Universidade Do Estado De Minas Gerais",
+        "abbreviation": "UEMG",
+        "type": "Outro",
+        "site": "https://uemg.br/",
+        "state_id": 13,
+        "city_id": "3106200"
+    },
+    {
+        "id": "18165",
+        "name": "Fundação Universidade Virtual Do Estado De São Paulo",
+        "abbreviation": "UNIVESP",
+        "type": "Outro",
+        "site": "https://univesp.br/",
+        "state_id": 25,
+        "city_id": "3550308"
+    },
+    {
+        "id": "23028",
+        "name": "Escola De Sargentos Das Armas",
+        "abbreviation": "ESA",
+        "type": "Outro",
+        "site": "https://esa.eb.mil.br/index.php/pt/",
+        "state_id": 13,
+        "city_id": "3169307"
+    },
+    {
+        "id": "21503",
+        "name": "Colégio Pedro Ii",
+        "abbreviation": "CP II",
+        "type": "Outro",
+        "site": "https://www.cp2.g12.br/index.php",
+        "state_id": 19,
+        "city_id": "3304557"
+    },
+    {
+        "id": "21418",
+        "name": "Escola De Aperfeiçoamento De Oficiais",
+        "abbreviation": "EsAO",
+        "type": "Outro",
+        "site": "https://www.esao.eb.mil.br/",
+        "state_id": 19,
+        "city_id": "3304557"
+    },
+    {
+        "id": "21420",
+        "name": "Escola De Inteligência Militar Do Exército",
+        "abbreviation": "EsIMEx",
+        "type": "Outro",
+        "site": "https://www.dcem.eb.mil.br/images/arquivos/secoes/cursos/decex/esimex/IRISM_ESIMEx.pdf",
+        "state_id": 7,
+        "city_id": "5300108"
+    },
+    {
+        "id": "17",
+        "name": "Universidade Federal De Uberlândia",
+        "abbreviation": "UFU",
+        "type": "Federal",
+        "site": null,
+        "state_id": 13,
+        "city_id": "3170206"
+    },
+    {
+        "id": "575",
+        "name": "Universidade Federal De Minas Gerais",
+        "abbreviation": "UFMG",
+        "type": "Federal",
+        "site": "https://ufmg.br/",
+        "state_id": 13,
+        "city_id": "3106200"
+    },
+    {
+        "id": "3223",
+        "name": "Escola Superior De Ciências Da Saúde",
+        "abbreviation": "ESCS",
+        "type": "Outro",
+        "site": "https://www.escs.edu.br/",
+        "state_id": 7,
+        "city_id": "5300108"
+    },
+    {
+        "id": "15585",
+        "name": "Faculdade De Tecnologia Santo André",
+        "abbreviation": "FATEC-SA",
+        "type": "Outro",
+        "site": "https://fatecsantoandre.edu.br/",
+        "state_id": 25,
+        "city_id": "3547809"
+    },
+    {
+        "id": "57",
+        "name": "Universidade Estadual De Maringá",
+        "abbreviation": "UEM",
+        "type": "Estadual",
+        "site": "https://www.uem.br/",
+        "state_id": 16,
+        "city_id": "4115200"
+    },
+    {
+        "id": "4026",
+        "name": "Faculdade De Tecnologia Zona Leste",
+        "abbreviation": "FATEC-ZL",
+        "type": "Outro",
+        "site": "https://fateczl.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3550308"
+    },
+    {
+        "id": "17614",
+        "name": "Escola Da Advocacia-Geral Da União",
+        "abbreviation": "EAGU",
+        "type": "Outro",
+        "site": "https://eva.agu.gov.br/",
+        "state_id": 7,
+        "city_id": "5300108"
+    },
+    {
+        "id": "550",
+        "name": "Universidade Estadual Da Paraíba",
+        "abbreviation": "UEPB",
+        "type": "Estadual",
+        "site": "https://uepb.edu.br/",
+        "state_id": 15,
+        "city_id": "2504009"
+    },
+    {
+        "id": "38",
+        "name": "Universidade Do Estado Do Pará",
+        "abbreviation": "UEPA",
+        "type": "Outro",
+        "site": "https://www.uepa.br/",
+        "state_id": 14,
+        "city_id": "1501402"
+    },
+    {
+        "id": "595",
+        "name": "Universidade Federal De Alfenas",
+        "abbreviation": "UNIFAL-MG",
+        "type": "Federal",
+        "site": "https://www.unifal-mg.edu.br/",
+        "state_id": 13,
+        "city_id": "3101607"
+    },
+    {
+        "id": "56",
+        "name": "Universidade Estadual Paulista Júlio De Mesquita Filho",
+        "abbreviation": "UNESP",
+        "type": "Estadual",
+        "site": "https://www2.unesp.br/",
+        "state_id": 25,
+        "city_id": "3550308"
+    },
+    {
+        "id": "1028",
+        "name": "Universidade Estadual De Mato Grosso Do Sul",
+        "abbreviation": "UEMS",
+        "type": "Estadual",
+        "site": "https://www.uems.br/",
+        "state_id": 12,
+        "city_id": "5003702"
+    },
+    {
+        "id": "24530",
+        "name": "Faculdade Da Polícia Militar De Santa Catarina",
+        "abbreviation": "FAPOM",
+        "type": "Outro",
+        "site": "https://www.pm.sc.gov.br/tudo-sobre/fapom",
+        "state_id": 24,
+        "city_id": "4205407"
+    },
+    {
+        "id": "587",
+        "name": "Universidade Federal Rural De Pernambuco",
+        "abbreviation": "UFRPE",
+        "type": "Federal",
+        "site": "https://www.ufrpe.br/",
+        "state_id": 17,
+        "city_id": "2611606"
+    },
+    {
+        "id": "495",
+        "name": "Faculdade De Ciências E Letras De Bragança Paulista",
+        "abbreviation": "FESB",
+        "type": "Outro",
+        "site": null,
+        "state_id": 25,
+        "city_id": "3507605"
+    },
+    {
+        "id": "25274",
+        "name": "Universidade Federal De Catalão",
+        "abbreviation": "UFCAT",
+        "type": "Federal",
+        "site": "https://ufcat.edu.br/",
+        "state_id": 9,
+        "city_id": "5205109"
+    },
+    {
+        "id": "15753",
+        "name": "Faculdade De Tecnologia Nilo De Stéfani - Jaboticabal",
+        "abbreviation": "FATEC JBL",
+        "type": "Outro",
+        "site": "https://www.fatecjaboticabal.edu.br/",
+        "state_id": 25,
+        "city_id": "3524303"
+    },
+    {
+        "id": "23700",
+        "name": "Faculdade De Tecnologia De Ferraz De Vasconcelos",
+        "abbreviation": "",
+        "type": "Outro",
+        "site": "https://fatecferraz.edu.br/",
+        "state_id": 25,
+        "city_id": "3515707"
+    },
+    {
+        "id": "21206",
+        "name": "Escola De Educação Física Do Exército",
+        "abbreviation": "EsEFEx",
+        "type": "Outro",
+        "site": null,
+        "state_id": 19,
+        "city_id": "3304557"
+    },
+    {
+        "id": "568",
+        "name": "Universidade Estadual Do Maranhão",
+        "abbreviation": "UEMA",
+        "type": "Estadual",
+        "site": "https://www.uema.br/",
+        "state_id": 10,
+        "city_id": "2111300"
+    },
+    {
+        "id": "3165",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia  Do Triângulo Mineiro",
+        "abbreviation": "IFTM",
+        "type": "Federal",
+        "site": "https://iftm.edu.br/",
+        "state_id": 13,
+        "city_id": "3170107"
+    },
+    {
+        "id": "5664",
+        "name": "Faculdade De Ciências Humanas E Sociais De Araripina - Facisa",
+        "abbreviation": "FACISA",
+        "type": "Outro",
+        "site": "https://aeda.edu.br/faculdade-de-ciencias-humanas-e-sociais-de-araripina/",
+        "state_id": 17,
+        "city_id": "2601102"
+    },
+    {
+        "id": "19578",
+        "name": "Faculdade De Tecnologia De Cotia",
+        "abbreviation": "FATEC COTIA",
+        "type": "Outro",
+        "site": "https://fateccotia.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3513009"
+    },
+    {
+        "id": "5077",
+        "name": "Universidade Estadual De Roraima",
+        "abbreviation": "UERR",
+        "type": "Estadual",
+        "site": "https://www.uerr.edu.br/",
+        "state_id": 23,
+        "city_id": "1400100"
+    },
+    {
+        "id": "20478",
+        "name": "Faculdade De Tecnologia De Santana De Parnaíba",
+        "abbreviation": "FATEC-SPB",
+        "type": "Outro",
+        "site": "https://fatecsdp.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3547304"
+    },
+    {
+        "id": "16395",
+        "name": "Faculdade De Tecnologia De Carapicuiba",
+        "abbreviation": "FATEC",
+        "type": "Outro",
+        "site": "https://fateccarapicuiba.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3510609"
+    },
+    {
+        "id": "824",
+        "name": "Centro Universitário De Goiatuba",
+        "abbreviation": "UNICERRADO",
+        "type": "Outro",
+        "site": "https://unicerrado.edu.br/",
+        "state_id": 9,
+        "city_id": "5209101"
+    },
+    {
+        "id": "4167",
+        "name": "Instituto De Ensino Superior Da Fupesp",
+        "abbreviation": "IESF",
+        "type": "Outro",
+        "site": "https://emec.mec.gov.br/emec/consulta-ies/listar-ies-mantenedora/e0cc65490d34b709df7de02f3cac4001/MjYxNQ==",
+        "state_id": 25,
+        "city_id": "3536505"
+    },
+    {
+        "id": "1808",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia Do Espírito Santo",
+        "abbreviation": "IFES",
+        "type": "Federal",
+        "site": "https://www.ifes.edu.br/",
+        "state_id": 8,
+        "city_id": "3205309"
+    },
+    {
+        "id": "23026",
+        "name": "Escola De Sargentos De Logística",
+        "abbreviation": "EsSLog",
+        "type": "Outro",
+        "site": "https://www.esslog.eb.mil.br/",
+        "state_id": 19,
+        "city_id": "3304557"
+    },
+    {
+        "id": "15708",
+        "name": "Faculdade De Tecnologia Dr. Thomaz Novelino",
+        "abbreviation": "FATEC Franca",
+        "type": "Outro",
+        "site": "https://www.fatecfranca.edu.br/",
+        "state_id": 25,
+        "city_id": "3516200"
+    },
+    {
+        "id": "5021",
+        "name": "Faculdade De Educação Tecnológica Do Estado Do Rio De Janeiro - Faeterj",
+        "abbreviation": "FAETERJ S ANT. PÁDUA",
+        "type": "Outro",
+        "site": "https://www.faeterj-rio.edu.br/",
+        "state_id": 19,
+        "city_id": "3302205"
+    },
+    {
+        "id": "21439",
+        "name": "Escola De Artilharia De Costa E Antiaérea",
+        "abbreviation": "EsCosAAe",
+        "type": "Outro",
+        "site": null,
+        "state_id": 19,
+        "city_id": "3304557"
+    },
+    {
+        "id": "409",
+        "name": "Universidade De Pernambuco",
+        "abbreviation": "UPE",
+        "type": "Outro",
+        "site": "https://www.upe.br/",
+        "state_id": 17,
+        "city_id": "2611606"
+    },
+    {
+        "id": "29",
+        "name": "Universidade Estadual Do Ceará",
+        "abbreviation": "UECE",
+        "type": "Estadual",
+        "site": "https://www.uece.br/",
+        "state_id": 6,
+        "city_id": "2304400"
+    },
+    {
+        "id": "1126",
+        "name": "Universidade Estadual Do Centro Oeste",
+        "abbreviation": "UNICENTRO",
+        "type": "Estadual",
+        "site": "https://www.unicentro.br/",
+        "state_id": 16,
+        "city_id": "4109401"
+    },
+    {
+        "id": "15507",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia Do Acre",
+        "abbreviation": "IFAC",
+        "type": "Federal",
+        "site": "https://www.ifac.edu.br/",
+        "state_id": 1,
+        "city_id": "1200401"
+    },
+    {
+        "id": "581",
+        "name": "Universidade Federal Do Rio Grande Do Sul",
+        "abbreviation": "UFRGS",
+        "type": "Federal",
+        "site": "https://www.ufrgs.br/",
+        "state_id": 21,
+        "city_id": "4314902"
+    },
+    {
+        "id": "15581",
+        "name": "Faculdade De Tecnologia De São José Dos Campos - Jessen Vidal",
+        "abbreviation": "FATECSJCAMPOS",
+        "type": "Outro",
+        "site": "https://www.cps.sp.gov.br/fatecs/fatec-sao-jose-dos-campos-prof-jessen-vidal/",
+        "state_id": 25,
+        "city_id": "3549904"
+    },
+    {
+        "id": "15715",
+        "name": "Faculdade De Tecnologia Professor Antônio Seabra",
+        "abbreviation": "FATEC LINS",
+        "type": "Outro",
+        "site": "https://www.fateclins.edu.br/",
+        "state_id": 25,
+        "city_id": "3527108"
+    },
+    {
+        "id": "685",
+        "name": "Faculdade Do Belo Jardim",
+        "abbreviation": "FBJ",
+        "type": "Outro",
+        "site": "https://aeb.edu.br/",
+        "state_id": 17,
+        "city_id": "2601706"
+    },
+    {
+        "id": "4858",
+        "name": "Escola Superior De Saúde De Arcoverde",
+        "abbreviation": "ESSA",
+        "type": "Outro",
+        "site": "https://www.aesa-cesa.br/",
+        "state_id": 17,
+        "city_id": "2601201"
+    },
+    {
+        "id": "699",
+        "name": "Fundação Universidade Federal De Rondônia",
+        "abbreviation": "UNIR",
+        "type": "Federal",
+        "site": "https://www.unir.br/",
+        "state_id": 22,
+        "city_id": "1100205"
+    },
+    {
+        "id": "570",
+        "name": "Universidade Federal Do Rio Grande Do Norte",
+        "abbreviation": "UFRN",
+        "type": "Federal",
+        "site": "https://www.ufrn.br/",
+        "state_id": 20,
+        "city_id": "2408102"
+    },
+    {
+        "id": "592",
+        "name": "Universidade Federal De Lavras",
+        "abbreviation": "UFLA",
+        "type": "Federal",
+        "site": "https://ufla.br/",
+        "state_id": 13,
+        "city_id": "3138203"
+    },
+    {
+        "id": "1820",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia Do Piauí",
+        "abbreviation": "IFPI",
+        "type": "Federal",
+        "site": "https://www.ifpi.edu.br/",
+        "state_id": 18,
+        "city_id": "2211001"
+    },
+    {
+        "id": "5633",
+        "name": "Faculdade De Tecnologia De Bragança Paulista",
+        "abbreviation": "null",
+        "type": "Outro",
+        "site": "https://fatecbraganca.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3507605"
+    },
+    {
+        "id": "23713",
+        "name": "Faculdade De Educação Tecnológica Barra Mansa",
+        "abbreviation": "FAETERJ B.MANSA",
+        "type": "Outro",
+        "site": "https://www.faeterjbm.com.br/",
+        "state_id": 19,
+        "city_id": "3300407"
+    },
+    {
+        "id": "43",
+        "name": "Fundação Universidade Do Estado De Santa Catarina",
+        "abbreviation": "UDESC",
+        "type": "Outro",
+        "site": "https://www.udesc.br/",
+        "state_id": 24,
+        "city_id": "4205407"
+    },
+    {
+        "id": "830",
+        "name": "Universidade Federal Do Amapá",
+        "abbreviation": "UNIFAP",
+        "type": "Federal",
+        "site": "https://www.unifap.br/",
+        "state_id": 3,
+        "city_id": "1600303"
+    },
+    {
+        "id": "605",
+        "name": "Universidade Municipal De São Caetano Do Sul",
+        "abbreviation": "USCS",
+        "type": "Municipal",
+        "site": "https://uscs.edu.br/",
+        "state_id": 25,
+        "city_id": "3548807"
+    },
+    {
+        "id": "17953",
+        "name": "Faculdade De Tecnologia De Pompeia - Shunji Nishimura",
+        "abbreviation": "FATEC Pompeia",
+        "type": "Outro",
+        "site": "https://www.fatecpompeia.edu.br/",
+        "state_id": 25,
+        "city_id": "3540002"
+    },
+    {
+        "id": "19863",
+        "name": "Faculdade De Tecnologia De Assis",
+        "abbreviation": "FATEC Assis",
+        "type": "Outro",
+        "site": "https://fatecassis.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3504008"
+    },
+    {
+        "id": "20342",
+        "name": "Fundação Oswaldo Cruz",
+        "abbreviation": "Fiocruz",
+        "type": "Outro",
+        "site": "https://fiocruz.br/",
+        "state_id": 19,
+        "city_id": "3304557"
+    },
+    {
+        "id": "634",
+        "name": "Universidade Federal De Pelotas",
+        "abbreviation": "UFPEL",
+        "type": "Federal",
+        "site": "https://portal.ufpel.edu.br/",
+        "state_id": 21,
+        "city_id": "4314407"
+    },
+    {
+        "id": "217",
+        "name": "Centro Universitário Das Faculdades Associadas De Ensino - Fae",
+        "abbreviation": "UNIFAE",
+        "type": "Outro",
+        "site": "https://www.fae.br/unifae2/",
+        "state_id": 25,
+        "city_id": "3549102"
+    },
+    {
+        "id": "586",
+        "name": "Universidade Federal Do Rio De Janeiro",
+        "abbreviation": "UFRJ",
+        "type": "Federal",
+        "site": "https://ufrj.br/",
+        "state_id": 19,
+        "city_id": "3304557"
+    },
+    {
+        "id": "1876",
+        "name": "Faculdade Municipal Professor Franco Montoro De Mogi Guaçu",
+        "abbreviation": "FMPFM",
+        "type": "Municipal",
+        "site": "https://francomontoro.com.br/",
+        "state_id": 25,
+        "city_id": "3530706"
+    },
+    {
+        "id": "15793",
+        "name": "Faculdade De Tecnologia De São Sebastião",
+        "abbreviation": "Fatec SS",
+        "type": "Outro",
+        "site": "https://fatecsaosebastiao.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3550704"
+    },
+    {
+        "id": "67",
+        "name": "Escola De Engenharia De Piracicaba",
+        "abbreviation": "EEP/FUMEP",
+        "type": "Outro",
+        "site": "https://www.eep.br/",
+        "state_id": 25,
+        "city_id": "3538709"
+    },
+    {
+        "id": "24",
+        "name": "Universidade Estadual De Santa Cruz",
+        "abbreviation": "UESC",
+        "type": "Estadual",
+        "site": "https://www.uesc.br/",
+        "state_id": 5,
+        "city_id": "2913606"
+    },
+    {
+        "id": "6",
+        "name": "Universidade Federal De Ouro Preto",
+        "abbreviation": "UFOP",
+        "type": "Federal",
+        "site": "https://ufop.br/",
+        "state_id": 13,
+        "city_id": "3146107"
+    },
+    {
+        "id": "608",
+        "name": "Escola Superior De Cruzeiro \"Prefeito Hamilton Vieira Mendes\"",
+        "abbreviation": "ESEFIC",
+        "type": "Outro",
+        "site": "https://escesefic.com.br/esc.php",
+        "state_id": 25,
+        "city_id": "3513405"
+    },
+    {
+        "id": "21095",
+        "name": "Academia Militar Das Agulhas Negras",
+        "abbreviation": "AMAN",
+        "type": "Outro",
+        "site": "https://www.aman.eb.mil.br/",
+        "state_id": 19,
+        "city_id": "3304201"
+    },
+    {
+        "id": "59",
+        "name": "Faculdade De Direito De Franca",
+        "abbreviation": "FDF",
+        "type": "Outro",
+        "site": "https://www.direitofranca.br/",
+        "state_id": 25,
+        "city_id": "3516200"
+    },
+    {
+        "id": "    14509",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia Baiano",
+        "abbreviation": "IFBAIANO",
+        "type": "Federal",
+        "site": "https://www.ifbaiano.edu.br/",
+        "state_id": 5,
+        "city_id": "2927408"
+    },
+    {
+        "id": "    17291",
+        "name": "Faculdade Fapaf",
+        "abbreviation": "FAPAF",
+        "type": "Outro",
+        "site": "https://fapaf.edu.br/",
+        "state_id": 27,
+        "city_id": "1717503"
+    },
+    {
+        "id": "17161",
+        "name": "Centro De Formação, Treinamento E Aperfeiçoamento",
+        "abbreviation": "Cefor",
+        "type": "Outro",
+        "site": "https://www2.camara.leg.br/a-camara/programas-institucionais/sobre-a-escola",
+        "state_id": 7,
+        "city_id": "5300108"
+    },
+    {
+        "id": "1810",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia De São Paulo",
+        "abbreviation": "IFSP",
+        "type": "Federal",
+        "site": "https://www.ifsp.edu.br/",
+        "state_id": 25,
+        "city_id": "3550308"
+    },
+    {
+        "id": "600",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia Do Maranhão",
+        "abbreviation": "IFMA",
+        "type": "Federal",
+        "site": "https://portal.ifma.edu.br/inicio/",
+        "state_id": 10,
+        "city_id": "2111300"
+    },
+    {
+        "id": "583",
+        "name": "Universidade Federal Do Ceará",
+        "abbreviation": "UFC",
+        "type": "Federal",
+        "site": "https://www.ufc.br/",
+        "state_id": 6,
+        "city_id": "2304400"
+    },
+    {
+        "id": "58",
+        "name": "Faculdade De Direito De São Bernardo Do Campo",
+        "abbreviation": "FDSBC",
+        "type": "Outro",
+        "site": "https://www.direitosbc.br/",
+        "state_id": 25,
+        "city_id": "3548708"
+    },
+    {
+        "id": "890",
+        "name": "Escola De Governo Professor Paulo Neves De Carvalho",
+        "abbreviation": "EG",
+        "type": "Outro",
+        "site": "https://fjp.mg.gov.br/escola-de-governo/",
+        "state_id": 13,
+        "city_id": "3106200"
+    },
+    {
+        "id": "598",
+        "name": "Universidade Federal De Itajubá - Unifei",
+        "abbreviation": "UNIFEI",
+        "type": "Federal",
+        "site": "https://unifei.edu.br/",
+        "state_id": 13,
+        "city_id": "3132404"
+    },
+    {
+        "id": "582",
+        "name": "Universidade Federal De Santa Maria",
+        "abbreviation": "UFSM",
+        "type": "Federal",
+        "site": "https://www.ufsm.br/",
+        "state_id": 21,
+        "city_id": "4316907"
+    },
+    {
+        "id": "19862",
+        "name": "Faculdade De Tecnologia Jorge Caram Sabbag",
+        "abbreviation": "FATEC Bebedouro",
+        "type": "Outro",
+        "site": "https://www.cps.sp.gov.br/fatecs/fatec-bebedouro-jorge-caram-sabbag/",
+        "state_id": 25,
+        "city_id": "3506102"
+    },
+    {
+        "id": "76",
+        "name": "Universidade Regional De Blumenau",
+        "abbreviation": "FURB",
+        "type": "Outro",
+        "site": "https://concursos.furb.br/",
+        "state_id": 24,
+        "city_id": "4202404"
+    },
+    {
+        "id": "95",
+        "name": "Universidade Estadual Vale Do Acaraú",
+        "abbreviation": "UVA",
+        "type": "Estadual",
+        "site": "https://www.uva.ce.gov.br/",
+        "state_id": 6,
+        "city_id": "2312908"
+    },
+    {
+        "id": "15693",
+        "name": "Faculdade De Tecnologia De Itapetininga - Prof.Antônio Belizandro Barbosa Rezende",
+        "abbreviation": "Fatec - Itapetininga",
+        "type": "Outro",
+        "site": "https://www.cps.sp.gov.br/fatecs/fatec-itapetininga-prof-antonio-belizandro-barbosa-rezende/",
+        "state_id": 25,
+        "city_id": "3522307"
+    },
+    {
+        "id": "6528",
+        "name": "Faculdade De Ciências Aplicadas De Limoeiro",
+        "abbreviation": "null",
+        "type": "Outro",
+        "site": "https://facal.edu.br/",
+        "state_id": 17,
+        "city_id": "2601706"
+    },
+    {
+        "id": "9",
+        "name": "Universidade Estadual De Londrina",
+        "abbreviation": "UEL",
+        "type": "Estadual",
+        "site": "https://portal.uel.br/",
+        "state_id": 16,
+        "city_id": "4113700"
+    },
+    {
+        "id": "5627",
+        "name": "Faculdade De Tecnologia De Presidente Prudente",
+        "abbreviation": "FATEC",
+        "type": "Outro",
+        "site": "https://mail.fatecpp.edu.br/",
+        "state_id": 25,
+        "city_id": "3541406"
+    },
+    {
+        "id": "21417",
+        "name": "Centro De Instrução De Guerra Eletrônica",
+        "abbreviation": "CIGE",
+        "type": "Outro",
+        "site": "https://www.eb.mil.br/web/noticias/w/centro-de-guerra-eletronica-do-exercito-forma-novos-especialistas",
+        "state_id": 7,
+        "city_id": "5300108"
+    },
+    {
+        "id": "704",
+        "name": "Faculdade De Ciências Agrárias De Araripina",
+        "abbreviation": "FACIAGRA",
+        "type": "Outro",
+        "site": "https://aeda.edu.br/faciagra/",
+        "state_id": 17,
+        "city_id": "2601102"
+    },
+    {
+        "id": "60",
+        "name": "Centro Universitário Municipal De Franca",
+        "abbreviation": "UNI-FACEF",
+        "type": "Municipal",
+        "site": "https://www.unifacef.com.br/",
+        "state_id": 25,
+        "city_id": "3516200"
+    },
+    {
+        "id": "3164",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia De Mato Grosso",
+        "abbreviation": "IFMT",
+        "type": "Federal",
+        "site": "https://ifmt.edu.br/inicio/",
+        "state_id": 11,
+        "city_id": "5103403"
+    },
+    {
+        "id": "599",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia Da Bahia",
+        "abbreviation": "IFBA",
+        "type": "Federal",
+        "site": "https://portal.ifba.edu.br/",
+        "state_id": 5,
+        "city_id": "2927408"
+    },
+    {
+        "id": "4756",
+        "name": "Centro Universitário Municipal De São José",
+        "abbreviation": "USJ",
+        "type": "Municipal",
+        "site": "https://fundesj.com.br/",
+        "state_id": 24,
+        "city_id": "4216602"
+    },
+    {
+        "id": "37",
+        "name": "Faculdade De Tecnologia De Jahu",
+        "abbreviation": "FATEC-JAHU",
+        "type": "Outro",
+        "site": "https://fatecjahu.edu.br/",
+        "state_id": 25,
+        "city_id": "3525300"
+    },
+    {
+        "id": "694",
+        "name": "Universidade Federal De Mato Grosso Do Sul",
+        "abbreviation": "UFMS",
+        "type": "Federal",
+        "site": "https://www.ufms.br/",
+        "state_id": 12,
+        "city_id": "5002704"
+    },
+    {
+        "id": "547",
+        "name": "Universidade Do Estado Do Rio De Janeiro",
+        "abbreviation": "UERJ",
+        "type": "Outro",
+        "site": "https://www.uerj.br/",
+        "state_id": 19,
+        "city_id": "3304557"
+    },
+    {
+        "id": "5015",
+        "name": "Instituto Superior De Tecnologia Em Horticultura",
+        "abbreviation": "ISTHORTICULTURA",
+        "type": "Outro",
+        "site": "https://emec.mec.gov.br/emec/consulta-cadastro/detalhes-ies/d96957f455f6405d14c6542552b0f6eb/NTAxNQ==",
+        "state_id": 19,
+        "city_id": "3301009"
+    },
+    {
+        "id": "25282",
+        "name": "Universidade Federal De Jataí",
+        "abbreviation": "UFJ",
+        "type": "Federal",
+        "site": "https://portalufj.jatai.ufg.br/",
+        "state_id": 9,
+        "city_id": "5211909"
+    },
+    {
+        "id": "967",
+        "name": "Faculdade De Tecnologia De Taquaritinga",
+        "abbreviation": "FATEC/TQ",
+        "type": "Outro",
+        "site": "https://fatectq.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3553708"
+    },
+    {
+        "id": "591",
+        "name": "Universidade Federal De São Paulo",
+        "abbreviation": "UNIFESP",
+        "type": "Federal",
+        "site": "https://unifesp.br/",
+        "state_id": 25,
+        "city_id": "3550308"
+    },
+    {
+        "id": "3974",
+        "name": "Universidade De Rio Verde",
+        "abbreviation": "FESURV",
+        "type": "Outro",
+        "site": "https://www.unirv.edu.br/",
+        "state_id": 9,
+        "city_id": "5218805"
+    },
+    {
+        "id": "24843",
+        "name": "Instituto De Assistência Médica Ao Servidor Público Estadual",
+        "abbreviation": "IAMSPE",
+        "type": "Estadual",
+        "site": "https://www.iamspe.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3550308"
+    },
+    {
+        "id": "750",
+        "name": "Universidade De Gurupi",
+        "abbreviation": "UnirG",
+        "type": "Outro",
+        "site": "https://www.unirg.edu.br/",
+        "state_id": 27,
+        "city_id": "1709500"
+    },
+    {
+        "id": "19501",
+        "name": "Faculdade De Tecnologia Sebrae",
+        "abbreviation": "FATEC SEBRAE",
+        "type": "Outro",
+        "site": "https://fatecsebrae.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3550308"
+    },
+    {
+        "id": "7",
+        "name": "Universidade Federal De São Carlos",
+        "abbreviation": "UFSCAR",
+        "type": "Federal",
+        "site": "https://www.ufscar.br/",
+        "state_id": 25,
+        "city_id": "3548906"
+    },
+    {
+        "id": "5",
+        "name": "Universidade Federal Do Piauí",
+        "abbreviation": "UFPI",
+        "type": "Federal",
+        "site": "https://www.ufpi.br/",
+        "state_id": 18,
+        "city_id": "2211001"
+    },
+    {
+        "id": "15522",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia Do Amapá",
+        "abbreviation": "IFAP",
+        "type": "Federal",
+        "site": "https://ifap.edu.br/",
+        "state_id": 3,
+        "city_id": "1600303"
+    },
+    {
+        "id": "47",
+        "name": "Universidade Estadual De Goiás",
+        "abbreviation": "UEG",
+        "type": "Estadual",
+        "site": "https://www.ueg.br/",
+        "state_id": 9,
+        "city_id": "5201108"
+    },
+    {
+        "id": "543",
+        "name": "Faculdade De Ciências Da Fundação Instituto Tecnológico De Osasco",
+        "abbreviation": "FAC-FITO",
+        "type": "Outro",
+        "site": "https://fito.edu.br/",
+        "state_id": 25,
+        "city_id": "3534401"
+    },
+    {
+        "id": "4785",
+        "name": "Instituto Federal De Educação Ciência E Tecnologia De Rondônia",
+        "abbreviation": "IFRO",
+        "type": "Federal",
+        "site": "https://www.ifro.edu.br/",
+        "state_id": 22,
+        "city_id": "1100205"
+    },
+    {
+        "id": "717",
+        "name": "Fundação Universidade Federal De Ciências Da Saúde De Porto Alegre",
+        "abbreviation": "UFCSPA",
+        "type": "Federal",
+        "site": "https://ufcspa.edu.br/",
+        "state_id": 21,
+        "city_id": "4314902"
+    },
+    {
+        "id": "367",
+        "name": "Universidade Estadual De Montes Claros",
+        "abbreviation": "UNIMONTES",
+        "type": "Estadual",
+        "site": "https://unimontes.br/",
+        "state_id": 13,
+        "city_id": "3143302"
+    },
+    {
+        "id": "2564",
+        "name": "Universidade Federal De Campina Grande",
+        "abbreviation": "UFCG",
+        "type": "Federal",
+        "site": "https://portal.ufcg.edu.br/",
+        "state_id": 15,
+        "city_id": "2504009"
+    },
+    {
+        "id": "594",
+        "name": "Centro Federal De Educação Tecnológica De Minas Gerais",
+        "abbreviation": "CEFET/MG",
+        "type": "Federal",
+        "site": "https://www.cefetmg.br/",
+        "state_id": 13,
+        "city_id": "3106200"
+    },
+    {
+        "id": "26",
+        "name": "Escola Nacional De Ciências Estatísticas",
+        "abbreviation": "ENCE",
+        "type": "Outro",
+        "site": "https://ence.ibge.gov.br/",
+        "state_id": 19,
+        "city_id": "3304557"
+    },
+    {
+        "id": "15520",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia De Mato Grosso Do Sul",
+        "abbreviation": "IFMS",
+        "type": "Federal",
+        "site": "https://www.ifms.edu.br/",
+        "state_id": 12,
+        "city_id": "5002704"
+    },
+    {
+        "id": "21414",
+        "name": "Centro De Estudos De Pessoal E Forte Duque De Caxias",
+        "abbreviation": "CEP",
+        "type": "Outro",
+        "site": "https://www.cep.eb.mil.br/",
+        "state_id": 19,
+        "city_id": "3304557"
+    },
+    {
+        "id": "702",
+        "name": "Faculdade  De Ciências E Tecnologia Professor Dirson Maciel De Barros",
+        "abbreviation": "FADIMAB",
+        "type": "Outro",
+        "site": "https://emec.mec.gov.br/emec/consulta-cadastro/detalhes-ies/d96957f455f6405d14c6542552b0f6eb/NzAy",
+        "state_id": 17,
+        "city_id": "2606200"
+    },
+    {
+        "id": "571",
+        "name": "Universidade Federal Do Paraná",
+        "abbreviation": "UFPR",
+        "type": "Federal",
+        "site": "https://ufpr.br/",
+        "state_id": 16,
+        "city_id": "4106902"
+    },
+    {
+        "id": "5018",
+        "name": "Instituto Superior De Educação Professor Aldo Muylaert",
+        "abbreviation": "ISEPAM",
+        "type": "Outro",
+        "site": "https://www.isepam.edu.br/",
+        "state_id": 19,
+        "city_id": "3301009"
+    },
+    {
+        "id": "21441",
+        "name": "Escola De Equitação Do Exército",
+        "abbreviation": "EsEqEx",
+        "type": "Outro",
+        "site": "https://bdex.eb.mil.br/jspui/handle/123456789/4166",
+        "state_id": 19,
+        "city_id": "3304557"
+    },
+    {
+        "id": "15689",
+        "name": "Faculdade De Tecnologia De Bauru",
+        "abbreviation": "FATEC",
+        "type": "Outro",
+        "site": "https://fatecbauru.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3506003"
+    },
+    {
+        "id": "3172",
+        "name": "Universidade Do Estado Do Amazonas",
+        "abbreviation": "UEA",
+        "type": "Outro",
+        "site": null,
+        "state_id": 4,
+        "city_id": "1302603"
+    },
+    {
+        "id": "3360",
+        "name": "Instituto De Educação Superior Presidente Kennedy - Centro De Formação De Profissionais De Educação",
+        "abbreviation": "IFESP",
+        "type": "Outro",
+        "site": "https://ifesp.edu.br/ead/",
+        "state_id": 20,
+        "city_id": "2408102"
+    },
+    {
+        "id": "5017",
+        "name": "Faculdade De Educação Tecnológica Do Estado Do Rio De Janeiro - Faeterj",
+        "abbreviation": "FAETERJ S ANT. PÁDUA",
+        "type": "Outro",
+        "site": "https://www.faeterj-rio.edu.br/",
+        "state_id": 19,
+        "city_id": "3303906"
+    },
+    {
+        "id": "4503",
+        "name": "Universidade Federal Do Recôncavo Da Bahia",
+        "abbreviation": "UFRB",
+        "type": "Federal",
+        "site": "https://www.ufrb.edu.br/",
+        "state_id": 5,
+        "city_id": "2909802"
+    },
+    {
+        "id": "72",
+        "name": "Faculdade De Formação De Professores Da Mata Sul",
+        "abbreviation": "FAMASUL",
+        "type": "Outro",
+        "site": "https://aemasul.edu.br/",
+        "state_id": 17,
+        "city_id": "2610004"
+    },
+    {
+        "id": "19588",
+        "name": "Faculdade De Educação Tecnológica Do Estado Do Rio De Janeiro",
+        "abbreviation": "FAETERJ PARACAMBI",
+        "type": "Outro",
+        "site": "https://www.faeterj-rio.edu.br/",
+        "state_id": 19,
+        "city_id": "3301702"
+    },
+    {
+        "id": "2",
+        "name": "Universidade De Brasília",
+        "abbreviation": "UNB",
+        "type": "Outro",
+        "site": "https://www.unb.br/",
+        "state_id": 7,
+        "city_id": "5300108"
+    },
+    {
+        "id": "22020",
+        "name": "Escola Municipal De Gestão Do Legislativo",
+        "abbreviation": "EMUGLE",
+        "type": "Municipal",
+        "site": "https://www.al.ce.gov.br/publicacoes-inesp/downloads/pelo-id/100",
+        "state_id": 19,
+        "city_id": "3301009"
+    },
+    {
+        "id": "17969",
+        "name": "Academia Judicial Do Tribunal De Justiça De Santa Catarina",
+        "abbreviation": "AJ",
+        "type": "Outro",
+        "site": "https://www.tjsc.jus.br/web/academia-judicial",
+        "state_id": 24,
+        "city_id": "4205407"
+    },
+    {
+        "id": "756",
+        "name": "Universidade Estadual Do Piauí",
+        "abbreviation": "UESPI",
+        "type": "Estadual",
+        "site": "https://uespi.br/",
+        "state_id": 18,
+        "city_id": "2211001"
+    },
+    {
+        "id": "574",
+        "name": "Universidade Federal Rural Do Rio De Janeiro",
+        "abbreviation": "UFRRJ",
+        "type": "Federal",
+        "site": "https://portal.ufrrj.br/",
+        "state_id": 19,
+        "city_id": "3305554"
+    },
+    {
+        "id": "1807",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia Do Ceará",
+        "abbreviation": "IFCE",
+        "type": "Federal",
+        "site": "https://ifce.edu.br/",
+        "state_id": 6,
+        "city_id": "2304400"
+    },
+    {
+        "id": "18812",
+        "name": "Universidade Federal Do Sul Da Bahia",
+        "abbreviation": "UFSB",
+        "type": "Federal",
+        "site": "https://ufsb.edu.br/",
+        "state_id": 5,
+        "city_id": "2914802"
+    },
+    {
+        "id": "601",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia Do Rio Grande Do Sul",
+        "abbreviation": "IFRS",
+        "type": "Federal",
+        "site": "https://ifrs.edu.br/",
+        "state_id": 21,
+        "city_id": "4302105"
+    },
+    {
+        "id": "18049",
+        "name": "Faculdade De Tecnologia De Taubaté",
+        "abbreviation": "FATEC TAUBATÉ",
+        "type": "Outro",
+        "site": "https://fatectaubate.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3554102"
+    },
+    {
+        "id": "31",
+        "name": "Centro De Educação Técnica Da Utramig",
+        "abbreviation": "UTRAMIG",
+        "type": "Outro",
+        "site": "https://utramig.mg.gov.br/",
+        "state_id": 13,
+        "city_id": "3106200"
+    },
+    {
+        "id": "843",
+        "name": "Faculdade De Ciências E Tecnologia De Birigui",
+        "abbreviation": "FATEB",
+        "type": "Outro",
+        "site": "https://www.fateb.br/",
+        "state_id": 25,
+        "city_id": "3506508"
+    },
+    {
+        "id": "15696",
+        "name": "Faculdade De Tecnologia De Sertãozinho",
+        "abbreviation": "FATEC SERTÃOZINHO",
+        "type": "Outro",
+        "site": "https://fatecsertaozinho.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3551702"
+    },
+    {
+        "id": "4786",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia Do Tocantins",
+        "abbreviation": "IFTO",
+        "type": "Federal",
+        "site": "https://www.ifto.edu.br/",
+        "state_id": 27,
+        "city_id": "1721000"
+    },
+    {
+        "id": "1875",
+        "name": "Faculdade De Filosofia, Ciências E Letras De Ibitinga",
+        "abbreviation": "FAIBI",
+        "type": "Outro",
+        "site": "https://www.faibi.com.br/",
+        "state_id": 25,
+        "city_id": "3519600"
+    },
+    {
+        "id": "15697",
+        "name": "Faculdade De Tecnologia De Araçatuba",
+        "abbreviation": "FATEC Araçatuba",
+        "type": "Outro",
+        "site": "https://www.fatecaracatuba.edu.br/",
+        "state_id": 25,
+        "city_id": "3502804"
+    },
+    {
+        "id": "23705",
+        "name": "Faculdade De Tecnologia De Franco Da Rocha",
+        "abbreviation": "",
+        "type": "Outro",
+        "site": "https://fatecfrancodarocha.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3516408"
+    },
+    {
+        "id": "22319",
+        "name": "Faculdade De Tecnologia De Itatiba",
+        "abbreviation": "Fatec Itatiba",
+        "type": "Outro",
+        "site": "https://fatecdeitatiba.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3523404"
+    },
+    {
+        "id": "15745",
+        "name": "Faculdade De Tecnologia De São Caetano Do Sul",
+        "abbreviation": "FATEC SCS",
+        "type": "Outro",
+        "site": "https://fatecsaocaetano.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3548807"
+    },
+    {
+        "id": "19864",
+        "name": "Faculdade De Tecnologia De Itapira",
+        "abbreviation": "FATEC Itapira",
+        "type": "Outro",
+        "site": "https://fatecitapira.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3522604"
+    },
+    {
+        "id": "1012",
+        "name": "Faculdade Do Sertão Do Pajeú",
+        "abbreviation": "FASP",
+        "type": "Outro",
+        "site": null,
+        "state_id": 17,
+        "city_id": "2600104"
+    },
+    {
+        "id": "548",
+        "name": "Universidade Federal Do Maranhão",
+        "abbreviation": "UFMA",
+        "type": "Federal",
+        "site": "https://portalpadrao.ufma.br/",
+        "state_id": 10,
+        "city_id": "2111300"
+    },
+    {
+        "id": "3189",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia De Minas Gerais",
+        "abbreviation": "IFMG",
+        "type": "Federal",
+        "site": "https://www.ifmg.edu.br/portal",
+        "state_id": 13,
+        "city_id": "3106200"
+    },
+    {
+        "id": "5013",
+        "name": "Centro Universitário Estadual Da Zona Oeste",
+        "abbreviation": "UEZO",
+        "type": "Estadual",
+        "site": null,
+        "state_id": 19,
+        "city_id": "3304557"
+    },
+    {
+        "id": "15752",
+        "name": "Faculdade De Tecnologia De Guarulhos",
+        "abbreviation": "FATEC GR",
+        "type": "Outro",
+        "site": "https://www.fatecguarulhos.edu.br/",
+        "state_id": 25,
+        "city_id": "3518800"
+    },
+    {
+        "id": "24672",
+        "name": "Faculdade De Tecnologia De Matão",
+        "abbreviation": "",
+        "type": "Outro",
+        "site": "https://fatecmatao.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3529302"
+    },
+    {
+        "id": "18440",
+        "name": "Universidade Federal Do Sul E Sudeste Do Pará",
+        "abbreviation": "UNIFESSPA",
+        "type": "Federal",
+        "site": "https://www.unifesspa.edu.br/",
+        "state_id": 14,
+        "city_id": "1504208"
+    },
+    {
+        "id": "1166",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia  Da Paraíba",
+        "abbreviation": "IFPB",
+        "type": "Federal",
+        "site": "https://www.ifpb.edu.br/",
+        "state_id": 15,
+        "city_id": "2507507"
+    },
+    {
+        "id": "18759",
+        "name": "Universidade Federal Do Cariri",
+        "abbreviation": "UFCA",
+        "type": "Federal",
+        "site": "https://www.ufca.edu.br/",
+        "state_id": 6,
+        "city_id": "2307304"
+    },
+    {
+        "id": "15784",
+        "name": "Faculdade De Tecnologia Estudante Rafael Almeida Camarinha - Marilia",
+        "abbreviation": "Fatec Marilia",
+        "type": "Outro",
+        "site": "https://fatecmarilia.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3529005"
+    },
+    {
+        "id": "18492",
+        "name": "Universidade Estadual Do Paraná",
+        "abbreviation": "UNESPAR",
+        "type": "Estadual",
+        "site": "https://www.unespar.edu.br/",
+        "state_id": 16,
+        "city_id": "4118402"
+    },
+    {
+        "id": "1578",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia Sul-Rio-Grandense",
+        "abbreviation": "IFSul",
+        "type": "Federal",
+        "site": "https://ifrs.edu.br/",
+        "state_id": 21,
+        "city_id": "4314407"
+    },
+    {
+        "id": "21508",
+        "name": "Instituto Legislativo Brasileiro",
+        "abbreviation": "ILB",
+        "type": "Outro",
+        "site": "https://saberes.senado.leg.br/",
+        "state_id": 7,
+        "city_id": "5300108"
+    },
+    {
+        "id": "15497",
+        "name": "Universidade Da Integração Internacional Da Lusofonia Afro-Brasileira",
+        "abbreviation": "UNILAB",
+        "type": "Outro",
+        "site": "https://unilab.edu.br/",
+        "state_id": 6,
+        "city_id": "2311603"
+    },
+    {
+        "id": "17615",
+        "name": "Instituto Serzedello Corrêa",
+        "abbreviation": "ISC-TCU",
+        "type": "Outro",
+        "site": "https://portal.tcu.gov.br/instituto-serzedello-correa",
+        "state_id": 7,
+        "city_id": "5300108"
+    },
+    {
+        "id": "5016",
+        "name": "Faculdade De Educação Tecnológica Do Estado Do Rio De Janeiro Fernando Mota",
+        "abbreviation": "FAETERJ-Rio",
+        "type": "Outro",
+        "site": "https://www.faeterj-rio.edu.br/",
+        "state_id": 19,
+        "city_id": "3304557"
+    },
+    {
+        "id": "585",
+        "name": "Universidade Federal De Santa Catarina",
+        "abbreviation": "UFSC",
+        "type": "Federal",
+        "site": "https://ufsc.br/",
+        "state_id": 24,
+        "city_id": "4205407"
+    },
+    {
+        "id": "4098",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia Farroupilha",
+        "abbreviation": "IFFarroupilha",
+        "type": "Federal",
+        "site": "https://www.iffarroupilha.edu.br/",
+        "state_id": 21,
+        "city_id": "4316907"
+    },
+    {
+        "id": "4925",
+        "name": "Fundação Universidade Federal Do Abc",
+        "abbreviation": "UFABC",
+        "type": "Federal",
+        "site": "https://www.ufabc.edu.br/",
+        "state_id": 25,
+        "city_id": "3547809"
+    },
+    {
+        "id": "23291",
+        "name": "Escola De Educação Permanente",
+        "abbreviation": "EEP",
+        "type": "Outro",
+        "site": "https://www.esp.ce.gov.br/ensino/educacao-permanente-em-saude/",
+        "state_id": 25,
+        "city_id": "3550308"
+    },
+    {
+        "id": "4022",
+        "name": "Faculdade De Tecnologia De Jundiaí",
+        "abbreviation": "FATEC/JD",
+        "type": "Outro",
+        "site": "https://www.fatecjd.edu.br/",
+        "state_id": 25,
+        "city_id": "3525904"
+    },
+    {
+        "id": "3163",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia Do Rio De Janeiro",
+        "abbreviation": "IFRJ",
+        "type": "Federal",
+        "site": "https://www.ifrj.edu.br/",
+        "state_id": 19,
+        "city_id": "3304557"
+    },
+    {
+        "id": "23459",
+        "name": "Faculdade De Tecnologia De Adamantina",
+        "abbreviation": "",
+        "type": "Outro",
+        "site": "https://fatecadamantina.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3500105"
+    },
+    {
+        "id": "719",
+        "name": "Universidade Do Estado De Mato Grosso Carlos Alberto Reyes Maldonado - Unemat",
+        "abbreviation": "UNEMAT",
+        "type": "Outro",
+        "site": "https://unemat.br/",
+        "state_id": 11,
+        "city_id": "5102504"
+    },
+    {
+        "id": "79",
+        "name": "Instituto Municipal De Ensino Superior De Catanduva",
+        "abbreviation": "IMES CATANDUVA",
+        "type": "Municipal",
+        "site": "https://www.fafica.br/",
+        "state_id": 25,
+        "city_id": "3511102"
+    },
+    {
+        "id": "17612",
+        "name": "Diretoria De Formação E Desenvolvimento Profissional",
+        "abbreviation": "FUNDAJ",
+        "type": "Outro",
+        "site": "https://www.gov.br/fundaj/pt-br/assuntos/enderecos-fundaj/diretorias",
+        "state_id": 17,
+        "city_id": "2611606"
+    },
+    {
+        "id": "688",
+        "name": "Universidade Estadual Do Sudoeste Da Bahia",
+        "abbreviation": "UESB",
+        "type": "Estadual",
+        "site": "https://www.uesb.br/",
+        "state_id": 5,
+        "city_id": "2933307"
+    },
+    {
+        "id": "649",
+        "name": "Centro Universitário De União Da Vitória",
+        "abbreviation": "UNIUV",
+        "type": "Outro",
+        "site": "https://uniuv.edu.br/",
+        "state_id": 16,
+        "city_id": "4128203"
+    },
+    {
+        "id": "3984",
+        "name": "Fundação Universidade Federal Do Vale Do São Francisco",
+        "abbreviation": "UNIVASF",
+        "type": "Federal",
+        "site": "https://portais.univasf.edu.br/",
+        "state_id": 17,
+        "city_id": "2611101"
+    },
+    {
+        "id": "4025",
+        "name": "Faculdade De Tecnologia De São José Do Rio Preto",
+        "abbreviation": "FATECRP",
+        "type": "Outro",
+        "site": "https://www.cps.sp.gov.br/fatecs/fatec-sao-jose-do-rio-preto/",
+        "state_id": 25,
+        "city_id": "3549805"
+    },
+    {
+        "id": "15015",
+        "name": "Universidade Estadual Do Norte Do Paraná",
+        "abbreviation": "UENP",
+        "type": "Estadual",
+        "site": "https://uenp.edu.br/",
+        "state_id": 16,
+        "city_id": "4111803"
+    },
+    {
+        "id": "3849",
+        "name": "Fundação Universidade Federal Do Tocantins",
+        "abbreviation": "UFT",
+        "type": "Federal",
+        "site": null,
+        "state_id": 27,
+        "city_id": "1721000"
+    },
+    {
+        "id": "15746",
+        "name": "Faculdade De Tecnologia Do Ipiranga",
+        "abbreviation": "FATECIPI",
+        "type": "Outro",
+        "site": "https://fatecipiranga.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3550308"
+    },
+    {
+        "id": "431",
+        "name": "Faculdade De Medicina De Marília",
+        "abbreviation": "FAMEMA",
+        "type": "Outro",
+        "site": "https://www.famema.br/",
+        "state_id": 25,
+        "city_id": "3529005"
+    },
+    {
+        "id": "35",
+        "name": "Faculdade De Tecnologia De Americana",
+        "abbreviation": "FATEC-AM",
+        "type": "Outro",
+        "site": "https://www.fatec.edu.br/",
+        "state_id": 25,
+        "city_id": "3501608"
+    },
+    {
+        "id": "24462",
+        "name": "Centro De Educação Tecnológico Da Fundação Indaiatubana De Educação E Cultura",
+        "abbreviation": "FIEC",
+        "type": "Outro",
+        "site": "https://www.fiec.com.br/",
+        "state_id": 25,
+        "city_id": "3520509"
+    },
+    {
+        "id": "15682",
+        "name": "Faculdade De Tecnologia De Piracicaba",
+        "abbreviation": "Fatec Piracicaba",
+        "type": "Outro",
+        "site": "https://www.fateppiracicaba.edu.br/",
+        "state_id": 25,
+        "city_id": "3538709"
+    },
+    {
+        "id": "3184",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia De Roraima",
+        "abbreviation": "IFRR",
+        "type": "Federal",
+        "site": "https://www.ifrr.edu.br/",
+        "state_id": 23,
+        "city_id": "1400100"
+    },
+    {
+        "id": "573",
+        "name": "Universidade Federal Do Espírito Santo",
+        "abbreviation": "UFES",
+        "type": "Federal",
+        "site": "https://www.ufes.br/",
+        "state_id": 8,
+        "city_id": "3205309"
+    },
+    {
+        "id": "882",
+        "name": "Instituto Municipal De Ensino Superior De Bebedouro Victório Cardassi",
+        "abbreviation": "IMESB",
+        "type": "Municipal",
+        "site": "https://imesb.br/",
+        "state_id": 25,
+        "city_id": "3506102"
+    },
+    {
+        "id": "8",
+        "name": "Universidade Federal De Viçosa",
+        "abbreviation": "UFV",
+        "type": "Federal",
+        "site": "https://www.ufv.br/",
+        "state_id": 13,
+        "city_id": "3171303"
+    },
+    {
+        "id": "21713",
+        "name": "Faculdade De Tecnologia - Fatec De Ribeirão Preto",
+        "abbreviation": "",
+        "type": "Outro",
+        "site": "https://www.cps.sp.gov.br/fatecs/fatec-ribeirao-preto/",
+        "state_id": 25,
+        "city_id": "3543402"
+    },
+    {
+        "id": "5204",
+        "name": "Instituto Superior De Educação Antonino Freire - Iseaf",
+        "abbreviation": "ISEAF",
+        "type": "Outro",
+        "site": "https://uespi.br/cfaf/",
+        "state_id": 18,
+        "city_id": "2211001"
+    },
+    {
+        "id": "1812",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia  Do Amazonas",
+        "abbreviation": "IFAM",
+        "type": "Federal",
+        "site": "https://www2.ifam.edu.br/",
+        "state_id": 4,
+        "city_id": "1302603"
+    },
+    {
+        "id": "15704",
+        "name": "Faculdade De Tecnologia De Capão Bonito",
+        "abbreviation": "FATEC-CB",
+        "type": "Outro",
+        "site": "https://www.cps.sp.gov.br/fatecs/fatec-capao-bonito/",
+        "state_id": 25,
+        "city_id": "3510203"
+    },
+    {
+        "id": "577",
+        "name": "Universidade Federal De Alagoas",
+        "abbreviation": "UFAL",
+        "type": "Federal",
+        "site": "https://ufal.br/",
+        "state_id": 2,
+        "city_id": "2704302"
+    },
+    {
+        "id": "149",
+        "name": "Faculdade De Medicina De São José Do Rio Preto",
+        "abbreviation": "FAMERP",
+        "type": "Outro",
+        "site": "https://www.famerp.br/",
+        "state_id": 25,
+        "city_id": "3549805"
+    },
+    {
+        "id": "693",
+        "name": "Universidade Federal Do Estado Do Rio De Janeiro",
+        "abbreviation": "UNIRIO",
+        "type": "Federal",
+        "site": "https://www.unirio.br/",
+        "state_id": 19,
+        "city_id": "3304557"
+    },
+    {
+        "id": "5019",
+        "name": "Instituto Superior De Educação Da Zona Oeste",
+        "abbreviation": "ISE ZONA OESTE",
+        "type": "Outro",
+        "site": "https://emec.mec.gov.br/emec/consulta-ies/listar-ies-mantenedora/e0cc65490d34b709df7de02f3cac4001/MTQ5ODM=",
+        "state_id": 19,
+        "city_id": "3304557"
+    },
+    {
+        "id": "530",
+        "name": "Faculdade De Música Do Espírito Santo Maurício De Oliveira",
+        "abbreviation": "FAMES",
+        "type": "Outro",
+        "site": "https://fames.es.gov.br/",
+        "state_id": 8,
+        "city_id": "3205309"
+    },
+    {
+        "id": "19215",
+        "name": "Escola De Contas E Capacitação Professor Pedro Aleixo",
+        "abbreviation": "",
+        "type": "Outro",
+        "site": "https://www.tce.mg.gov.br/Noticia/Detalhe/54",
+        "state_id": 13,
+        "city_id": "3106200"
+    },
+    {
+        "id": "16410",
+        "name": "Faculdade De Tecnologia De Catanduva",
+        "abbreviation": "FATEC Catanduva",
+        "type": "Outro",
+        "site": "https://fateccatanduva.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3511102"
+    },
+    {
+        "id": "535",
+        "name": "Fundação Faculdade De Filosofia, Ciências E Letras De Mandaguari",
+        "abbreviation": "FAFIMAN",
+        "type": "Outro",
+        "site": "https://fafiman.br/",
+        "state_id": 16,
+        "city_id": "4114203"
+    },
+    {
+        "id": "73",
+        "name": "Centro De Ensino Superior De Arcoverde",
+        "abbreviation": "CESA",
+        "type": "Outro",
+        "site": "https://www.aesa-cesa.br/",
+        "state_id": 17,
+        "city_id": "2601201"
+    },
+    {
+        "id": "692",
+        "name": "Faculdade De Petrolina",
+        "abbreviation": "FACAPE",
+        "type": "Outro",
+        "site": "https://faculdadesoberana.com.br/",
+        "state_id": 17,
+        "city_id": "2611101"
+    },
+    {
+        "id": "15639",
+        "name": "Faculdade De Tecnologia De Itaquaquecetuba",
+        "abbreviation": "Fatec Itaqua",
+        "type": "Outro",
+        "site": "https://fatecitaqua.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3523107"
+    },
+    {
+        "id": "17977",
+        "name": "Faculdade De Tecnologia De Itaquera",
+        "abbreviation": "FATEC ITAQUERA",
+        "type": "Outro",
+        "site": "https://fatecitaquera.edu.br/",
+        "state_id": 25,
+        "city_id": "3550308"
+    },
+    {
+        "id": "3183",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia De Sergipe",
+        "abbreviation": "IFS",
+        "type": "Federal",
+        "site": "https://www.ifs.edu.br/",
+        "state_id": 26,
+        "city_id": "2800308"
+    },
+    {
+        "id": "3161",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia Do Sertão Pernambucano",
+        "abbreviation": "IF Sertão",
+        "type": "Federal",
+        "site": "https://ifsertaope.edu.br/",
+        "state_id": 17,
+        "city_id": "2611101"
+    },
+    {
+        "id": "588",
+        "name": "Universidade Tecnológica Federal Do Paraná",
+        "abbreviation": "UTFPR",
+        "type": "Federal",
+        "site": "https://www.utfpr.edu.br/",
+        "state_id": 16,
+        "city_id": "4106902"
+    },
+    {
+        "id": "590",
+        "name": "Universidade Federal Rural Da Amazônia",
+        "abbreviation": "UFRA",
+        "type": "Federal",
+        "site": null,
+        "state_id": 14,
+        "city_id": "1501402"
+    },
+    {
+        "id": "744",
+        "name": "Faculdade De Anicuns",
+        "abbreviation": "FA",
+        "type": "Outro",
+        "site": "https://faculdadeanicuns.edu.br/",
+        "state_id": 9,
+        "city_id": "5201306"
+    },
+    {
+        "id": "19500",
+        "name": "Faculdade De Tecnologia De São Carlos",
+        "abbreviation": "FATEC São Carlo",
+        "type": "Outro",
+        "site": "https://fatecsaocarlos.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3548906"
+    },
+    {
+        "id": "17616",
+        "name": "Escola De Inteligência - Esint/Abin",
+        "abbreviation": "ESINT/ABIN",
+        "type": "Outro",
+        "site": "https://www.gov.br/abin/pt-br/assuntos/escola-de-inteligencia",
+        "state_id": 7,
+        "city_id": "5300108"
+    },
+    {
+        "id": "633",
+        "name": "Instituto Militar De Engenharia",
+        "abbreviation": "IME",
+        "type": "Outro",
+        "site": "https://www.ime.eb.mil.br/",
+        "state_id": 19,
+        "city_id": "3304557"
+    },
+    {
+        "id": "1809",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia De Pernambuco",
+        "abbreviation": "IFPE",
+        "type": "Federal",
+        "site": "https://portal.ifpe.edu.br/",
+        "state_id": 17,
+        "city_id": "2611606"
+    },
+    {
+        "id": "1303",
+        "name": "Instituto Federal De Educação, Ciência E Tecnologia Goiano",
+        "abbreviation": "IF Goiano",
+        "type": "Federal",
+        "site": "https://www.ifgoiano.edu.br/",
+        "state_id": 9,
+        "city_id": "5208707"
+    },
+    {
+        "id": "15695",
+        "name": "Faculdade De Tecnologia Dom Amaury Castanho",
+        "abbreviation": "Fatec Itu",
+        "type": "Outro",
+        "site": "https://fatecitu.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3523909"
+    },
+    {
+        "id": "4504",
+        "name": "Fundação Universidade Federal Da Grande Dourados",
+        "abbreviation": "UFGD",
+        "type": "Federal",
+        "site": "https://portal.ufgd.edu.br/",
+        "state_id": 12,
+        "city_id": "5003702"
+    },
+    {
+        "id": "881",
+        "name": "Instituto Municipal De Ensino Superior De Assis",
+        "abbreviation": "IMESA",
+        "type": "Municipal",
+        "site": "https://www.fema.edu.br/a-instituicao-imesa/",
+        "state_id": 25,
+        "city_id": "3504008"
+    },
+    {
+        "id": "15705",
+        "name": "Escola De Administração Fazendária",
+        "abbreviation": "ESAF",
+        "type": "Outro",
+        "site": "https://www.gov.br/transportes/pt-br/acesso-a-informacao/cursosecapacitacao/cursos-ead-da-esaf-agora-voce-se-inscreve-a-qualquer-tempo-2",
+        "state_id": 7,
+        "city_id": "5300108"
+    },
+    {
+        "id": "4356",
+        "name": "Faculdade De Ciências Sociais Dos Palmares",
+        "abbreviation": "FACIP",
+        "type": "Outro",
+        "site": "https://faculdadedospalmares.com.br/",
+        "state_id": 17,
+        "city_id": "2610004"
+    },
+    {
+        "id": "1357",
+        "name": "Instituto Superior De Educação Do Rio De Janeiro",
+        "abbreviation": "ISERJ",
+        "type": "Outro",
+        "site": null,
+        "state_id": 19,
+        "city_id": "3304557"
+    },
+    {
+        "id": "1874",
+        "name": "Faculdade De Tecnologia De Ourinhos",
+        "abbreviation": "FATEC",
+        "type": "Outro",
+        "site": "https://www.fatecourinhos.edu.br/",
+        "state_id": 25,
+        "city_id": "3534708"
+    },
+    {
+        "id": "745",
+        "name": "Instituto Municipal De Ensino Superior De São Manuel",
+        "abbreviation": "IMESSM",
+        "type": "Municipal",
+        "site": "https://www.imessm.edu.br/",
+        "state_id": 25,
+        "city_id": "3550100"
+    },
+    {
+        "id": "4021",
+        "name": "Faculdade De Tecnologia De Garça",
+        "abbreviation": "FATECGA",
+        "type": "Outro",
+        "site": "https://fatecgarca.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3516705"
+    },
+    {
+        "id": "21440",
+        "name": "Escola De Comunicações",
+        "abbreviation": "EsCom",
+        "type": "Outro",
+        "site": "https://www.escom.eb.mil.br/",
+        "state_id": 7,
+        "city_id": "5300108"
+    },
+    {
+        "id": "15121",
+        "name": "Universidade Federal Da Fronteira Sul",
+        "abbreviation": "UFFS",
+        "type": "Federal",
+        "site": "https://www.uffs.edu.br/",
+        "state_id": 24,
+        "city_id": "4204202"
+    },
+    {
+        "id": "15410",
+        "name": "Faculdade De Ciencias Humanas E Sociais De Serra Talhada",
+        "abbreviation": "FACHUSST",
+        "type": "Outro",
+        "site": "https://aeset.edu.br/",
+        "state_id": 17,
+        "city_id": "2613909"
+    },
+    {
+        "id": "55",
+        "name": "Universidade De São Paulo",
+        "abbreviation": "USP",
+        "type": "Outro",
+        "site": "https://www5.usp.br/",
+        "state_id": 25,
+        "city_id": "3550308"
+    },
+    {
+        "id": "703",
+        "name": "Faculdade De Formação De Professores De Araripina",
+        "abbreviation": "FAFOPA",
+        "type": "Outro",
+        "site": "https://aeda.edu.br/faculdade-de-formacao-de-professores-de-araripina/",
+        "state_id": 17,
+        "city_id": "2601102"
+    },
+    {
+        "id": "602",
+        "name": "Instituto Tecnológico De Aeronáutica",
+        "abbreviation": "ITA",
+        "type": "Outro",
+        "site": null,
+        "state_id": 25,
+        "city_id": "3549904"
+    },
+    {
+        "id": "16037",
+        "name": "Instituto Superior De Ciencias Policiais",
+        "abbreviation": "ISCP",
+        "type": "Outro",
+        "site": "https://portal.pm.df.gov.br/carta-de-servicos-para-policiais-instituto-superior-de-ciencias-exatas/",
+        "state_id": 7,
+        "city_id": "5300108"
+    },
+    {
+        "id": "730",
+        "name": "Universidade Estadual De Ponta Grossa",
+        "abbreviation": "UEPG",
+        "type": "Estadual",
+        "site": "https://www.uepg.br/",
+        "state_id": 16,
+        "city_id": "4119905"
+    },
+    {
+        "id": "596",
+        "name": "Universidade Federal Dos Vales Do Jequitinhonha E Mucuri",
+        "abbreviation": "UFVJM",
+        "type": "Federal",
+        "site": "https://portal.ufvjm.edu.br/",
+        "state_id": 13,
+        "city_id": "3121605"
+    },
+    {
+        "id": "746",
+        "name": "Universidade Regional Do Cariri",
+        "abbreviation": "URCA",
+        "type": "Outro",
+        "site": "https://www.urca.br/",
+        "state_id": 6,
+        "city_id": "2304202"
+    },
+    {
+        "id": "15688",
+        "name": "Faculdade De Teconologia Da Zona Sul",
+        "abbreviation": "FATEC ZONASUL",
+        "type": "Outro",
+        "site": "https://fateczonasul.edu.br/",
+        "state_id": 25,
+        "city_id": "3550308"
+    },
+    {
+        "id": "15576",
+        "name": "Faculdade De Tecnologia De Mogi Das Cruzes",
+        "abbreviation": "FATEC-MC",
+        "type": "Outro",
+        "site": "https://www.fatecmogidascruzes.com.br/",
+        "state_id": 25,
+        "city_id": "3530607"
+    },
+    {
+        "id": "5054",
+        "name": "Instituto Superior De Educação Do Sertão Do Pajeú",
+        "abbreviation": "ISESP",
+        "type": "Outro",
+        "site": null,
+        "state_id": 17,
+        "city_id": "2600104"
+    },
+    {
+        "id": "1870",
+        "name": "Faculdades Integradas Regionais De Avaré",
+        "abbreviation": "FIRA",
+        "type": "Outro",
+        "site": "https://www.fira.edu.br/site/",
+        "state_id": 25,
+        "city_id": "3504503"
+    },
+    {
+        "id": "5706",
+        "name": "Faculdade Municipal De Palhoça",
+        "abbreviation": "FMP",
+        "type": "Municipal",
+        "site": "https://fmpsc.edu.br/",
+        "state_id": 24,
+        "city_id": "4211900"
+    },
+    {
+        "id": "21419",
+        "name": "Escola De Instrução Especializada",
+        "abbreviation": "EsIE",
+        "type": "Outro",
+        "site": "https://www.esie.eb.mil.br/subordinacao",
+        "state_id": 19,
+        "city_id": "3304557"
+    },
+    {
+        "id": "18817",
+        "name": "Faculdade De Tecnologia De São Roque",
+        "abbreviation": "FATEC-SR",
+        "type": "Outro",
+        "site": "https://fatecsaoroque.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3550605"
+    },
+    {
+        "id": "579",
+        "name": "Universidade Federal Da Paraíba",
+        "abbreviation": "UFPB",
+        "type": "Federal",
+        "site": "https://www.ufpb.br/",
+        "state_id": 15,
+        "city_id": "2507507"
+    },
+    {
+        "id": "23725",
+        "name": "Escola Superior De Gestão",
+        "abbreviation": "ESGe",
+        "type": "Outro",
+        "site": "https://universidade.df.gov.br/escola-superior-de-gestao",
+        "state_id": 7,
+        "city_id": "5300108"
+    },
+    {
+        "id": "1584",
+        "name": "Faculdade De Tecnologia De Guaratinguetá",
+        "abbreviation": "FATEC GT",
+        "type": "Outro",
+        "site": "https://www.cps.sp.gov.br/fatecs/fatec-guaratingueta-prof-joao-mod/",
+        "state_id": 25,
+        "city_id": "3518404"
+    },
+    {
+        "id": "23867",
+        "name": "Faculdade De Tecnologia De Sumaré",
+        "abbreviation": "Fatec de Sumaré",
+        "type": "Outro",
+        "site": "https://fatecsumare.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3552403"
+    },
+    {
+        "id": "4926",
+        "name": "Faculdade De Tecnologia De Praia Grande",
+        "abbreviation": "FATECPG",
+        "type": "Outro",
+        "site": "https://fatecpg.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3541000"
+    },
+    {
+        "id": "5051",
+        "name": "Faculdade De Educação Tecnológica Do Estado Do Rio De Janeiro - Faeterj",
+        "abbreviation": "FAETERJ S ANT. PÁDUA",
+        "type": "Outro",
+        "site": "https://www.faeterj-rio.edu.br/",
+        "state_id": 19,
+        "city_id": "3300605"
+    },
+    {
+        "id": "71",
+        "name": "Universidade Do Estado Do Rio Grande Do Norte",
+        "abbreviation": "UERN",
+        "type": "Outro",
+        "site": "https://portal.uern.br/",
+        "state_id": 20,
+        "city_id": "2408003"
+    },
+    {
+        "id": "36",
+        "name": "Faculdade De Tecnologia Rubens Lara",
+        "abbreviation": "FATEC-BS",
+        "type": "Outro",
+        "site": "https://fatecrl.edu.br/",
+        "state_id": 25,
+        "city_id": "3548500"
+    },
+    {
+        "id": "54",
+        "name": "Universidade Estadual De Campinas",
+        "abbreviation": "UNICAMP",
+        "type": "Estadual",
+        "site": "https://unicamp.br/",
+        "state_id": 25,
+        "city_id": "3509502"
+    },
+    {
+        "id": "5099",
+        "name": "Faculdade De Tecnologia De São Bernardo Do Campo",
+        "abbreviation": "FATEC-SB",
+        "type": "Outro",
+        "site": "https://fatecsbc.cps.sp.gov.br/",
+        "state_id": 25,
+        "city_id": "3548708"
+    },
+    {
+        "id": "829",
+        "name": "Universidade Estadual Do Tocantins",
+        "abbreviation": "UNITINS",
+        "type": "Estadual",
+        "site": "https://www.unitins.br/",
+        "state_id": 27,
+        "city_id": "1721000"
+    },
+    {
+        "id": "720",
+        "name": "Faculdade De Ciências Humanas E Sociais Aplicadas Do Cabo De Santo Agostinho",
+        "abbreviation": "FACHUCA",
+        "type": "Outro",
+        "site": "https://fachuca.com.br/",
+        "state_id": 17,
+        "city_id": "2602902"
+    },
+    {
+        "id": "701",
+        "name": "Faculdades Integradas De Garanhuns",
+        "abbreviation": "FACIGA",
+        "type": "Outro",
+        "site": "https://www.aesga.edu.br/",
+        "state_id": 17,
+        "city_id": "2606002"
+    },
+    {
+        "id": "686",
+        "name": "Faculdade De Ciências Aplicadas De Limoeiro",
+        "abbreviation": "null",
+        "type": "Outro",
+        "site": "https://facal.edu.br/",
+        "state_id": 17,
+        "city_id": "2608909"
+    },
+    {
+        "id": "5322",
+        "name": "Fundação Universidade Federal Do Pampa - Unipampa",
+        "abbreviation": "UNIPAMPA",
+        "type": "Federal",
+        "site": "https://unipampa.edu.br/portal/",
+        "state_id": 21,
+        "city_id": "4301602"
+    },
+    {
+        "id": "1583",
+        "name": "Faculdade De Tecnologia De Indaiatuba",
+        "abbreviation": "FATEC-ID",
+        "type": "Outro",
+        "site": "https://www.fatecid.com.br/",
+        "state_id": 25,
+        "city_id": "3520509"
+    },
+    {
+        "id": "4398",
+        "name": "Instituto Superior De Educação De Goiana",
+        "abbreviation": "I.S.E.G.",
+        "type": "Outro",
+        "site": "https://amesg.fadimab.pe.gov.br/",
+        "state_id": 17,
+        "city_id": "2606200"
+    },
+    {
+        "id": "578",
+        "name": "Universidade Federal Da Bahia",
+        "abbreviation": "UFBA",
+        "type": "Federal",
+        "site": "https://portal.ufba.br/",
+        "state_id": 5,
+        "city_id": "2927408"
+    },
+    {
+        "id": "549",
+        "name": "Universidade Federal Do Acre",
+        "abbreviation": "UFAC",
+        "type": "Federal",
+        "site": "https://www.ufac.br/",
+        "state_id": 1,
+        "city_id": "1200401"
+    },
+    {
+        "id": "580",
+        "name": "Universidade Federal De Pernambuco",
+        "abbreviation": "UFPE",
+        "type": "Federal",
+        "site": "https://www.ufpe.br/",
+        "state_id": 17,
+        "city_id": "2611606"
+    },
+    {
+        "id": "12",
+        "name": "Universidade Federal Do Rio Grande",
+        "abbreviation": "FURG",
+        "type": "Federal",
+        "site": "https://www.furg.br/",
+        "state_id": 21,
+        "city_id": "4315602"
+    },
+    {
+        "id": "14408",
+        "name": "Instituto Federal De Educação, Ciencia E Tecnologia De Brasilia",
+        "abbreviation": "IFB",
+        "type": "Federal",
+        "site": "https://www.ifb.edu.br/",
+        "state_id": 7,
+        "city_id": "5300108"
+    },
+    {
+        "id": "16010",
+        "name": "Faculdade De Ensino Superior De Linhares",
+        "abbreviation": "FACELI",
+        "type": "Outro",
+        "site": "https://faceli.edu.br/",
+        "state_id": 8,
+        "city_id": "3203205"
+    }
+]

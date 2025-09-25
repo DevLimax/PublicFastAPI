@@ -22,8 +22,9 @@ class SchemaIesForState(BaseModel):
     site: str
 class StatesSchemaWithRelations(StatesSchemaBase):
     cities: List[SchemaCitiesForState]
-    ies: List[SchemaIesForState]
+    instituitions: List[SchemaIesForState]
 
 class StateFilters(BaseModel):
-    uf: Optional[str] = None    
+    uf: Optional[str] = None  
+    city: Optional[str] = None    
 

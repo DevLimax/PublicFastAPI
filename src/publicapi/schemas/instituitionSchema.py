@@ -1,13 +1,13 @@
 from pydantic import BaseModel, ConfigDict
 from typing import Optional, List
-from publicapi.models.iesModel import IesMOdel
+from publicapi.models.iesModel import IesModel
 
 class InstituitionSchemaBase(BaseModel):
 
     id: Optional[int] = None
     name: str
     abbreviation: str
-    type: IesMOdel.TypeChoices
+    type: IesModel.TypeChoices
     quantity_campus: int
     state_uf: str
     site: str
@@ -17,10 +17,12 @@ class InstituitionSchemaBase(BaseModel):
 
 class InstituitionSchemaCreate(BaseModel):
 
-    id: Optional[int] = None
+    id: int
     name: str
     abbreviation: str
-    type: IesMOdel.TypeChoices
-    quantity_campus: int
+    type: IesModel.TypeChoices
     state_id: int
+    city_id: int
     site: str
+    is_active: Optional[bool] = None
+    

@@ -50,7 +50,8 @@ async def get_id(id: int,
 ):
     
     citie = await search_item_in_db(id=id,
-                                    Model=CitiesModel
+                                    Model=CitiesModel,
+                                    db=db
     )
     
     if not citie:

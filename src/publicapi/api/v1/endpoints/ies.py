@@ -1,0 +1,69 @@
+from fastapi import APIRouter, Depends, HTTPException, status
+from typing import List
+
+from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.exc import IntegrityError
+
+from publicapi.core.deps import get_current_user, get_session
+from publicapi.models import IesModel, UserModel
+from publicapi.schemas.instituitionSchema import InstituitionSchemaBase, InstituitionSchemaCreate
+from publicapi.utils.querys_db import search_all_items_in_db, search_item_in_db
+
+router = APIRouter()
+
+@router.post("/", response_model=InstituitionSchemaBase, status_code=status.HTTP_201_CREATED)
+async def create(data: InstituitionSchemaCreate, 
+                 db: AsyncSession = Depends(get_session),
+                 user: UserModel = Depends(get_current_user)
+):
+    
+    async with db as session:
+        new_ies = IesModel(
+            id = data.id,
+            name = data.name,
+            abbreviation = data.abbreviation,
+            state_id = data.state_id,
+            city_id = data.city_id,
+            type = data.type,
+            site = data.site
+        )
+        
+        try:
+            new_ies.validate_data()
+            session.add(new_ies)
+            await session.commit()
+            await session.refresh(new_ies)
+            return new_ies
+        
+        except ValueError as e:
+            raise HTTPException(detail=str(e), status_code=status.HTTP_400_BAD_REQUEST)
+        
+        except IntegrityError:
+            raise HTTPException(detail=f"Já existe uma instancia com o id:{new_ies.id}", status_code=status.HTTP_409_CONFLICT)
+        
+        except Exception as e:
+            raise HTTPException(detail=str(e), status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+@router.get("/", response_model=List[InstituitionSchemaBase], status_code=status.HTTP_200_OK)
+async def get(db: AsyncSession = Depends(get_session)):
+    
+    ies = await search_all_items_in_db(db=db,
+                                       Model=IesModel
+    )
+    return ies
+
+
+@router.get("/{id}", response_model=InstituitionSchemaBase, status_code=status.HTTP_200_OK)
+async def get_id(id: int,
+                 db: AsyncSession = Depends(get_session)                 
+):      
+    
+    ies = await search_item_in_db(id=id,
+                                  Model=IesModel,   
+                                  db=db
+    )
+    
+    if not ies: 
+        raise HTTPException(detail="Nenhuma instancia encontrada", status_code=status.HTTP_404_NOT_FOUND)
+    return ies     
