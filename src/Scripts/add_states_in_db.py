@@ -3,7 +3,7 @@ import csv
 
 filepath = 'src/Scripts/CSVs/states.csv'
 url = "http://localhost:8000/api/v1/states/"
-token: str = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiZXhwIjoxNzU4ODEyNzUwLCJpYXQiOjE3NTg3MjYzNTAsInN1YiI6IjEifQ.XRTmlComRpR3FO0EnRkeF2WM_LjtA2FhGdoEXZGb_5Y"
+token: str = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiZXhwIjoxNzU4ODQ4NTU5LCJpYXQiOjE3NTg3NjIxNTksInN1YiI6IjIifQ.iZeTyptkjsfS3aF-Yh4XxHzk006AM7EkBuZrH4TiSDE"
         
 with open(filepath, mode='r', encoding='utf-8') as file:
     reader = csv.DictReader(file)

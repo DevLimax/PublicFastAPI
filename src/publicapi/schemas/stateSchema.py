@@ -12,8 +12,17 @@ class SchemaCitiesForState(BaseModel):
     name: str        
     
     model_config = ConfigDict(from_attributes=True)
+
+class SchemaIesForState(BaseModel):
+    id: Optional[int]
+    name: str
+    abbreviation: str
+    type: str
+    quantity_campus: str
+    site: str
 class StatesSchemaWithRelations(StatesSchemaBase):
     cities: List[SchemaCitiesForState]
+    ies: List[SchemaIesForState]
 
 class StateFilters(BaseModel):
     uf: Optional[str] = None    
