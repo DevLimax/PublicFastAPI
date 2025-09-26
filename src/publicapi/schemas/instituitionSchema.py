@@ -8,8 +8,9 @@ class InstituitionSchemaBase(BaseModel):
     name: str
     abbreviation: str
     type: IesModel.TypeChoices
-    quantity_campus: int
     state_uf: str
+    city_name: str
+    quantity_campus: int
     site: str
 
     model_config = ConfigDict(from_attributes=True)
@@ -23,6 +24,6 @@ class InstituitionSchemaCreate(BaseModel):
     type: IesModel.TypeChoices
     state_id: int
     city_id: int
-    site: str
+    site: Optional[str]
     is_active: Optional[bool] = None
     

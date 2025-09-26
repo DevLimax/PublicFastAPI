@@ -18,11 +18,18 @@ class SchemaIesForState(BaseModel):
     name: str
     abbreviation: str
     type: str
-    quantity_campus: str
+    city_name: str
+    quantity_campus: int
     site: str
+
+    model_config = ConfigDict(from_attributes=True)
+
+
 class StatesSchemaWithRelations(StatesSchemaBase):
     cities: List[SchemaCitiesForState]
     instituitions: List[SchemaIesForState]
+
+    model_config = dict(from_attributes=True)
 
 class StateFilters(BaseModel):
     uf: Optional[str] = None  

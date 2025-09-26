@@ -25,16 +25,16 @@ class IesModel(BaseModel):
     
     @property
     def state_uf(self):
-        return self.state.id
+        return self.state.uf
+    
+    @property
+    def city_name(self):
+        return self.city.name
     
     def validate_data(self):
         self.name = self.name.title()
         self.abbreviation = self.abbreviation.upper()
         
-        if not [".edu", ".br"] in self.site:
-            raise ValueError("URL inválida para o padrão educacional Brasileiro")
-        
         if self.type == None:
             self.type = IesModel.TypeChoices.OUTRO
-        
     

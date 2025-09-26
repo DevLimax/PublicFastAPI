@@ -38,8 +38,8 @@ async def create(data: InstituitionSchemaCreate,
         except ValueError as e:
             raise HTTPException(detail=str(e), status_code=status.HTTP_400_BAD_REQUEST)
         
-        except IntegrityError:
-            raise HTTPException(detail=f"Já existe uma instancia com o id:{new_ies.id}", status_code=status.HTTP_409_CONFLICT)
+        except IntegrityError as e:
+            raise HTTPException(detail=f"Já existe uma instancia: {str(e)}", status_code=status.HTTP_409_CONFLICT)
         
         except Exception as e:
             raise HTTPException(detail=str(e), status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
