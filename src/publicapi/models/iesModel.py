@@ -12,13 +12,14 @@ class IesModel(BaseModel):
         MUNICIPAL = "Municipal"
         OUTRO = "Outro"
 
+    id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column(nullable=False, unique=True)
-    abbreviation: Mapped[str] = mapped_column(nullable=False, unique=True)
+    abbreviation: Mapped[str] = mapped_column(nullable=True, unique=True)
     type: Mapped[TypeChoices] = mapped_column(EnumSQL(TypeChoices), default=TypeChoices.OUTRO, nullable=False)
     quantity_campus: Mapped[int] = mapped_column(nullable=False, default=0)
-    state_id: Mapped[int] = mapped_column(ForeignKey("estados.id"),nullable=False)
-    city_id: Mapped[int] = mapped_column(ForeignKey("municipios.id"),nullable=False)
-    site: Mapped[str] = mapped_column(nullable=False)
+    state_id: Mapped[int] = mapped_column(ForeignKey("estados.id"), nullable=False)
+    city_id: Mapped[int] = mapped_column(ForeignKey("municipios.id"), nullable=True)
+    site: Mapped[str] = mapped_column(nullable=True, default=None)
 
     state = relationship("StatesModel", back_populates="instituitions", lazy="joined")
     city = relationship("CitiesModel", back_populates="instituitions", lazy="joined")
@@ -33,8 +34,14 @@ class IesModel(BaseModel):
     
     def validate_data(self):
         self.name = self.name.title()
-        self.abbreviation = self.abbreviation.upper()
+        if self.abbreviation == "":
+            self.abbreviation = None
+        else:
+            self.abbreviation = self.abbreviation.upper()
         
+        if self.site == "":
+            self.site = None
+               
         if self.type == None:
             self.type = IesModel.TypeChoices.OUTRO
     

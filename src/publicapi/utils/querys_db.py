@@ -28,10 +28,14 @@ async def search_all_items_in_db(Model: Type[DeclarativeMeta],
 
     if filters:
         
-        if Model == StatesModel and filters.city:
+        if Model == StatesModel:
             query = query.join(Model.cities)
-            query = query.where(CitiesModel.name.ilike(f"%{filters.city}%"))
+            if filters.city_name:
+                query = query.where(CitiesModel.name.ilike(f"%{filters.city_name}%"))
+            if filters.city_code:
+                query = query.where(CitiesModel.id == filters.city_code)
             query = query.distinct()
+        
         
         for atrr, value in filters.dict(exclude_none=True).items():
             try: 

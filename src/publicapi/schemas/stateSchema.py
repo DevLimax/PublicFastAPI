@@ -33,5 +33,6 @@ class StatesSchemaWithRelations(StatesSchemaBase):
 
 class StateFilters(BaseModel):
     uf: Optional[str] = None  
-    city: Optional[str] = None    
+    city_name: Optional[str] = None    
+    city_code: Optional[int] = None
 

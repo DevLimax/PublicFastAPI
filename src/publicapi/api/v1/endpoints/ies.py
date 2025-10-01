@@ -4,10 +4,13 @@ from typing import List
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.exc import IntegrityError
 
+import asyncpg
+
 from publicapi.core.deps import get_current_user, get_session
 from publicapi.models import IesModel, UserModel
 from publicapi.schemas.instituitionSchema import InstituitionSchemaBase, InstituitionSchemaCreate
 from publicapi.utils.querys_db import search_all_items_in_db, search_item_in_db
+from publicapi.utils.exceptions import UniqueViolationError
 
 router = APIRouter()
 
@@ -39,7 +42,20 @@ async def create(data: InstituitionSchemaCreate,
             raise HTTPException(detail=str(e), status_code=status.HTTP_400_BAD_REQUEST)
         
         except IntegrityError as e:
-            raise HTTPException(detail=f"Já existe uma instancia: {str(e)}", status_code=status.HTTP_409_CONFLICT)
+            await session.rollback()
+            if isinstance(e.orig, asyncpg.exceptions.UniqueViolationError):
+                # Mensagem completa do Postgres
+                msg = str(e.orig).lower()
+
+                # Campo específico (vem no 'detail')
+                detail = getattr(e.orig, "detail", "")
+                
+                # Exemplo: 'Key (abbreviation)=(UFC) already exists.'
+                if "already exists" in detail or "já existe" in detail:
+                    raise UniqueViolationError(
+                        field=detail.split("(")[1].split(")")[0],
+                        value=detail.split("=")[1].strip("() ")
+                    )
         
         except Exception as e:
             raise HTTPException(detail=str(e), status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)

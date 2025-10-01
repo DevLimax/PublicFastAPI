@@ -9,7 +9,7 @@ class InstituitionSchemaBase(BaseModel):
     abbreviation: str
     type: IesModel.TypeChoices
     state_uf: str
-    city_name: str
+    city_name: Optional[str]
     quantity_campus: int
     site: str
 
@@ -23,7 +23,7 @@ class InstituitionSchemaCreate(BaseModel):
     abbreviation: str
     type: IesModel.TypeChoices
     state_id: int
-    city_id: int
+    city_id: Optional[int]
     site: Optional[str]
     is_active: Optional[bool] = None
     
