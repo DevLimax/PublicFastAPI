@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi.exceptions import ResponseValidationError
 from typing import List
 
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -8,9 +9,9 @@ import asyncpg
 
 from publicapi.core.deps import get_current_user, get_session
 from publicapi.models import IesModel, UserModel
-from publicapi.schemas.instituitionSchema import InstituitionSchemaBase, InstituitionSchemaCreate
+from publicapi.schemas.instituitionSchema import InstituitionSchemaBase, InstituitionSchemaCreate, IesFilters
 from publicapi.utils.querys_db import search_all_items_in_db, search_item_in_db
-from publicapi.utils.exceptions import UniqueViolationError
+from publicapi.utils.exceptions import UniqueViolationException
 
 router = APIRouter()
 
@@ -24,11 +25,11 @@ async def create(data: InstituitionSchemaCreate,
         new_ies = IesModel(
             id = data.id,
             name = data.name,
-            abbreviation = data.abbreviation,
+            abbreviation = data.abbreviation if data.abbreviation != "" else None,
             state_id = data.state_id,
             city_id = data.city_id,
             type = data.type,
-            site = data.site
+            site = data.site if data.site != "" else None
         )
         
         try:
@@ -38,34 +39,31 @@ async def create(data: InstituitionSchemaCreate,
             await session.refresh(new_ies)
             return new_ies
         
+        except ResponseValidationError as e:
+            await session.rollback()
+            raise HTTPException(detail=str(e), status_code=status.HTTP_422_UNPROCESSABLE_CONTENT)
+           
         except ValueError as e:
+            await session.rollback()
             raise HTTPException(detail=str(e), status_code=status.HTTP_400_BAD_REQUEST)
         
         except IntegrityError as e:
             await session.rollback()
-            if isinstance(e.orig, asyncpg.exceptions.UniqueViolationError):
-                # Mensagem completa do Postgres
-                msg = str(e.orig).lower()
-
-                # Campo específico (vem no 'detail')
-                detail = getattr(e.orig, "detail", "")
-                
-                # Exemplo: 'Key (abbreviation)=(UFC) already exists.'
-                if "already exists" in detail or "já existe" in detail:
-                    raise UniqueViolationError(
-                        field=detail.split("(")[1].split(")")[0],
-                        value=detail.split("=")[1].strip("() ")
-                    )
+            raise HTTPException(detail="Já existe uma instancia com os dados inseridos.", status_code=status.HTTP_409_CONFLICT)
         
         except Exception as e:
+            await session.rollback()
             raise HTTPException(detail=str(e), status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 @router.get("/", response_model=List[InstituitionSchemaBase], status_code=status.HTTP_200_OK)
-async def get(db: AsyncSession = Depends(get_session)):
+async def get(db: AsyncSession = Depends(get_session),
+              filters: IesFilters = Depends()
+):
     
     ies = await search_all_items_in_db(db=db,
-                                       Model=IesModel
+                                       Model=IesModel,
+                                       filters=filters
     )
     return ies
 

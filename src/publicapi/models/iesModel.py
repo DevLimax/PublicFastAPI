@@ -24,19 +24,9 @@ class IesModel(BaseModel):
     state = relationship("StatesModel", back_populates="instituitions", lazy="joined")
     city = relationship("CitiesModel", back_populates="instituitions", lazy="joined")
     
-    @property
-    def state_uf(self):
-        return self.state.uf
-    
-    @property
-    def city_name(self):
-        return self.city.name
-    
     def validate_data(self):
         self.name = self.name.title()
-        if self.abbreviation == "":
-            self.abbreviation = None
-        else:
+        if self.abbreviation:
             self.abbreviation = self.abbreviation.upper()
         
         if self.site == "":

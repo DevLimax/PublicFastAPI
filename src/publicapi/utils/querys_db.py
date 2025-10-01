@@ -1,9 +1,10 @@
 
 from sqlalchemy.future import select
-from sqlalchemy.orm import DeclarativeMeta
+from sqlalchemy.orm import DeclarativeMeta, aliased, contains_eager
+from sqlalchemy import exists, cast
 from sqlalchemy.ext.asyncio import AsyncSession
 from publicapi.core.configs import settings
-from publicapi.models import CitiesModel, StatesModel
+from publicapi.models import CitiesModel, StatesModel, IesModel
 from typing import Optional, Type
 
 async def search_item_in_db(id: int, 
@@ -28,13 +29,34 @@ async def search_all_items_in_db(Model: Type[DeclarativeMeta],
 
     if filters:
         
-        if Model == StatesModel:
-            query = query.join(Model.cities)
+        if Model == StatesModel and (filters.city_name or filters.city_code):
+            cityAlias = aliased(CitiesModel)
+
+            query = query.join(cityAlias ,Model.cities)
+        
+            if filters.city_name:
+                query = query.where(cityAlias.name.ilike(f"%{filters.city_name}%"))
+            if filters.city_code:
+                query = query.where(cityAlias.id == filters.city_code)
+            
+            query = query.options(contains_eager(Model.cities, alias=cityAlias))
+            query = query.distinct()
+           
+        if Model == CitiesModel and filters.uf:
+            query = query.join(CitiesModel.state)
+            query = query.where(StatesModel.uf.ilike(f"%{filters.uf}%")) 
+            query = query.distinct()
+            
+        if Model == IesModel and (filters.city_name or filters.city_code or filters.uf):
+            query = query.join(IesModel.state)
+            query = query.join(IesModel.city)
+            
             if filters.city_name:
                 query = query.where(CitiesModel.name.ilike(f"%{filters.city_name}%"))
             if filters.city_code:
                 query = query.where(CitiesModel.id == filters.city_code)
-            query = query.distinct()
+            if filters.uf:
+                query = query.where(StatesModel.uf.ilike(f"%{filters.uf}%")) 
         
         
         for atrr, value in filters.dict(exclude_none=True).items():
@@ -44,7 +66,7 @@ async def search_all_items_in_db(Model: Type[DeclarativeMeta],
                 continue
             
             if column is not None:
-                if isinstance(value, str):
+                if isinstance(value, str) and atrr != "type":
                     query = query.where(column.ilike(f"%{value}%"))
                 else:
                     query = query.where(column == value)

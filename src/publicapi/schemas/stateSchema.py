@@ -16,11 +16,11 @@ class SchemaCitiesForState(BaseModel):
 class SchemaIesForState(BaseModel):
     id: Optional[int]
     name: str
-    abbreviation: str
+    abbreviation: Optional[str] = None
     type: str
-    city_name: str
+    city: SchemaCitiesForState
     quantity_campus: int
-    site: str
+    site: Optional[str] = None
 
     model_config = ConfigDict(from_attributes=True)
 

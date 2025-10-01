@@ -1,29 +1,40 @@
 from pydantic import BaseModel, ConfigDict
 from typing import Optional, List
 from publicapi.models.iesModel import IesModel
+from publicapi.schemas.stateSchema import StatesSchemaBase
 
+class SchemaCityToIes(BaseModel):
+    id: int
+    name: str
 class InstituitionSchemaBase(BaseModel):
 
     id: Optional[int] = None
     name: str
-    abbreviation: str
+    abbreviation: Optional[str] = None
     type: IesModel.TypeChoices
-    state_uf: str
-    city_name: Optional[str]
+    state: StatesSchemaBase 
+    city: SchemaCityToIes
     quantity_campus: int
-    site: str
+    site: Optional[str] = None
 
     model_config = ConfigDict(from_attributes=True)
-
 
 class InstituitionSchemaCreate(BaseModel):
 
     id: int
     name: str
-    abbreviation: str
+    abbreviation: Optional[str] = None
     type: IesModel.TypeChoices
     state_id: int
-    city_id: Optional[int]
-    site: Optional[str]
+    city_id: Optional[int] = None
+    site: Optional[str] = None
     is_active: Optional[bool] = None
+    
+class IesFilters(BaseModel):
+    abbreviation: Optional[str] = None
+    type: Optional[IesModel.TypeChoices] = None
+    uf: Optional[str] = None
+    city_name: Optional[str] = None
+    city_code: Optional[int] = None
+    
     
