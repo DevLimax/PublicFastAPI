@@ -7,8 +7,8 @@ init(autoreset=True)
 
 url = "http://127.0.0.1:8000/api/v1/cities/"
 filepath = "src/Scripts/CSVs/municipios.csv"
-token: str = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiZXhwIjoxNzU4ODQ4NTU5LCJpYXQiOjE3NTg3NjIxNTksInN1YiI6IjIifQ.iZeTyptkjsfS3aF-Yh4XxHzk006AM7EkBuZrH4TiSDE"
-
+token: str = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiZXhwIjoxNzU5Mzc1NTIzLCJpYXQiOjE3NTkyODkxMjMsInN1YiI6IjEifQ.6VJ14MlKWjbSzoOPaZ5EDmg8kB3nL8bv_Wwh455xIxI"
+        
 with open(filepath, "r", encoding="utf-8") as file:
     reader = csv.DictReader(file)
     
