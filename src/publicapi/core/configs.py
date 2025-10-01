@@ -6,7 +6,7 @@ class Settings(BaseSettings):
 
     ENV: str = "dev"
     API_V1_STR: str = "/api/v1"
-    DB_URL: str = "postgresql+asyncpg://lima:postgres@localhost:5432/dbpublic"
+    DB_URL: str = "postgresql+asyncpg://postgres:projetoportfolio@db.kgvfmzgvnzsejijedjut.supabase.co:5432/postgres"
     DBBASEMODEL: ClassVar = declarative_base()
 
     JWT_SECRET: str = "SfpbxcK60Gjlnw4oIX3eO9gNTzdd3w1_1NS5gWqkfKg"
