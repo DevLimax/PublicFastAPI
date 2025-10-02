@@ -25,12 +25,11 @@ async def create(data: StatesSchemaBase,
             name = data.name.title(),
             uf = data.uf.upper()
         )
-
         try:
             session.add(new_state)
             await session.commit()
             await session.refresh(new_state)
-            return new_state
+            return await search_item_in_db(id=new_state.id, Model=StatesModel, db=db)
         
         except IntegrityError or UniqueViolationError:
             raise HTTPException(detail=f"Já existe uma instancia com o name:{new_state.name} e UF:{new_state.uf}", status_code=status.HTTP_409_CONFLICT)
@@ -55,12 +54,10 @@ async def get(db: AsyncSession = Depends(get_session),
 async def get_id(id: int,
                  db: AsyncSession = Depends(get_session)
 ):
-    
     state = await search_item_in_db(id=id,
                                     Model=StatesModel,
                                     db=db
     )
-    
     if not state:
         raise HTTPException(detail="Nenhuma instancia encontrada", status_code=status.HTTP_404_NOT_FOUND)
     

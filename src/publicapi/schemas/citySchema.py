@@ -21,8 +21,12 @@ class SchemaIesForCity(BaseModel):
     type: str
     site: Optional[str] = None
     
+    model_config = ConfigDict(from_attributes=True)
+    
 class CitiesSchemaWithRelations(CitiesSchemaBase):
     instituitions: Optional[List[SchemaIesForCity]]
+    
+    model_config = ConfigDict(from_attributes=True)
     
 class CitiesFilters(BaseModel):
     uf: Optional[str] = None

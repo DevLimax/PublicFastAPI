@@ -6,6 +6,20 @@ from publicapi.schemas.stateSchema import StatesSchemaBase
 class SchemaCityToIes(BaseModel):
     id: int
     name: str
+    
+    model_config = ConfigDict(from_attributes=True)
+
+class SchemaCampusToIes(BaseModel):
+    id: int
+    name: str
+    city: SchemaCityToIes
+    street: Optional[str] = None
+    number: Optional[str] = None
+    cep: Optional[str] = None
+    telephone: Optional[str] = None
+    email: Optional[str] = None
+
+    model_config = ConfigDict(from_attributes=True)
 class InstituitionSchemaBase(BaseModel):
 
     id: Optional[int] = None
@@ -14,8 +28,12 @@ class InstituitionSchemaBase(BaseModel):
     type: IesModel.TypeChoices
     state: StatesSchemaBase 
     city: SchemaCityToIes
-    quantity_campus: int
     site: Optional[str] = None
+
+    model_config = ConfigDict(from_attributes=True)
+    
+class InstituitionSchemaWithRelations(InstituitionSchemaBase):
+    campi: List[SchemaCampusToIes]
 
     model_config = ConfigDict(from_attributes=True)
 

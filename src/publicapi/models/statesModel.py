@@ -9,6 +9,7 @@ class StatesModel(BaseModel):
     name: Mapped[str] = mapped_column(nullable=False, unique=True)
     uf: Mapped[str] = mapped_column(nullable=False, unique=True)
 
-    cities = relationship("CitiesModel", back_populates="state", lazy="joined")
-    instituitions = relationship("IesModel", back_populates="state", lazy="joined")
+    cities = relationship("CitiesModel", back_populates="state")
+    instituitions = relationship("IesModel", back_populates="state")
+    campi = relationship("CampiModel", back_populates="state")
 

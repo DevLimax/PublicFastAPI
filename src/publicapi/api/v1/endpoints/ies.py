@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.exceptions import ResponseValidationError
-from typing import List
+from typing import List, Union
 
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.exc import IntegrityError
@@ -9,7 +9,7 @@ import asyncpg
 
 from publicapi.core.deps import get_current_user, get_session
 from publicapi.models import IesModel, UserModel
-from publicapi.schemas.instituitionSchema import InstituitionSchemaBase, InstituitionSchemaCreate, IesFilters
+from publicapi.schemas.instituitionSchema import InstituitionSchemaBase, InstituitionSchemaCreate, IesFilters, InstituitionSchemaWithRelations
 from publicapi.utils.querys_db import search_all_items_in_db, search_item_in_db
 from publicapi.utils.exceptions import UniqueViolationException
 
@@ -37,7 +37,7 @@ async def create(data: InstituitionSchemaCreate,
             session.add(new_ies)
             await session.commit()
             await session.refresh(new_ies)
-            return new_ies
+            return await search_item_in_db(id=new_ies.id, Model=IesModel, db=db)
         
         except ResponseValidationError as e:
             await session.rollback()
@@ -61,14 +61,14 @@ async def get(db: AsyncSession = Depends(get_session),
               filters: IesFilters = Depends()
 ):
     
-    ies = await search_all_items_in_db(db=db,
+    instituitions = await search_all_items_in_db(db=db,
                                        Model=IesModel,
                                        filters=filters
     )
-    return ies
+    return instituitions
 
 
-@router.get("/{id}", response_model=InstituitionSchemaBase, status_code=status.HTTP_200_OK)
+@router.get("/{id}", response_model=InstituitionSchemaWithRelations, status_code=status.HTTP_200_OK)
 async def get_id(id: int,
                  db: AsyncSession = Depends(get_session)                 
 ):      

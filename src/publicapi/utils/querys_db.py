@@ -1,10 +1,10 @@
 
 from sqlalchemy.future import select
-from sqlalchemy.orm import DeclarativeMeta, aliased, contains_eager
+from sqlalchemy.orm import DeclarativeMeta, aliased, contains_eager, selectinload, joinedload
 from sqlalchemy import exists, cast
 from sqlalchemy.ext.asyncio import AsyncSession
 from publicapi.core.configs import settings
-from publicapi.models import CitiesModel, StatesModel, IesModel
+from publicapi.models import *
 from typing import Optional, Type
 
 async def search_item_in_db(id: int, 
@@ -15,6 +15,32 @@ async def search_item_in_db(id: int,
     Função para buscar um item no banco de dados pelo ID.
     """ 
     query = select(Model).filter(Model.id == id )
+    if Model == CitiesModel:
+        query = query.options(
+            joinedload(CitiesModel.state),
+            joinedload(CitiesModel.instituitions)
+        )
+    
+    if Model == StatesModel:
+        query = query.options(
+            joinedload(StatesModel.cities),
+            joinedload(StatesModel.instituitions)
+        )
+    
+    if Model == IesModel:
+        query = query.options(
+            joinedload(IesModel.state),
+            joinedload(IesModel.city),
+            joinedload(IesModel.campi)
+        )
+    
+    if Model == CampiModel:
+        query = query.options(
+            joinedload(CampiModel.ies),
+            joinedload(CampiModel.state),
+            joinedload(CampiModel.city)
+        )
+    
     result = await db.execute(query)
     item = result.scalars().unique().one_or_none()
     return item
@@ -26,22 +52,43 @@ async def search_all_items_in_db(Model: Type[DeclarativeMeta],
                                  limit: int = None
 ):
     query = select(Model).order_by(Model.id)
-
-    if filters:
+    if Model == CitiesModel:
+        query = query.options(
+            selectinload(CitiesModel.state),
+            selectinload(CitiesModel.instituitions)
+        )
+    
+    if Model == StatesModel:
+        query = query.options(
+            selectinload(StatesModel.cities),
+            selectinload(StatesModel.instituitions)
+        )
+    
+    if Model == IesModel:
+        query = query.options(
+            selectinload(IesModel.state),
+            selectinload(IesModel.city),
+            selectinload(IesModel.campi)
+        )
         
+    if Model == CampiModel:
+        query = query.options(
+            selectinload(CampiModel.ies),
+            selectinload(CampiModel.state),
+            selectinload(CampiModel.city)
+        )
+    
+    if filters:
         if Model == StatesModel and (filters.city_name or filters.city_code):
             cityAlias = aliased(CitiesModel)
-
             query = query.join(cityAlias ,Model.cities)
-        
             if filters.city_name:
                 query = query.where(cityAlias.name.ilike(f"%{filters.city_name}%"))
             if filters.city_code:
                 query = query.where(cityAlias.id == filters.city_code)
-            
             query = query.options(contains_eager(Model.cities, alias=cityAlias))
             query = query.distinct()
-           
+            
         if Model == CitiesModel and filters.uf:
             query = query.join(CitiesModel.state)
             query = query.where(StatesModel.uf.ilike(f"%{filters.uf}%")) 
@@ -50,14 +97,12 @@ async def search_all_items_in_db(Model: Type[DeclarativeMeta],
         if Model == IesModel and (filters.city_name or filters.city_code or filters.uf):
             query = query.join(IesModel.state)
             query = query.join(IesModel.city)
-            
             if filters.city_name:
                 query = query.where(CitiesModel.name.ilike(f"%{filters.city_name}%"))
             if filters.city_code:
                 query = query.where(CitiesModel.id == filters.city_code)
             if filters.uf:
                 query = query.where(StatesModel.uf.ilike(f"%{filters.uf}%")) 
-        
         
         for atrr, value in filters.dict(exclude_none=True).items():
             try: 
@@ -70,7 +115,7 @@ async def search_all_items_in_db(Model: Type[DeclarativeMeta],
                     query = query.where(column.ilike(f"%{value}%"))
                 else:
                     query = query.where(column == value)
-
+                    
     query = query.offset(skip).limit(limit)
 
     result = await db.execute(query)

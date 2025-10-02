@@ -12,8 +12,10 @@ class CitiesModel(BaseModel):
     name: Mapped[str] = mapped_column(nullable=False)
     state_id: Mapped[int] = mapped_column(ForeignKey("estados.id"), nullable=False)
     
-    state = relationship("StatesModel", back_populates="cities", lazy="joined")
-    instituitions = relationship("IesModel", back_populates="city", lazy="joined")
+    state = relationship("StatesModel", back_populates="cities")
+    instituitions = relationship("IesModel", back_populates="city")
+    campi = relationship("CampiModel", back_populates="city")
+    
     
     @property
     def state_uf(self):

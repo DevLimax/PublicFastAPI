@@ -13,13 +13,12 @@ class SchemaCitiesForState(BaseModel):
     
     model_config = ConfigDict(from_attributes=True)
 
-class SchemaIesForState(BaseModel):
+class SchemaIesToState(BaseModel):
     id: Optional[int]
     name: str
     abbreviation: Optional[str] = None
     type: str
     city: SchemaCitiesForState
-    quantity_campus: int
     site: Optional[str] = None
 
     model_config = ConfigDict(from_attributes=True)
@@ -27,7 +26,7 @@ class SchemaIesForState(BaseModel):
 
 class StatesSchemaWithRelations(StatesSchemaBase):
     cities: List[SchemaCitiesForState]
-    instituitions: List[SchemaIesForState]
+    instituitions: List[SchemaIesToState]
 
     model_config = dict(from_attributes=True)
 

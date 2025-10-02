@@ -32,7 +32,7 @@ async def create(data: CourseSchemaBase,
             session.add(course)
             await session.commit()
             await session.refresh(course)
-            return course
+            return await search_item_in_db(id=course.id, Model=CoursesModel, db=db)
         
         except ValueError as e:
             msg = str(e)

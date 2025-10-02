@@ -32,13 +32,14 @@ async def create(data: CitiesSchemaCreate,
             session.add(new_city)
             await session.commit()
             await session.refresh(new_city)
-            return new_city
+            return await search_item_in_db(id=new_city.id, Model=CitiesModel, db=db) 
+        
         except (IntegrityError, UniqueViolationError):
             raise HTTPException(detail=f"Já existe uma instancia com o id:{new_city.id}", status_code=status.HTTP_409_CONFLICT)
         except Exception as e:
             raise HTTPException(detail=str(e), status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-@router.get("/", response_model=List[Union[CitiesSchemaBase, CitiesSchemaWithRelations]], status_code=status.HTTP_200_OK)
+@router.get("/", response_model=List[CitiesSchemaBase], status_code=status.HTTP_200_OK)
 async def get(db: AsyncSession = Depends(get_session),
               filters: CitiesFilters = Depends()
 ):
