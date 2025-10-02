@@ -66,7 +66,7 @@ async def search_all_items_in_db(Model: Type[DeclarativeMeta],
                 continue
             
             if column is not None:
-                if isinstance(value, str) and atrr != "type":
+                if isinstance(value, str) and (atrr != "type" and atrr != "academic_degree"):
                     query = query.where(column.ilike(f"%{value}%"))
                 else:
                     query = query.where(column == value)
