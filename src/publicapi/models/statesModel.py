@@ -11,5 +11,4 @@ class StatesModel(BaseModel):
 
     cities = relationship("CitiesModel", back_populates="state")
     instituitions = relationship("IesModel", back_populates="state")
-    campi = relationship("CampiModel", back_populates="state")
 

@@ -3,7 +3,7 @@ import requests
 from colorama import Fore, init
 
 url = "http://127.0.0.1:8000/api/v1/courses/"
-token: str = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiZXhwIjoxNzU5Mzc1NTIzLCJpYXQiOjE3NTkyODkxMjMsInN1YiI6IjEifQ.6VJ14MlKWjbSzoOPaZ5EDmg8kB3nL8bv_Wwh455xIxI"
+token: str = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiZXhwIjoxNzU5NjAwNTMxLCJpYXQiOjE3NTk1MTQxMzEsInN1YiI6IjEifQ.DB0hZh-tlSFiJoQ4AGn3qOc47fIeHC4KvGVnuX5MYVI"
 filepath = "src/Scripts/CSVs/courses_extracted.csv"
 data_list = []
 headers = {
@@ -23,10 +23,11 @@ with open(filepath, "r", encoding="utf-8") as file:
             row["GRAU"] = "ABI"
         
         data = {
-            "name": row["NOME_CURSO"],
-            "academic_degree": row["GRAU"],
-            "area_ocde": row["AREA_OCDE"],
-            "workload": row["CARGA_HORARIA"]
+            "id": row.get('CODIGO_CURSO'),
+            "name": row.get('NOME_CURSO'),
+            "ies_id": row.get('CODIGO_IES'),
+            "academic_degree": row.get('GRAU'),
+            "area_ocde": row.get('AREA_OCDE'),
         }
         data_list.append(data)
 
@@ -35,7 +36,7 @@ def post_course(data: dict):
             response = requests.post(url, json=data, headers=headers)
 
             if response.status_code == 201:
-                print(f"{Fore.BLUE}msg{Fore.WHITE}: Instancia ({Fore.YELLOW}{response.json().get('id')} - {response.json().get('name')}) {Fore.WHITE}Criada - Status:{Fore.GREEN}{response.status_code}")
+                print(f"{Fore.BLUE}msg{Fore.WHITE}: Instancia ({Fore.YELLOW}{response.json().get('id')} - {response.json().get('name')}{Fore.WHITE}) Criada - Status:{Fore.GREEN}{response.status_code}")
 
             elif response.status_code == 400:
                 print(Fore.YELLOW + "⚠️ Erro de validação! Verifique os dados enviados.")
@@ -45,10 +46,9 @@ def post_course(data: dict):
                     print("Detalhes (texto):", response.text)
 
             elif response.status_code == 409:
-                print(f"{Fore.BLUE}msg{Fore.WHITE}: Instancia já cadastrada - Status:{Fore.YELLOW}{response.status_code}")
-
+                print(f"{Fore.BLUE}msg{Fore.WHITE}: Instancia ({Fore.YELLOW}{data.get('id')}-{data.get('name')}{Fore.WHITE}) já cadastrada - Status:{Fore.YELLOW}{response.status_code}")
             else:
-                print(f"{Fore.BLUE}msg{Fore.WHITE}: Erro ao criar instancia ({data.get('name')}) - Status:{Fore.RED}{response.status_code}")
+                print(f"{Fore.BLUE}msg{Fore.WHITE}: Erro ao criar instancia ({data.get('name')}) - Status:{Fore.RED}{response.status_code} - {response.text}")
 
         except requests.exceptions.RequestException as e:
             print(f"{Fore.BLUE}msg{Fore.WHITE}: Erro de conexão - {Fore.RED}{e}")

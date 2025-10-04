@@ -14,8 +14,6 @@ class CitiesModel(BaseModel):
     
     state = relationship("StatesModel", back_populates="cities")
     instituitions = relationship("IesModel", back_populates="city")
-    campi = relationship("CampiModel", back_populates="city")
-    
     
     @property
     def state_uf(self):

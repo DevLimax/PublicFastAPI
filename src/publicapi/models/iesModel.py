@@ -22,7 +22,7 @@ class IesModel(BaseModel):
 
     state = relationship("StatesModel", back_populates="instituitions")
     city = relationship("CitiesModel", back_populates="instituitions")
-    campi = relationship("CampiModel", back_populates="ies")
+    courses = relationship("CoursesModel", back_populates="ies")
     
     def validate_data(self):
         self.name = self.name.title()

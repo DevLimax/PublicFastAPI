@@ -6,14 +6,14 @@ from sqlalchemy.exc import IntegrityError
 
 from publicapi.core.deps import get_current_user, get_session
 from publicapi.models import CoursesModel, UserModel
-from publicapi.schemas.courseSchema import CourseSchemaBase, CourseFilters
+from publicapi.schemas.courseSchema import CourseSchemaBase, CourseFilters, CourseSchemaCreate
 
 from publicapi.utils.querys_db import search_all_items_in_db, search_item_in_db
 
 router = APIRouter()
 
 @router.post("/", response_model=CourseSchemaBase, status_code=status.HTTP_201_CREATED)
-async def create(data: CourseSchemaBase, 
+async def create(data: CourseSchemaCreate, 
                  db: AsyncSession = Depends(get_session),
                  user: UserModel = Depends(get_current_user)
 ):
@@ -21,14 +21,15 @@ async def create(data: CourseSchemaBase,
     async with db as session:
 
         course = CoursesModel(
+            id = data.id,
             name = data.name,
             area_ocde = data.area_ocde,
-            workload = data.workload,
-            academic_degree = data.academic_degree
+            ies_id = data.ies_id,
+            academic_degree = data.academic_degree,
         )
-        course.validate_data()
 
         try:
+            course.validate_data()
             session.add(course)
             await session.commit()
             await session.refresh(course)
@@ -39,11 +40,11 @@ async def create(data: CourseSchemaBase,
             raise HTTPException(detail=msg, status_code=status.HTTP_422_UNPROCESSABLE_CONTENT)
         
         except IntegrityError as e:
-            raise HTTPException(detail=f"Ja existe uma instancia com a coluna (name) = ({course.name})", status_code=status.HTTP_409_CONFLICT)
+            raise HTTPException(detail=str(e), status_code=status.HTTP_409_CONFLICT)
 
         except Exception as e:
             msg = str(e)
-            raise HTTPException(detail=f"Erro interno do servidor: {msg}", status_code=status.http_500)
+            raise HTTPException(detail=f"Erro interno do servidor: {msg}", status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
 @router.get("/", response_model=List[CourseSchemaBase], status_code=status.HTTP_200_OK)
 async def get(db: AsyncSession = Depends(get_session),

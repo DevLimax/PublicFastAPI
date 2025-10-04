@@ -31,14 +31,15 @@ async def search_item_in_db(id: int,
         query = query.options(
             joinedload(IesModel.state),
             joinedload(IesModel.city),
-            joinedload(IesModel.campi)
+            joinedload(IesModel.courses)
         )
-    
-    if Model == CampiModel:
+        
+    if Model == CoursesModel:
         query = query.options(
-            joinedload(CampiModel.ies),
-            joinedload(CampiModel.state),
-            joinedload(CampiModel.city)
+            joinedload(CoursesModel.ies).options(
+                joinedload(IesModel.state),
+                joinedload(IesModel.city)
+            ),
         )
     
     result = await db.execute(query)
@@ -68,14 +69,15 @@ async def search_all_items_in_db(Model: Type[DeclarativeMeta],
         query = query.options(
             selectinload(IesModel.state),
             selectinload(IesModel.city),
-            selectinload(IesModel.campi)
+            selectinload(IesModel.courses)
         )
-        
-    if Model == CampiModel:
+    
+    if Model == CoursesModel:
         query = query.options(
-            selectinload(CampiModel.ies),
-            selectinload(CampiModel.state),
-            selectinload(CampiModel.city)
+            selectinload(CoursesModel.ies).options(
+                selectinload(IesModel.state),
+                selectinload(IesModel.city)
+            ),
         )
     
     if filters:

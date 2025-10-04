@@ -27,7 +27,7 @@ class InstituitionSchemaBase(BaseModel):
     abbreviation: Optional[str] = None
     type: IesModel.TypeChoices
     state: StatesSchemaBase 
-    city: SchemaCityToIes
+    city: Optional[SchemaCityToIes]
     site: Optional[str] = None
 
     model_config = ConfigDict(from_attributes=True)

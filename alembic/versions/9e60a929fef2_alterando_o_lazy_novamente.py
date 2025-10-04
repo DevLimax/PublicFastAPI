@@ -1,8 +1,8 @@
-"""alterando o lazy do model Cities
+"""alterando o lazy novamente
 
-Revision ID: 56fd0126c685
-Revises: 1887ec25c09f
-Create Date: 2025-10-02 12:10:58.150926
+Revision ID: 9e60a929fef2
+Revises: 
+Create Date: 2025-10-03 15:13:05.270504
 
 """
 from typing import Sequence, Union
@@ -12,8 +12,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = '56fd0126c685'
-down_revision: Union[str, Sequence[str], None] = '1887ec25c09f'
+revision: str = '9e60a929fef2'
+down_revision: Union[str, Sequence[str], None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
 
