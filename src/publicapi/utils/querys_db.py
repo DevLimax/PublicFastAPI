@@ -61,8 +61,10 @@ async def search_all_items_in_db(Model: Type[DeclarativeMeta],
     
     if Model == StatesModel:
         query = query.options(
-            selectinload(StatesModel.cities),
-            selectinload(StatesModel.instituitions)
+            selectinload(StatesModel.instituitions).options(
+                selectinload(IesModel.city),
+                selectinload(IesModel.state)
+            )
         )
     
     if Model == IesModel:

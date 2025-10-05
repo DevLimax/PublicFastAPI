@@ -3,7 +3,7 @@ import requests
 from colorama import Fore, init
 
 url = "http://127.0.0.1:8000/api/v1/courses/"
-token: str = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiZXhwIjoxNzU5NjAwNTMxLCJpYXQiOjE3NTk1MTQxMzEsInN1YiI6IjEifQ.DB0hZh-tlSFiJoQ4AGn3qOc47fIeHC4KvGVnuX5MYVI"
+token: str = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiZXhwIjoxNzU5NjkzMjMyLCJpYXQiOjE3NTk2MDY4MzIsInN1YiI6IjEifQ.i8pYgu1HDStGzfx5aEfLo7kl6b1-vF4FKIWt5fp7drU"
 filepath = "src/Scripts/CSVs/courses_extracted.csv"
 data_list = []
 headers = {
