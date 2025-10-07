@@ -8,17 +8,22 @@ class SchemaCityToIes(BaseModel):
     name: str
     
     model_config = ConfigDict(from_attributes=True)
-
-class SchemaCampusToIes(BaseModel):
+    
+class SchemaCourseLocations(BaseModel):
+    modality: Optional[str] = None
+    workload: Optional[float] = None
+    quantity_vacancies: Optional[int] = None
+    situation: Optional[str]
+    city: Optional[SchemaCityToIes]
+    
+    model_config = ConfigDict(from_attributes=True)
+    
+class SchemaCoursesToIes(BaseModel):
     id: int
     name: str
-    city: SchemaCityToIes
-    street: Optional[str] = None
-    number: Optional[str] = None
-    cep: Optional[str] = None
-    telephone: Optional[str] = None
-    email: Optional[str] = None
-
+    area_ocde: Optional[str] = None
+    academic_degree: str
+   
     model_config = ConfigDict(from_attributes=True)
 class InstituitionSchemaBase(BaseModel):
 
@@ -33,7 +38,7 @@ class InstituitionSchemaBase(BaseModel):
     model_config = ConfigDict(from_attributes=True)
     
 class InstituitionSchemaWithRelations(InstituitionSchemaBase):
-    campi: List[SchemaCampusToIes]
+    courses: List[SchemaCoursesToIes]
 
     model_config = ConfigDict(from_attributes=True)
 

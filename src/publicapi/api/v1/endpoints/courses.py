@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Depends, status
+from fastapi import APIRouter, HTTPException, Depends, status, Query
 from typing import List, Optional
 
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -6,7 +6,7 @@ from sqlalchemy.exc import IntegrityError
 
 from publicapi.core.deps import get_current_user, get_session
 from publicapi.models import CoursesModel, UserModel
-from publicapi.schemas.courseSchema import CourseSchemaBase, CourseFilters, CourseSchemaCreate
+from publicapi.schemas.courseSchema import CourseSchemaBase, CourseFilters, CourseSchemaCreate, CourseWithRelations
 
 from publicapi.utils.querys_db import search_all_items_in_db, search_item_in_db
 
@@ -48,16 +48,19 @@ async def create(data: CourseSchemaCreate,
         
 @router.get("/", response_model=List[CourseSchemaBase], status_code=status.HTTP_200_OK)
 async def get(db: AsyncSession = Depends(get_session),
-              filters: CourseFilters = Depends()
+              name: Optional[str] = Query(None, description="Nome do curso"),
+              academic_degree: Optional[CoursesModel.DegreeChoices] = Query(None, description="Grau acadêmico do curso", examples=["Bacharelado", "Licenciatura"]),
+              ies_id: Optional[int] = Query(None, description="ID (codigo) da Instituição de ensino")
 ):
-
+    
+    filters: CourseFilters = CourseFilters(name=name, academic_degree=academic_degree, ies_id=ies_id)
     courses = await search_all_items_in_db(db=db,
                                      Model=CoursesModel,
                                      filters=filters
     )
     return courses
 
-@router.get("/{id}", response_model=CourseSchemaBase, status_code=status.HTTP_200_OK)
+@router.get("/{id}", response_model=CourseWithRelations, status_code=status.HTTP_200_OK)
 async def get_id(id: int, 
                  db: AsyncSession = Depends(get_session)
 ):

@@ -40,6 +40,9 @@ async def search_item_in_db(id: int,
                 joinedload(IesModel.state),
                 joinedload(IesModel.city)
             ),
+            joinedload(CoursesModel.locations).options(
+                joinedload(CourseLocationsModel.city)
+            )
         )
     
     result = await db.execute(query)
@@ -103,14 +106,14 @@ async def search_all_items_in_db(Model: Type[DeclarativeMeta],
                 column = getattr(Model, atrr)
             except AttributeError:
                 continue
-            
+                
             if column is not None:
                 if isinstance(value, str) and (atrr != "type" and atrr != "academic_degree"):
                     query = query.where(column.ilike(f"%{value}%"))
                 else:
                     query = query.where(column == value)
-                    
-    query = query.offset(skip).limit(limit)
+                        
+        query = query.offset(skip).limit(limit)
 
     result = await db.execute(query)
     list_items = result.scalars().unique().all()

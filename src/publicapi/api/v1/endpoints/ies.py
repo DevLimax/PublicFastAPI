@@ -1,6 +1,6 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status, Query
 from fastapi.exceptions import ResponseValidationError
-from typing import List, Union
+from typing import List, Optional
 
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.exc import IntegrityError
@@ -58,9 +58,17 @@ async def create(data: InstituitionSchemaCreate,
 
 @router.get("/", response_model=List[InstituitionSchemaBase], status_code=status.HTTP_200_OK)
 async def get(db: AsyncSession = Depends(get_session),
-              filters: IesFilters = Depends()
+              abbreviation: Optional[str] = Query(None, 
+                                        description="Sigla da instituição", 
+                                        examples=['UFC', 'UFRJ', 'USP']),
+              type: Optional[IesModel.TypeChoices] = Query(None,
+                                                           description="Tipo da instituição", 
+                                                           example='Federal'),
+              uf: Optional[str] = Query(None, description="Sigla do estado ao qual pertence a cidade onde encontra-se a instituição", examples=["SP", "CE", "MG"]),
+              city_name: Optional[str] = Query(None, description="Nome da cidade onde encontra-se a instituição"),
+              city_code: Optional[int] = Query(None, description="Código da cidade onde encontra-se a instituição")
 ):
-    
+    filters: IesFilters = IesFilters(abbreviation=abbreviation, type=type, uf=uf, city_name=city_name, city_code=city_code)
     instituitions = await search_all_items_in_db(db=db,
                                        Model=IesModel,
                                        filters=filters

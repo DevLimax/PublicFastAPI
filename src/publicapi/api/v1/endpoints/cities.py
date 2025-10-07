@@ -1,6 +1,6 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status, Query
 
-from typing import List, Union
+from typing import List, Optional
 
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.exc import IntegrityError
@@ -41,9 +41,10 @@ async def create(data: CitiesSchemaCreate,
 
 @router.get("/", response_model=List[CitiesSchemaBase], status_code=status.HTTP_200_OK)
 async def get(db: AsyncSession = Depends(get_session),
-              filters: CitiesFilters = Depends()
-):
-        
+              uf: str = Query(None, description="Sigla do estado ao qual pertence a cidade", examples=["SP", "CE", "MG"]),
+              name: Optional[str] = Query(None, description="Nome da cidade")
+):  
+    filters: CitiesFilters = CitiesFilters(uf=uf, name=name)
     cities = await search_all_items_in_db(db=db, 
                                           Model=CitiesModel, 
                                           filters=filters

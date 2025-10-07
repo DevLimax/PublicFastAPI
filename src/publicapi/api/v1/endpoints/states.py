@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status, Query
 
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.exc import IntegrityError
@@ -39,8 +39,9 @@ async def create(data: StatesSchemaBase,
         
 @router.get("/", response_model=List[Union[StatesSchemaBase, StatesSchemaWithRelations]], status_code=status.HTTP_200_OK)
 async def get(db: AsyncSession = Depends(get_session),
-              filters = Depends(StateFilters)
+              uf: Optional[str] = Query(None, description="Sigla do estado", examples=["SP", "CE", "MG"])
 ):
+    filters: StateFilters = StateFilters(uf=uf)
     states = await search_all_items_in_db(db=db,
                                           Model=StatesModel,
                                           filters=filters

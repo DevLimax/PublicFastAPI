@@ -1,4 +1,4 @@
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Optional, List
 
 class StatesSchemaBase(BaseModel):
@@ -31,5 +31,5 @@ class StatesSchemaWithRelations(StatesSchemaBase):
     model_config = dict(from_attributes=True)
 
 class StateFilters(BaseModel):
-    uf: Optional[str] = None  
+    uf: Optional[str] = Field(None, description="Sigla do estado")
 
