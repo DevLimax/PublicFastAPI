@@ -29,6 +29,7 @@ class CoursesModel(BaseModel):
     academic_degree: Mapped[DegreeChoices] = mapped_column(EnumSQL(DegreeChoices), default=DegreeChoices.NAO_IDENTIFICADO, nullable=False)
     
     ies = relationship("IesModel", back_populates="courses")
+    locations = relationship("CourseLocationsModel", back_populates="course")
     
     def validate_data(self):
         if self.name and self.name != "":

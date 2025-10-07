@@ -82,17 +82,7 @@ async def search_all_items_in_db(Model: Type[DeclarativeMeta],
             ),
         )
     
-    if filters:
-        if Model == StatesModel and (filters.city_name or filters.city_code):
-            cityAlias = aliased(CitiesModel)
-            query = query.join(cityAlias ,Model.cities)
-            if filters.city_name:
-                query = query.where(cityAlias.name.ilike(f"%{filters.city_name}%"))
-            if filters.city_code:
-                query = query.where(cityAlias.id == filters.city_code)
-            query = query.options(contains_eager(Model.cities, alias=cityAlias))
-            query = query.distinct()
-            
+    if filters:            
         if Model == CitiesModel and filters.uf:
             query = query.join(CitiesModel.state)
             query = query.where(StatesModel.uf.ilike(f"%{filters.uf}%")) 

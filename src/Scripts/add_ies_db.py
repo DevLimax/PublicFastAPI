@@ -1,30 +1,40 @@
-import requests
 import json
+import asyncio
 from colorama import init, Fore
-from json.decoder import JSONDecodeError
+from publicapi.core.db import Session
+from publicapi.models import IesModel
 
 init(autoreset=True)
+BATCHSIZE = 100
 
-# Headers, Url, Token
-url = "http://localhost:8000/api/v1/ies/"
-token: str = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiZXhwIjoxNzU5Mzc1NTIzLCJpYXQiOjE3NTkyODkxMjMsInN1YiI6IjEifQ.6VJ14MlKWjbSzoOPaZ5EDmg8kB3nL8bv_Wwh455xIxI"
-headers = {
-    "Authorization": f"Bearer {token}"
-}
-    
-with open("src/Scripts/json/universidades.json", "r", encoding="utf-8") as file:
-    list_ies = json.load(file)                    
-    
-    for ies in list_ies:
-        
-        if ies.get('city_id') == "":
-            ies['city_id'] = None
-            continue
-        else:
-            ies['city_id'] = int(ies['city_id'])
+async def add_ies_to_db():
+    async with Session() as session:    
+        with open("src/Scripts/json/universidades.json", "r", encoding="utf-8") as file:
+            list_ies = json.load(file)       
             
-        response = requests.post(url, json=ies, headers=headers)
-        if response.status_code == 201:
-            print(f"{Fore.MAGENTA}msg:{Fore.WHITE} Ies {Fore.CYAN}{ies['name']}{Fore.WHITE} added successfully - Status: {Fore.GREEN}{response.status_code}")
-        else:
-            print(f"{Fore.MAGENTA}msg:{Fore.WHITE} Failed to add Ies {Fore.CYAN}{ies['name']}{Fore.WHITE} - Status: {Fore.RED}{response.status_code} - {Fore.YELLOW}{response.text}")
+            for ies in list_ies:
+                ies_instance = IesModel(
+                        id = int(ies.get('id')),
+                        name = str(ies.get('name')),
+                        abbreviation = str(ies.get('abbreviation')),
+                        type = str(ies.get('type')),
+                        city_id = int(ies.get('city_id')) if ies.get('city_id') != '' else None,
+                        state_id = int(ies.get('state_id')),
+                        site = str(ies.get('site'))
+                )
+                try:
+                    ies_instance.validate_data()
+                    session.add(ies_instance)
+                    await session.commit()
+                    await session.refresh(ies_instance)
+                    print(f"{Fore.GREEN}Added successfully - Data: {ies_instance.__dict__}{Fore.RESET}")
+                    
+                except Exception as e:
+                    print(f"{Fore.RED}Error: {str(e)}{Fore.RESET}")
+                    await session.rollback()
+                    continue
+       
+if __name__ == "__main__":
+    asyncio.run(add_ies_to_db())
+    
+    

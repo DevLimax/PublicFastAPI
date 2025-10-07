@@ -1,61 +1,52 @@
 import csv
-import requests
-from colorama import Fore, init
+import asyncio
+from colorama import init, Fore
+from publicapi.core.db import Session
+from publicapi.models import CoursesModel
+from publicapi.schemas.courseSchema import CourseSchemaCreate
 
-url = "http://127.0.0.1:8000/api/v1/courses/"
-token: str = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoiYWNjZXNzX3Rva2VuIiwiZXhwIjoxNzU5NjkzMjMyLCJpYXQiOjE3NTk2MDY4MzIsInN1YiI6IjEifQ.i8pYgu1HDStGzfx5aEfLo7kl6b1-vF4FKIWt5fp7drU"
-filepath = "src/Scripts/CSVs/courses_extracted.csv"
-data_list = []
-headers = {
-        "Authorization": f"Bearer {token}"
-    }
-
+filepath: str = "src/Scripts/CSVs/courses_ies_extracted.csv"
+lines_with_error: list = []
 init(autoreset=True)
 
-with open(filepath, "r", encoding="utf-8") as file:
-    reader = csv.DictReader(file)
-    
-    for row in reader:
-        if row["GRAU"] == "Tecnológico":
-            row["GRAU"] = "Tecnologo"
+async def add_cursos():
+    async with Session() as session:
+        with open(filepath, "r", encoding="utf-8",) as file:
+            reader = csv.DictReader(file)
             
-        elif row["GRAU"] == "Área Básica de Ingresso (ABI)":
-            row["GRAU"] = "ABI"
-        
-        data = {
-            "id": row.get('CODIGO_CURSO'),
-            "name": row.get('NOME_CURSO'),
-            "ies_id": row.get('CODIGO_IES'),
-            "academic_degree": row.get('GRAU'),
-            "area_ocde": row.get('AREA_OCDE'),
-        }
-        data_list.append(data)
-
-def post_course(data: dict):
-        try:
-            response = requests.post(url, json=data, headers=headers)
-
-            if response.status_code == 201:
-                print(f"{Fore.BLUE}msg{Fore.WHITE}: Instancia ({Fore.YELLOW}{response.json().get('id')} - {response.json().get('name')}{Fore.WHITE}) Criada - Status:{Fore.GREEN}{response.status_code}")
-
-            elif response.status_code == 400:
-                print(Fore.YELLOW + "⚠️ Erro de validação! Verifique os dados enviados.")
+            for row in reader:
+                if row["GRAU"] == "Tecnológico":
+                    row["GRAU"] = "Tecnologo"
+            
+                elif row["GRAU"] == "Área Básica de Ingresso (ABI)":
+                    row["GRAU"] = "ABI"
+                
+                course_instance = CourseSchemaCreate(
+                        id = row.get('CODIGO_CURSO'),
+                        name = row.get('NOME_CURSO'),
+                        area_ocde = row.get('AREA_OCDE'),
+                        ies_id = row.get('CODIGO_IES'),
+                        academic_degree = row.get('GRAU')
+                    )
+                
                 try:
-                    print("Detalhes:", data, response.json())
-                except ValueError:
-                    print("Detalhes (texto):", response.text)
+                    course = CoursesModel(**course_instance.dict(exclude_unset=True))
+                    session.add(course)
+                    await session.commit()
+                    await session.refresh(course)
+                    print(f"{Fore.GREEN}Added successfully Instance {Fore.CYAN}{course.id}{Fore.GREEN} - course: {Fore.CYAN}{course.name}")
+                    
+                except Exception as e:
+                    print(f"Erro na instancia {Fore.RED}{course_instance.id} - {course_instance.name}{Fore.WHITE}: {Fore.YELLOW}{str(e)}")
+                    await session.rollback()
+                    lines_with_error.append(row)
+                    continue
+            
+            if lines_with_error:
+                with open("src/Scripts/CSVs/courses_with_error.csv", "w", newline="", encoding="utf-8") as file:
+                    writer = csv.writer(file)
+                    writer.writerow(["CODIGO_CURSO", "NOME_CURSO", "GRAU", "AREA_OCDE", "CODIGO_IES"])
+                    writer.writerows(lines_with_error) 
 
-            elif response.status_code == 409:
-                print(f"{Fore.BLUE}msg{Fore.WHITE}: Instancia ({Fore.YELLOW}{data.get('id')}-{data.get('name')}{Fore.WHITE}) já cadastrada - Status:{Fore.YELLOW}{response.status_code}")
-            else:
-                print(f"{Fore.BLUE}msg{Fore.WHITE}: Erro ao criar instancia ({data.get('name')}) - Status:{Fore.RED}{response.status_code} - {response.text}")
-
-        except requests.exceptions.RequestException as e:
-            print(f"{Fore.BLUE}msg{Fore.WHITE}: Erro de conexão - {Fore.RED}{e}")
-        except Exception as e:
-            print(f"{Fore.BLUE}msg{Fore.WHITE}: Erro inesperado - {Fore.RED}{e}")
-
-for data in data_list:
-    post_course(data=data)
-
-print("Cursos Adicionados com sucesso!")
+if __name__ == "__main__":
+    asyncio.run(add_cursos())

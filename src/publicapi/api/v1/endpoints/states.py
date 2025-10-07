@@ -45,10 +45,7 @@ async def get(db: AsyncSession = Depends(get_session),
                                           Model=StatesModel,
                                           filters=filters
     )
-    if filters and all(v is None for v in filters.dict(exclude_none=True).values()):
-        return [StatesSchemaBase.model_validate(state) for state in states]
-    else:
-        return [StatesSchemaWithRelations.model_validate(state) for state in states]
+    return states
     
 @router.get("/{id}", response_model=StatesSchemaWithRelations, status_code=status.HTTP_200_OK)
 async def get_id(id: int,
