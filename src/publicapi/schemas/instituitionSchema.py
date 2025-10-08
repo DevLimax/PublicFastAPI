@@ -55,7 +55,7 @@ class InstituitionSchemaCreate(BaseModel):
     
 class IesFilters(BaseModel):
     abbreviation: Optional[str] = None
-    type: Optional[IesModel.TypeChoices] = None
+    type: Optional[str] = None
     uf: Optional[str] = None
     city_name: Optional[str] = None
     city_code: Optional[int] = None

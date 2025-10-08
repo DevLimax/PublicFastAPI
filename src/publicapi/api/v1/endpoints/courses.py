@@ -49,7 +49,7 @@ async def create(data: CourseSchemaCreate,
 @router.get("/", response_model=List[CourseSchemaBase], status_code=status.HTTP_200_OK)
 async def get(db: AsyncSession = Depends(get_session),
               name: Optional[str] = Query(None, description="Nome do curso"),
-              academic_degree: Optional[CoursesModel.DegreeChoices] = Query(None, description="Grau acadêmico do curso", examples=["Bacharelado", "Licenciatura"]),
+              academic_degree: Optional[str] = Query(None, description="Grau acadêmico do curso", examples=["Bacharelado", "Licenciatura"]),
               ies_id: Optional[int] = Query(None, description="ID (codigo) da Instituição de ensino")
 ):
     

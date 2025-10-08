@@ -41,13 +41,11 @@ async def get_current_user(db: AsyncSession = Depends(get_session),
     )
         username: str = payload.get("sub")
         if username is None:
-            print("1")
             raise credentials_exception
         
         token_data = TokenData(username=username)
 
     except JWTError as e:
-        print(str(e))
         raise credentials_exception
     
     async with db as session:

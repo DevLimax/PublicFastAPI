@@ -1,7 +1,7 @@
 
 from sqlalchemy.future import select
 from sqlalchemy.orm import DeclarativeMeta, aliased, contains_eager, selectinload, joinedload
-from sqlalchemy import exists, cast
+from sqlalchemy import exists, cast, String
 from sqlalchemy.ext.asyncio import AsyncSession
 from publicapi.core.configs import settings
 from publicapi.models import *
@@ -108,8 +108,13 @@ async def search_all_items_in_db(Model: Type[DeclarativeMeta],
                 continue
                 
             if column is not None:
-                if isinstance(value, str) and (atrr != "type" and atrr != "academic_degree"):
-                    query = query.where(column.ilike(f"%{value}%"))
+                if isinstance(value, str):
+                    if atrr == "type":
+                        query = query.filter(cast(column, String).ilike(f"%{value}%"))
+                    elif atrr == "academic_degree":
+                        query = query.where(cast(column, String).ilike(f"%{value}%"))
+                    else:
+                        query = query.where(column.ilike(f"%{value}%"))
                 else:
                     query = query.where(column == value)
                         

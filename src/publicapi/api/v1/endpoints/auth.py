@@ -8,25 +8,37 @@ from publicapi.core.auth import authenticate, create_access_token, create_refres
 from publicapi.core.deps import get_session, get_current_user
 from publicapi.core.security import generate_hashed_password
 from publicapi.schemas.userSchema import AuthResponse, UserSchemaBase, UserSchemaCreate
+from publicapi.schemas.ResponseSchema import NoAuthenticatedError
 from publicapi.utils.querys_db import search_item_in_db
 from publicapi.models import UserModel
 
 router = APIRouter()
 
-@router.get("/logged", response_model=UserSchemaBase, status_code=status.HTTP_200_OK)
+@router.get("/logged", 
+            response_model=UserSchemaBase, 
+            status_code=status.HTTP_200_OK,
+            responses={
+                status.HTTP_401_UNAUTHORIZED: {
+                    "model": NoAuthenticatedError,
+                    "description": "Error de autenticação"
+                }
+            })
 async def logged_user(user: UserSchemaBase = Depends(get_current_user)):
-    
-    if not user:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="User not found")    
+    """
+    Endpoint para verificar o usuário logado no sistema
+    """
     return user
 
 @router.post("/sign-in", response_model=UserSchemaBase, status_code=status.HTTP_201_CREATED)
 async def create(data: UserSchemaCreate,
                  db: AsyncSession = Depends(get_session)
 ) -> UserSchemaBase:
+    """
+    Endpoint para criar um novo usuário
+    """
     async with db as session:       
 
-        new_user = UserModel(
+        new_user = UserModel(   
             username = data.username,
             email = data.email,
             password = generate_hashed_password(data.password)
@@ -52,7 +64,9 @@ async def create(data: UserSchemaCreate,
 async def login(form_data: OAuth2PasswordRequestForm = Depends(),
                 db: AsyncSession = Depends(get_session)
 ) -> AuthResponse:
-    
+    """
+    Endpoint para autenticar um usuário
+    """
     user = await authenticate(userInput=form_data.username, 
                               password=form_data.password, 
                               db=db

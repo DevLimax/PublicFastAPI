@@ -22,7 +22,7 @@ class CourseSchemaCreate(BaseModel):
     
 class CourseFilters(BaseModel):
     name: Optional[str] = Field(None, description="Nome do curso")
-    academic_degree: Optional[CoursesModel.DegreeChoices] = Field(None, description="Grau acadêmico do curso (Ex: Bacharelado, Licenciatura).")
+    academic_degree: Optional[str] = Field(None, description="Grau acadêmico do curso")
     ies_id: Optional[int] = Field(None, description="ID (codigo) da Instituição de ensino")
     
 class CitieSchemaToCourses(BaseModel):

@@ -5,8 +5,18 @@ class UniqueViolationException(HTTPException):
     def __init__(self, field: str, value):
         super().__init__(
             status_code=status.HTTP_409_CONFLICT,
-            detail=f"Já existe uma instancia com {field}: {field}, portanto não pode haver valores duplicados para esse campo"
+            detail={
+                "error": "Unique Violation Error",
+                "msg": f"ja existe uma instancia com o valor ({field}={value})!"
+            }
         )
 
-def NotNullViolationError(field: str, value):
-    raise HTTPException(detail=f"O campo {field} deve ser preenchido", status_code=status.HTTP_400_BAD_REQUEST)
+class ConflictException(HTTPException):
+    def __init__(self, fields: list, values: list):
+        super().__init__(
+            status_code=status.HTTP_409_CONFLICT,
+            detail={
+                "error": "Unique Constraint Error",
+                "msg": f"ja existe uma instancia com os valores: ({dict(zip(fields, values))})!"
+            }
+        )

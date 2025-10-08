@@ -9,12 +9,31 @@ from typing import List, Optional, Union
 from publicapi.core.deps import get_current_user, get_session
 from publicapi.models import StatesModel, UserModel
 from publicapi.schemas.stateSchema import StatesSchemaBase, StatesSchemaWithRelations, StateFilters
+from publicapi.schemas.ResponseSchema import NoAuthenticatedError, InternalServerError, ConflictError
 
 from publicapi.utils.querys_db import search_all_items_in_db, search_item_in_db
+from publicapi.utils.exceptions import ConflictException, UniqueViolationException
 
 router = APIRouter()
 
-@router.post("/", response_model=StatesSchemaBase, status_code=status.HTTP_201_CREATED)
+@router.post("/", 
+             response_model=StatesSchemaBase, 
+             status_code=status.HTTP_201_CREATED,
+             responses={
+                status.HTTP_401_UNAUTHORIZED: {
+                    "model": NoAuthenticatedError, 
+                    "description": "Erro de autenticação"
+                },
+                status.HTTP_500_INTERNAL_SERVER_ERROR: {
+                    "model": InternalServerError,
+                    "description": "Erro interno do servidor"
+                },
+                status.HTTP_409_CONFLICT: {
+                    "model": ConflictError,
+                    "description": "Erro de conflito"
+                }
+             }    
+            )
 async def create(data: StatesSchemaBase, 
                  db: AsyncSession = Depends(get_session),
                  user: UserModel = Depends(get_current_user)
@@ -31,8 +50,15 @@ async def create(data: StatesSchemaBase,
             await session.refresh(new_state)
             return await search_item_in_db(id=new_state.id, Model=StatesModel, db=db)
         
-        except IntegrityError or UniqueViolationError:
-            raise HTTPException(detail=f"Já existe uma instancia com o name:{new_state.name} e UF:{new_state.uf}", status_code=status.HTTP_409_CONFLICT)
+        except IntegrityError as e:
+            e_str = str(e.orig).lower()
+            if "uniqueviolationerror" in e_str:
+                if "uf" in e_str:
+                    raise UniqueViolationException(field='uf', value=data.uf)
+                elif "name" in e_str:
+                    raise UniqueViolationException(field='name', value=data.name)
+                else:
+                    raise UniqueViolationException(field='id', value=new_state.id)
         
         except Exception as e:
             raise HTTPException(detail=str(e), status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)

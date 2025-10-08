@@ -61,14 +61,22 @@ async def get(db: AsyncSession = Depends(get_session),
               abbreviation: Optional[str] = Query(None, 
                                         description="Sigla da instituição", 
                                         examples=['UFC', 'UFRJ', 'USP']),
-              type: Optional[IesModel.TypeChoices] = Query(None,
+              type: Optional[str] = Query(None,
                                                            description="Tipo da instituição", 
                                                            example='Federal'),
-              uf: Optional[str] = Query(None, description="Sigla do estado ao qual pertence a cidade onde encontra-se a instituição", examples=["SP", "CE", "MG"]),
-              city_name: Optional[str] = Query(None, description="Nome da cidade onde encontra-se a instituição"),
-              city_code: Optional[int] = Query(None, description="Código da cidade onde encontra-se a instituição")
+              uf: Optional[str] = Query(None, 
+                                        description="Sigla do estado ao qual pertence a cidade onde encontra-se a instituição", 
+                                        examples=["SP", "CE", "MG"]),
+              city_name: Optional[str] = Query(None, 
+                                               description="Nome da cidade onde encontra-se a instituição"),
+              city_code: Optional[int] = Query(None, 
+                                               description="Código da cidade onde encontra-se a instituição")
 ):
-    filters: IesFilters = IesFilters(abbreviation=abbreviation, type=type, uf=uf, city_name=city_name, city_code=city_code)
+    filters: IesFilters = IesFilters(abbreviation=abbreviation, 
+                                     type=type.capitalize() if type else None, 
+                                     uf=uf, city_name=city_name, 
+                                     city_code=city_code
+    )
     instituitions = await search_all_items_in_db(db=db,
                                        Model=IesModel,
                                        filters=filters

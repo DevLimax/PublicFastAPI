@@ -9,16 +9,34 @@ from asyncpg.exceptions import UniqueViolationError
 from publicapi.core.deps import get_current_user, get_session
 from publicapi.models import CitiesModel, UserModel
 from publicapi.schemas.citySchema import CitiesSchemaBase, CitiesSchemaCreate, CitiesSchemaWithRelations, CitiesFilters
+from publicapi.schemas.ResponseSchema import NoAuthenticatedError, ConflictError, InternalServerError
 
 from publicapi.utils.querys_db import search_all_items_in_db, search_item_in_db
+from publicapi.utils.exceptions import UniqueViolationException, ConflictException
 
 
 router = APIRouter()
 
-@router.post("/", response_model=CitiesSchemaBase, status_code=status.HTTP_201_CREATED)
+@router.post("/", 
+             response_model=CitiesSchemaBase, 
+             status_code=status.HTTP_201_CREATED,
+             responses={
+                 status.HTTP_401_UNAUTHORIZED: {
+                    "model": NoAuthenticatedError, 
+                    "description": "Erro de autenticação"
+                },
+                status.HTTP_500_INTERNAL_SERVER_ERROR: {
+                    "model": InternalServerError,
+                    "description": "Erro interno do servidor"
+                },
+                status.HTTP_409_CONFLICT: {
+                    "model": ConflictError,
+                    "description": "Erro de conflito"
+                }
+             })
 async def create(data: CitiesSchemaCreate,
                  db: AsyncSession = Depends(get_session),
-                 user: UserModel = Depends(get_current_user)
+                 user: UserModel = Depends(get_current_user),
 ):
     
     async with db as session:
@@ -34,8 +52,11 @@ async def create(data: CitiesSchemaCreate,
             await session.refresh(new_city)
             return await search_item_in_db(id=new_city.id, Model=CitiesModel, db=db) 
         
-        except (IntegrityError, UniqueViolationError):
-            raise HTTPException(detail=f"Já existe uma instancia com o id:{new_city.id}", status_code=status.HTTP_409_CONFLICT)
+        except IntegrityError as e:
+            if isinstance(e.orig.__cause__, UniqueViolationError):
+                raise UniqueViolationException(field="id", value=data.id)
+            else:
+                raise HTTPException(detail="Error de conflito", status_code=status.HTTP_409_CONFLICT)
         except Exception as e:
             raise HTTPException(detail=str(e), status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
