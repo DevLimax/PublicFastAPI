@@ -1,7 +1,7 @@
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Optional, List
 
-#Schemas que vão servir como base para as colunas (instituitions) e (cities)
+#Schemas que vão servir como corpo para as colunas (instituitions) e (cities)
 class SchemaCitiesForState(BaseModel):
     id: Optional[int] = None
     name: str        
@@ -43,8 +43,8 @@ class StatesSchemaResponse(StatesSchemaBase):
     uf: str = "SP"
 
 class StatesSchemaWithRelationsResponse(StatesSchemaResponse):
-    cities: List[SchemaCitiesForState]
-    instituitions: List[SchemaIesToState]
+    cities: List[SchemaCitiesForState] = [{"id": 29100274, "name": "Campinas"}]
+    instituitions: List[SchemaIesToState] = [{"id": 5102, "name": "Universidade Estadual De Campinas", "abbreviation": "UNICAMP", "type": "Estadual", "city": {"id": 29100274, "name": "Campinas"}, "site": "www.ies.example.br"}]
 
 #-----------------------------------------------------------
 

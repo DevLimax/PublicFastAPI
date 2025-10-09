@@ -6,7 +6,8 @@ from sqlalchemy.exc import IntegrityError
 
 from publicapi.core.deps import get_current_user, get_session
 from publicapi.models import CoursesModel, UserModel
-from publicapi.schemas.courseSchema import CourseSchemaBase, CourseFilters, CourseSchemaCreate, CourseWithRelations
+from publicapi.schemas.courseSchema import CourseSchemaBase, CourseFilters, CourseSchemaCreate, CourseWithRelations, CourseSchemaResponse, CourseSchemaWithRelationsResponse
+from publicapi.schemas.ResponseSchema import NoAuthenticatedResponse, ConflictResponse, InternalServerResponse, NotFoundResponse
 
 from publicapi.utils.querys_db import search_all_items_in_db, search_item_in_db
 
@@ -15,8 +16,21 @@ router = APIRouter()
 @router.post("/", 
             summary="Criar Curso",
             description="Retorna uma instancia criada no DB, apartir do corpo JSON enviado",
-            response_model=CourseSchemaBase, 
-            status_code=status.HTTP_201_CREATED)
+            response_model=CourseSchemaResponse, 
+            status_code=status.HTTP_201_CREATED,
+            responses={
+                status.HTTP_401_UNAUTHORIZED: {
+                    "model": NoAuthenticatedResponse, 
+                },
+                status.HTTP_500_INTERNAL_SERVER_ERROR: {
+                    "model": InternalServerResponse,
+                },
+                status.HTTP_409_CONFLICT: {
+                    "model": ConflictResponse,
+                }
+            }
+)
+
 async def create(data: CourseSchemaCreate, 
                  db: AsyncSession = Depends(get_session),
                  user: UserModel = Depends(get_current_user)
@@ -53,8 +67,13 @@ async def create(data: CourseSchemaCreate,
 @router.get("/", 
             summary="Listar e Filtrar Cursos",
             description="Retorna uma lista de cursos. Suporta filtragem por (name, academic_degree, ies_id) filtros tipo String suportam (ilike)",
-            response_model=List[CourseSchemaBase], 
-            status_code=status.HTTP_200_OK
+            response_model=List[CourseSchemaResponse], 
+            status_code=status.HTTP_200_OK,
+            responses={
+                status.HTTP_500_INTERNAL_SERVER_ERROR: {
+                    "model": InternalServerResponse,
+                }
+            }
 )
 async def get(db: AsyncSession = Depends(get_session),
               name: Optional[str] = Query(None, description="Nome do curso"),
@@ -72,8 +91,16 @@ async def get(db: AsyncSession = Depends(get_session),
 @router.get("/{id}", 
             summary="Buscar Curso por ID",
             description="Retorna uma instancia filtrada por ID. caso não exista nenhuma instancia na tabela (cursos) com o ID mencionado, sera retornado 404",
-            response_model=CourseWithRelations, 
-            status_code=status.HTTP_200_OK
+            response_model=CourseSchemaWithRelationsResponse, 
+            status_code=status.HTTP_200_OK,
+            responses={
+                status.HTTP_500_INTERNAL_SERVER_ERROR: {
+                    "model": InternalServerResponse
+                },
+                status.HTTP_404_NOT_FOUND:{
+                    "model": NotFoundResponse
+                }
+            }
 )
 async def get_id(id: int, 
                  db: AsyncSession = Depends(get_session)

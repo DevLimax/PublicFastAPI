@@ -8,7 +8,7 @@ from asyncpg.exceptions import UniqueViolationError
 
 from publicapi.core.deps import get_current_user, get_session
 from publicapi.models import CitiesModel, UserModel
-from publicapi.schemas.citySchema import CitiesSchemaBase, CitiesSchemaCreate, CitiesSchemaWithRelations, CitiesFilters
+from publicapi.schemas.citySchema import CitiesSchemaBase, CitiesSchemaCreate, CitiesSchemaWithRelations, CitiesFilters, CitiesSchemaResponse, CitiesSchemaWithRelationsResponse
 from publicapi.schemas.ResponseSchema import NoAuthenticatedResponse, ConflictResponse, InternalServerResponse, NotFoundResponse
 
 from publicapi.utils.querys_db import search_all_items_in_db, search_item_in_db
@@ -19,29 +19,38 @@ router = APIRouter()
 
 @router.post("/", 
             summary="Criar Cidade",
-            description="Retorna uma instancia criada no DB, apartir do corpo JSON enviado",
-            response_model=CitiesSchemaBase, 
-            response_description="Resposta bem-sucedida",
+            response_model=CitiesSchemaResponse, 
             status_code=status.HTTP_201_CREATED,
             responses={
                 status.HTTP_401_UNAUTHORIZED: {
-                    "model": NoAuthenticatedResponse, 
-                    "description": "Erro de autenticação"
+                    "model": NoAuthenticatedResponse
                 },
                 status.HTTP_500_INTERNAL_SERVER_ERROR: {
-                    "model": InternalServerResponse,
-                    "description": "Erro interno do servidor"
+                    "model": InternalServerResponse
                 },
                 status.HTTP_409_CONFLICT: {
                     "model": ConflictResponse,
-                    "description": "Erro de conflito"
                 }
              })
 async def create(data: CitiesSchemaCreate,
                  db: AsyncSession = Depends(get_session),
                  user: UserModel = Depends(get_current_user),
 ):
+    """
+    Endpoint com metodo POST, responsavel por criar uma instancia na tabela (municipios).
     
+    Para a criação de uma instancia (municipio), é necessario que o usuário esteja logado no sistema, e que o usuário tenha as permissoes de admin.
+    caso não tenha permissoes de admin, o endpoint irá retornar 401 (Unauthorized).
+    
+    O endpoint requer id (codigo IBGE), name (nome da cidade) e state_id (id do estado ao qual pertence a cidade), somente o campo (id) é unico, mas os 
+    campos (name e state_id) possuem Unique Constraint (não pode existir 2 cidades com o mesmo name e state_id), o endpoint irá retornar 409 (Conflict) 
+    caso o (id) ou (name e state_id) seja igual a algum ja existente no banco de dados,
+    caso esteja faltando algum desses campos, o endpoint irá retornar 422 (Unprocessable Entity).
+    
+    
+    Caso aconteça algum erro inesperado no servidor, o endpoint irá retornar 500 (Internal Server Error). mas não deixara o erro descrevido no detail da resposta
+    o erro irá aparecer no log do servidor para o desenvolvedor conseguir validar o problema e solucionar;
+    """
     async with db as session:
         new_city = CitiesModel(
             id = data.id,
@@ -65,20 +74,37 @@ async def create(data: CitiesSchemaCreate,
 
 @router.get("/", 
             summary="Listar e Filtrar Cidades",
-            description="Retorna uma lista de cidades brasileiras. Suporta filtragem por (uf, name) ambos (ilike)",
-            response_model=List[CitiesSchemaBase], 
-            response_description="Resposta bem-sucedida",
+            response_model=List[CitiesSchemaResponse], 
             status_code=status.HTTP_200_OK,
             responses={
                 status.HTTP_500_INTERNAL_SERVER_ERROR: {
                     "model": InternalServerResponse,
-                    "description": "Erro interno do servidor"
-                }
-            })
+                },
+            }
+)
 async def get(db: AsyncSession = Depends(get_session),
               uf: str = Query(None, description="Sigla do estado ao qual pertence a cidade", examples=["SP", "CE", "MG"]),
               name: Optional[str] = Query(None, description="Nome da cidade")
 ):  
+    """
+    Endpoint com metodo GET, responsavel por listar todas as instancias na tabela (cidades).
+    
+    
+    Não é necessario estar logado no sistema para utilizar o metodo GET desse endpoint.
+    
+    
+    Esse endpoint possui filtros:
+    - uf (sigla do estado ao qual pertence a cidade): ira listar todos os estados referente a (uf) inserida;
+
+
+    - name (nome da cidade): ira listar todas as cidades refente ao (name) inserido.
+    
+
+    Caso aconteça algum erro inesperado no servidor, o endpoint irá retornar 500 (Internal Server Error),
+    mas não deixara o erro descrevido no detail da resposta.
+    o erro irá aparecer no log do servidor para o desenvolvedor conseguir validar o problema e solucionar.
+    """
+    
     try:
         filters: CitiesFilters = CitiesFilters(uf=uf, name=name)
         cities = await search_all_items_in_db(db=db, 
@@ -92,24 +118,33 @@ async def get(db: AsyncSession = Depends(get_session),
 
 @router.get("/{id}", 
             summary="Buscar Cidade por ID",
-            description="Retorna uma instancia com suas relações filtrada por ID. caso não exista nenhuma instancia na tabela (cidades) com o ID mencionado, sera retornado 404",
-            response_model=CitiesSchemaWithRelations, 
-            response_description="Resposta bem-sucedida",
             status_code=status.HTTP_200_OK,
             responses={
                 status.HTTP_500_INTERNAL_SERVER_ERROR: {
-                    "model": InternalServerResponse,
-                    "description": "Erro interno do servidor"
+                    "model": InternalServerResponse
                 },
-                status.HTTP_404_NOT_FOUND: {
-                    "model": NotFoundResponse,
-                    "description": "Instancia não encontrada"
+                status.HTTP_404_NOT_FOUND:{
+                    "model": NotFoundResponse
                 }
             }
 )
 async def get_id(id: int,
                  db: AsyncSession = Depends(get_session)
 ):
+    """
+    Endpoint com metodo GET, responsavel por buscar uma instancia na tabela (cidades).    
+    
+    Não é necessario estar logado no sistema para utilizar o metodo GET desse endpoint
+    
+    O endpoint requer um ID como parametro, caso o ID seja inválido != int, o endpoint irá retornar 422 (Unprocessable Entity), 
+    caso o id seja valido (int) mas não exista nenhuma instancia na tabela (estados) com o ID mencionado, 
+    o endpoint irá retornar 404 (Not Found).
+    
+    Caso aconteça algum erro inesperado no servidor, o endpoint irá retornar 500 (Internal Server Error),
+    mas não deixara o erro descrevido no detail da resposta.
+    o erro irá aparecer no log do servidor para o desenvolvedor conseguir validar o problema e solucionar
+    """
+    
     try:
         citie = await search_item_in_db(id=id,
                                         Model=CitiesModel,

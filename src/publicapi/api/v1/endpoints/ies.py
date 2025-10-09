@@ -9,7 +9,9 @@ import asyncpg
 
 from publicapi.core.deps import get_current_user, get_session
 from publicapi.models import IesModel, UserModel
-from publicapi.schemas.instituitionSchema import InstituitionSchemaBase, InstituitionSchemaCreate, IesFilters, InstituitionSchemaWithRelations
+from publicapi.schemas.instituitionSchema import InstituitionSchemaBase, InstituitionSchemaCreate, IesFilters, InstituitionSchemaWithRelations, IesSchemaResponse, IesSchemaWithRelationsReponse
+from publicapi.schemas.ResponseSchema import NoAuthenticatedResponse, ConflictResponse, InternalServerResponse, NotFoundResponse
+
 from publicapi.utils.querys_db import search_all_items_in_db, search_item_in_db
 from publicapi.utils.exceptions import UniqueViolationException
 
@@ -17,15 +19,47 @@ router = APIRouter()
 
 @router.post("/", 
              summary="Criar Instituição",
-             description="Retorna uma instancia criada no DB, apartir do corpo JSON enviado",
-             response_model=InstituitionSchemaBase, 
-             status_code=status.HTTP_201_CREATED
+             response_model=IesSchemaResponse, 
+             status_code=status.HTTP_201_CREATED,
+             responses={
+                status.HTTP_401_UNAUTHORIZED: {
+                    "model": NoAuthenticatedResponse, 
+                },
+                status.HTTP_500_INTERNAL_SERVER_ERROR: {
+                    "model": InternalServerResponse,
+                },
+                status.HTTP_409_CONFLICT: {
+                    "model": ConflictResponse
+                }
+             }
 )
 async def create(data: InstituitionSchemaCreate, 
                  db: AsyncSession = Depends(get_session),
                  user: UserModel = Depends(get_current_user)
 ):
+    """
+    Endpoint com metodo POST, responsavel por criar uma instancia na tabela (instituições).
     
+    Para a criação de uma instancia (instituição), é necessario que o usuário esteja logado no sistema, e que o usuário tenha as permissoes de admin.
+    caso não tenha permissoes de admin, o endpoint irá retornar 401 (Unauthorized).
+    
+    O endpoint requer:
+    - id (codigo da ies cadastrada no mec) (Unico)
+    - name (nome da instituição) (Unico)
+    - abbreviation (sigla da instituição) -> opcional (Unico)
+    - type (tipo da instituição)
+    - site (site da instituição) -> opcional
+    - state_id (id do estado ao qual pertence a instituição)
+    - city_id (id da cidade ao qual pertence a instituição) -> opcional
+    
+    Nessa tabela não existe Unique Constraint, mas caso ja exista uma ies com mesmo (id, name ou abbreviation) o endpoint irá retornar 409 (Conflict)
+    
+    caso esteja faltando algum dos campos obrigatorios, o endpoint irá retornar 422 (Unprocessable Entity).
+    
+    
+    Caso aconteça algum erro inesperado no servidor, o endpoint irá retornar 500 (Internal Server Error). mas não deixara o erro descrevido no detail da resposta
+    o erro irá aparecer no log do servidor para o desenvolvedor conseguir validar o problema e solucionar;
+    """
     async with db as session:
         new_ies = IesModel(
             id = data.id,
@@ -64,8 +98,13 @@ async def create(data: InstituitionSchemaCreate,
 @router.get("/",
             summary="Listar e Filtrar Instituições",
             description="Retorna uma lista de instituições. Suporta filtragem por (abbreviation, type, uf, city_name e city_code) filtros tipo String suportam (ilike)", 
-            response_model=List[InstituitionSchemaBase], 
-            status_code=status.HTTP_200_OK
+            response_model=List[IesSchemaResponse], 
+            status_code=status.HTTP_200_OK,
+            responses={
+                status.HTTP_500_INTERNAL_SERVER_ERROR: {
+                    "model": InternalServerResponse,
+                },
+            }
 )
 async def get(db: AsyncSession = Depends(get_session),
               abbreviation: Optional[str] = Query(None, 
@@ -97,8 +136,16 @@ async def get(db: AsyncSession = Depends(get_session),
 @router.get("/{id}",
             summary="Buscar Instituição por ID",
             description="Retorna uma instancia com suas relações filtrada por ID. caso não exista nenhuma instancia na tabela (instituicoes) com o ID mencionado, sera retornado 404", 
-            response_model=InstituitionSchemaWithRelations, 
-            status_code=status.HTTP_200_OK
+            response_model=IesSchemaWithRelationsReponse, 
+            status_code=status.HTTP_200_OK,
+            responses={
+                status.HTTP_500_INTERNAL_SERVER_ERROR: {
+                    "model": InternalServerResponse,
+                },
+                status.HTTP_404_NOT_FOUND:{
+                    "model": NotFoundResponse,
+                }
+            }
 )
 async def get_id(id: int,
                  db: AsyncSession = Depends(get_session)                 
