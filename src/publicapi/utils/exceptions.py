@@ -20,3 +20,17 @@ class ConflictException(HTTPException):
                 "msg": f"ja existe uma instancia com os valores: ({dict(zip(fields, values))})!"
             }
         )
+
+class NotFoundException(HTTPException):
+    def __init__(self, id: int):
+        super().__init__(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Instancia com id ({id}) não encontrada!"
+        )
+
+class InternalServerException(HTTPException):
+    def __init__(self):
+        super().__init__(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Error interno do servidor durante operação"
+        )

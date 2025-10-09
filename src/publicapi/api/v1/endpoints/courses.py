@@ -12,7 +12,11 @@ from publicapi.utils.querys_db import search_all_items_in_db, search_item_in_db
 
 router = APIRouter()
 
-@router.post("/", response_model=CourseSchemaBase, status_code=status.HTTP_201_CREATED)
+@router.post("/", 
+            summary="Criar Curso",
+            description="Retorna uma instancia criada no DB, apartir do corpo JSON enviado",
+            response_model=CourseSchemaBase, 
+            status_code=status.HTTP_201_CREATED)
 async def create(data: CourseSchemaCreate, 
                  db: AsyncSession = Depends(get_session),
                  user: UserModel = Depends(get_current_user)
@@ -46,7 +50,12 @@ async def create(data: CourseSchemaCreate,
             msg = str(e)
             raise HTTPException(detail=f"Erro interno do servidor: {msg}", status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
         
-@router.get("/", response_model=List[CourseSchemaBase], status_code=status.HTTP_200_OK)
+@router.get("/", 
+            summary="Listar e Filtrar Cursos",
+            description="Retorna uma lista de cursos. Suporta filtragem por (name, academic_degree, ies_id) filtros tipo String suportam (ilike)",
+            response_model=List[CourseSchemaBase], 
+            status_code=status.HTTP_200_OK
+)
 async def get(db: AsyncSession = Depends(get_session),
               name: Optional[str] = Query(None, description="Nome do curso"),
               academic_degree: Optional[str] = Query(None, description="Grau acadêmico do curso", examples=["Bacharelado", "Licenciatura"]),
@@ -60,7 +69,12 @@ async def get(db: AsyncSession = Depends(get_session),
     )
     return courses
 
-@router.get("/{id}", response_model=CourseWithRelations, status_code=status.HTTP_200_OK)
+@router.get("/{id}", 
+            summary="Buscar Curso por ID",
+            description="Retorna uma instancia filtrada por ID. caso não exista nenhuma instancia na tabela (cursos) com o ID mencionado, sera retornado 404",
+            response_model=CourseWithRelations, 
+            status_code=status.HTTP_200_OK
+)
 async def get_id(id: int, 
                  db: AsyncSession = Depends(get_session)
 ):

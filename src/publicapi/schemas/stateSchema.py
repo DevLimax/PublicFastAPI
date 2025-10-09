@@ -1,12 +1,7 @@
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Optional, List
 
-class StatesSchemaBase(BaseModel):
-    id: Optional[int] = None
-    name: str
-    uf: str
-
-    model_config = ConfigDict(from_attributes=True)
+#Schemas que vão servir como base para as colunas (instituitions) e (cities)
 class SchemaCitiesForState(BaseModel):
     id: Optional[int] = None
     name: str        
@@ -23,6 +18,15 @@ class SchemaIesToState(BaseModel):
 
     model_config = ConfigDict(from_attributes=True)
 
+#-----------------------------------------------------------
+
+#Schemas que vão ser utilizados pelo endpoint como Serializer
+class StatesSchemaBase(BaseModel):
+    id: Optional[int] = None
+    name: str
+    uf: str
+
+    model_config = ConfigDict(from_attributes=True)
 
 class StatesSchemaWithRelations(StatesSchemaBase):
     cities: List[SchemaCitiesForState]
@@ -30,6 +34,21 @@ class StatesSchemaWithRelations(StatesSchemaBase):
 
     model_config = dict(from_attributes=True)
 
+#-----------------------------------------------------------
+
+#Schemas utilizados para documentar os Responses HTTP
+class StatesSchemaResponse(StatesSchemaBase):
+    id: int= 5
+    name: str = "São Paulo"
+    uf: str = "SP"
+
+class StatesSchemaWithRelationsResponse(StatesSchemaResponse):
+    cities: List[SchemaCitiesForState]
+    instituitions: List[SchemaIesToState]
+
+#-----------------------------------------------------------
+
+#Filtros
 class StateFilters(BaseModel):
     uf: Optional[str] = Field(None, description="Sigla do estado")
 

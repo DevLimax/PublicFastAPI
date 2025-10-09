@@ -8,7 +8,7 @@ from publicapi.core.auth import authenticate, create_access_token, create_refres
 from publicapi.core.deps import get_session, get_current_user
 from publicapi.core.security import generate_hashed_password
 from publicapi.schemas.userSchema import AuthResponse, UserSchemaBase, UserSchemaCreate
-from publicapi.schemas.ResponseSchema import NoAuthenticatedError
+from publicapi.schemas.ResponseSchema import NoAuthenticatedResponse
 from publicapi.utils.querys_db import search_item_in_db
 from publicapi.models import UserModel
 
@@ -19,7 +19,7 @@ router = APIRouter()
             status_code=status.HTTP_200_OK,
             responses={
                 status.HTTP_401_UNAUTHORIZED: {
-                    "model": NoAuthenticatedError,
+                    "model": NoAuthenticatedResponse,
                     "description": "Error de autenticação"
                 }
             })

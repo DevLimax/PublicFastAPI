@@ -8,28 +8,31 @@ from typing import List, Optional, Union
 
 from publicapi.core.deps import get_current_user, get_session
 from publicapi.models import StatesModel, UserModel
-from publicapi.schemas.stateSchema import StatesSchemaBase, StatesSchemaWithRelations, StateFilters
-from publicapi.schemas.ResponseSchema import NoAuthenticatedError, InternalServerError, ConflictError
+from publicapi.schemas.stateSchema import StatesSchemaBase, StatesSchemaResponse, StatesSchemaWithRelations, StatesSchemaWithRelationsResponse, StateFilters
+from publicapi.schemas.ResponseSchema import NoAuthenticatedResponse, InternalServerResponse, ConflictResponse, NotFoundResponse
 
 from publicapi.utils.querys_db import search_all_items_in_db, search_item_in_db
-from publicapi.utils.exceptions import ConflictException, UniqueViolationException
+from publicapi.utils.exceptions import ConflictException, UniqueViolationException, InternalServerException, NotFoundException
 
 router = APIRouter()
 
 @router.post("/", 
-             response_model=StatesSchemaBase, 
+             summary="Criar Estado",
+             description="Retorna uma instancia criada no DB, apartir do corpo JSON enviado",
+             response_model=StatesSchemaResponse, 
              status_code=status.HTTP_201_CREATED,
+             response_description="Resposta bem-sucedida",
              responses={
                 status.HTTP_401_UNAUTHORIZED: {
-                    "model": NoAuthenticatedError, 
+                    "model": NoAuthenticatedResponse, 
                     "description": "Erro de autenticação"
                 },
                 status.HTTP_500_INTERNAL_SERVER_ERROR: {
-                    "model": InternalServerError,
+                    "model": InternalServerResponse,
                     "description": "Erro interno do servidor"
                 },
                 status.HTTP_409_CONFLICT: {
-                    "model": ConflictError,
+                    "model": ConflictResponse,
                     "description": "Erro de conflito"
                 }
              }    
@@ -61,28 +64,66 @@ async def create(data: StatesSchemaBase,
                     raise UniqueViolationException(field='id', value=new_state.id)
         
         except Exception as e:
-            raise HTTPException(detail=str(e), status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            raise InternalServerException()
         
-@router.get("/", response_model=List[Union[StatesSchemaBase, StatesSchemaWithRelations]], status_code=status.HTTP_200_OK)
+@router.get("/", 
+            summary="Listar e Filtrar Estados",
+            description="Retorna uma lista de estados brasileiros. Suporta filtragem por UF(Codigo IBGE) (ilike)",
+            response_model=List[Union[StatesSchemaResponse, StatesSchemaWithRelationsResponse]], 
+            response_description="Resposta bem-sucedida",
+            status_code=status.HTTP_200_OK,
+            responses={
+                status.HTTP_500_INTERNAL_SERVER_ERROR: {
+                    "model": InternalServerResponse,
+                    "description": "Erro interno do servidor"
+                },
+            }
+)
 async def get(db: AsyncSession = Depends(get_session),
               uf: Optional[str] = Query(None, description="Sigla do estado", examples=["SP", "CE", "MG"])
-):
-    filters: StateFilters = StateFilters(uf=uf)
-    states = await search_all_items_in_db(db=db,
-                                          Model=StatesModel,
-                                          filters=filters
-    )
-    return states
-    
-@router.get("/{id}", response_model=StatesSchemaWithRelations, status_code=status.HTTP_200_OK)
+):  
+    try:
+        filters: StateFilters = StateFilters(uf=uf)
+        states = await search_all_items_in_db(db=db,
+                                            Model=StatesModel,
+                                            filters=filters
+        )
+        return states
+    except Exception as e:
+        print(e)
+        raise InternalServerException()
+
+@router.get("/{id}", 
+            summary="Buscar Estado por ID",
+            description="Retorna uma instancia filtrada por ID. caso não exista nenhuma instancia na tabela (estados) com o ID mencionado, sera retornado 404",
+            response_model=StatesSchemaWithRelationsResponse, 
+            response_description="Resposta bem-sucedida",
+            status_code=status.HTTP_200_OK,
+            responses={
+                status.HTTP_500_INTERNAL_SERVER_ERROR: {
+                    "model": InternalServerResponse,
+                    "description": "Erro interno do servidor"
+                },
+                status.HTTP_404_NOT_FOUND:{
+                    "model": NotFoundResponse,
+                    "description": "Instancia não encontrada"
+                }
+            }
+)
 async def get_id(id: int,
                  db: AsyncSession = Depends(get_session)
 ):
-    state = await search_item_in_db(id=id,
-                                    Model=StatesModel,
-                                    db=db
-    )
+    try:
+        state = await search_item_in_db(id=id,
+                                        Model=StatesModel,
+                                        db=db
+        )
+    except Exception as e:
+        print(e)
+        InternalServerException()
+
     if not state:
-        raise HTTPException(detail="Nenhuma instancia encontrada", status_code=status.HTTP_404_NOT_FOUND)
+        raise NotFoundException(id=id)
     
     return state
+

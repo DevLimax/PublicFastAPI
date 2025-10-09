@@ -1,4 +1,4 @@
-from pytz import timezone
+import pytz
 from typing import Optional, List
 from datetime import datetime, timedelta
 from fastapi.security import OAuth2PasswordBearer
@@ -43,7 +43,7 @@ async def authenticate(userInput: str,
     
 def create_token(type_token: str, timelife: timedelta, sub: str) -> str:
     payload = {}
-    sp = timezone("America/Sao_Paulo")
+    sp = pytz.timezone("America/Sao_Paulo")
     expired = datetime.now(tz=sp) + timelife
 
     payload["type"] = type_token

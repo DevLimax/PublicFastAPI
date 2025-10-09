@@ -1,18 +1,21 @@
 from pydantic import BaseModel, ConfigDict
 from typing import Optional
 
-class NoAuthenticatedError(BaseModel):
+class NoAuthenticatedResponse(BaseModel):
     detail: str = "Not authenticated"
     
-class InternalServerError(BaseModel):
+class InternalServerResponse(BaseModel):
     detail: dict = {
         "error": "Internal Server Error",
-        "msg": "Ocorreu um erro interno no servidor durante a operação",
+        "msg": "String",
     }
     
-class ConflictError(BaseModel):
+class ConflictResponse(BaseModel):
     detail: dict = {
         "Error": "Error",
         "msg": "string"
     }
+
+class NotFoundResponse(BaseModel):
+    detail: str = "String"
     

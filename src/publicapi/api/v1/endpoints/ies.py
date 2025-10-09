@@ -15,7 +15,12 @@ from publicapi.utils.exceptions import UniqueViolationException
 
 router = APIRouter()
 
-@router.post("/", response_model=InstituitionSchemaBase, status_code=status.HTTP_201_CREATED)
+@router.post("/", 
+             summary="Criar Instituição",
+             description="Retorna uma instancia criada no DB, apartir do corpo JSON enviado",
+             response_model=InstituitionSchemaBase, 
+             status_code=status.HTTP_201_CREATED
+)
 async def create(data: InstituitionSchemaCreate, 
                  db: AsyncSession = Depends(get_session),
                  user: UserModel = Depends(get_current_user)
@@ -56,7 +61,12 @@ async def create(data: InstituitionSchemaCreate,
             raise HTTPException(detail=str(e), status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
-@router.get("/", response_model=List[InstituitionSchemaBase], status_code=status.HTTP_200_OK)
+@router.get("/",
+            summary="Listar e Filtrar Instituições",
+            description="Retorna uma lista de instituições. Suporta filtragem por (abbreviation, type, uf, city_name e city_code) filtros tipo String suportam (ilike)", 
+            response_model=List[InstituitionSchemaBase], 
+            status_code=status.HTTP_200_OK
+)
 async def get(db: AsyncSession = Depends(get_session),
               abbreviation: Optional[str] = Query(None, 
                                         description="Sigla da instituição", 
@@ -84,7 +94,12 @@ async def get(db: AsyncSession = Depends(get_session),
     return instituitions
 
 
-@router.get("/{id}", response_model=InstituitionSchemaWithRelations, status_code=status.HTTP_200_OK)
+@router.get("/{id}",
+            summary="Buscar Instituição por ID",
+            description="Retorna uma instancia com suas relações filtrada por ID. caso não exista nenhuma instancia na tabela (instituicoes) com o ID mencionado, sera retornado 404", 
+            response_model=InstituitionSchemaWithRelations, 
+            status_code=status.HTTP_200_OK
+)
 async def get_id(id: int,
                  db: AsyncSession = Depends(get_session)                 
 ):      
