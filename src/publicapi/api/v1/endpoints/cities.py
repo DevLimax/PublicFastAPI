@@ -95,8 +95,6 @@ async def get(db: AsyncSession = Depends(get_session),
     
     Esse endpoint possui filtros:
     - uf (sigla do estado ao qual pertence a cidade): ira listar todos os estados referente a (uf) inserida;
-
-
     - name (nome da cidade): ira listar todas as cidades refente ao (name) inserido.
     
 

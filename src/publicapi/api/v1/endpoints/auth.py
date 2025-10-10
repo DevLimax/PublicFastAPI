@@ -25,16 +25,32 @@ router = APIRouter()
             })
 async def logged_user(user: UserSchemaBase = Depends(get_current_user)):
     """
-    Endpoint para verificar o usuário logado no sistema
+    Endpoint com metodo GET, responsavel por verificar o usuário logado e retornar os dados.
     """
     return user
 
-@router.post("/sign-in", response_model=UserSchemaBase, status_code=status.HTTP_201_CREATED)
+@router.post("/sign-in", 
+             summary="Criar Usuário",
+             response_model=UserSchemaBase, 
+             status_code=status.HTTP_201_CREATED)
 async def create(data: UserSchemaCreate,
                  db: AsyncSession = Depends(get_session)
 ) -> UserSchemaBase:
     """
-    Endpoint para criar um novo usuário
+    Endpoint com metodo POST, responsavel por criar uma instancia na tabela (usuarios)
+
+    Para a criação de uma instancia (usuario), não é necessario que o usuário esteja logado no sistema.
+
+    O endpoint requer:
+    - username (nome de usuário)
+    - email (email do usuário)
+    - password (senha do usuário)
+
+    caso esteja faltando algum dos campos obrigatorios, o endpoint irá retornar 422 (Unprocessable Entity).
+    
+
+    Caso aconteça algum erro inesperado no servidor, o endpoint irá retornar 500 (Internal Server Error). mas não deixara o erro descrevido no detail da resposta
+    o erro irá aparecer no log do servidor para o desenvolvedor conseguir validar o problema e solucionar;
     """
     async with db as session:       
 
@@ -65,7 +81,22 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends(),
                 db: AsyncSession = Depends(get_session)
 ) -> AuthResponse:
     """
-    Endpoint para autenticar um usuário
+    Endpoint com metodo POST, responsavel por realizar o login do usuário no sistema.
+
+    O endpoint requer:
+    - username (username ou email do usuário)
+    - password (senha do usuário)
+
+    caso esteja faltando algum dos campos obrigatorios, o endpoint irá retornar 422 (Unprocessable Entity).
+
+    caso seja validado o usuário, o endpoint irá retornar um JSON contendo:
+    - access_token: passe de curta duração usado para acessar recursos protegidos do sistema
+
+    - refresh_token: passe de longa duração usado para obter um novo (access_token) sem o usuário ter que fazer login novamente
+
+    Caso aconteça algum erro inesperado no servidor, o endpoint irá retornar 500 (Internal Server Error). mas não deixara o erro descrevido no detail da resposta
+    o erro irá aparecer no log do servidor para o desenvolvedor conseguir validar o problema e solucionar;
+
     """
     user = await authenticate(userInput=form_data.username, 
                               password=form_data.password, 
@@ -85,7 +116,15 @@ async def refresh_token(refresh_token: str = Form(...),
                         db: AsyncSession = Depends(get_session),
 ) -> AuthResponse:
     """
-    Endpoint para criar um novo access_token apartir do (refresh_token)
+    Endpoint com metodo POST, responsavel por realizar a criação de um novo (access_token) sem login.
+
+    O endpoint requer:
+    - refresh_token: passe de longa duração, recebido pelo Endpoint de (login)
+
+    caso o (refresh_token) ja esteja expirado (passou o seu prazo de validade) ou esteja incorreto, será retornado um error 401 (Unauthorized).
+
+    Caso aconteça algum erro inesperado no servidor, o endpoint irá retornar 500 (Internal Server Error). mas não deixara o erro descrevido no detail da resposta
+    o erro irá aparecer no log do servidor para o desenvolvedor conseguir validar o problema e solucionar;
     """
     payload = verify_refresh_token(token=refresh_token)
     if not payload or payload.get("type") != "refresh_token":
