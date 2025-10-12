@@ -5,9 +5,9 @@ from sqlalchemy import pool
 
 from alembic import context
 
-from publicapi.core.configs import settings
+from app.core.configs import settings
 
-from publicapi.models import *
+from app.models import *
 
 
 # this is the Alembic Config object, which provides
